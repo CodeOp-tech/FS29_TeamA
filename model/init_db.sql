@@ -1,65 +1,85 @@
 -- Drop Tables
-DROP TABLE if exists words;
-DROP TABLE if exists users;
-DROP TABLE if exists invoices;
-DROP TABLE if exists category;
-DROP TABLE if exists product;
 
 SET foreign_key_checks = 0;
+
+DROP TABLE if exists words;
+DROP TABLE if exists payments;
+DROP TABLE if exists orders;
+DROP TABLE if exists users;
+DROP TABLE if exists guests;
+DROP TABLE if exists artists_brand;
+DROP TABLE if exists products;
+DROP TABLE if exists product_order;
+
+
 SET foreign_key_checks = 1;
 
+
+-- Create TablesSET foreign_key_checks = 0;
 
 -- Create Tables
 CREATE TABLE payments(
     id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    credit_card BIGINT NOT NULL,
+    credit_card BIGINT  UNSIGNED NOT NULL,
     allowed TINYINT(1) NOT NULL
 );
+
+CREATE TABLE product_order(
+    product_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    order_id BIGINT UNSIGNED NOT NULL,
+    product_quantity INT NOT NULL,
+    PRIMARY KEY (product_id, order_id),
+    INDEX product_order_order_id_index(order_id),
+    FOREIGN KEY (product_id) REFERENCES products(id),
+    FOREIGN KEY (order_id) REFERENCES orders(id)
+);
+
 CREATE TABLE orders(
     id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    product_id BIGINT NOT NULL,
     address_1 VARCHAR(255) NOT NULL,
     address_2 VARCHAR(255) NOT NULL,
     postal_code INT NOT NULL,
     city VARCHAR(255) NOT NULL,
     country VARCHAR(255) NOT NULL,
     final_price DECIMAL(8, 2) NOT NULL,
-    payment_id BIGINT NOT NULL,
+    payment_id BIGINT UNSIGNED NOT NULL,
     fulfilled TINYINT(1) NOT NULL
 );
+
+CREATE TABLE products(
+    id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    price DECIMAL(8, 2) NOT NULL,
+    description LONGTEXT NOT NULL,
+    units INT NOT NULL
+);
+
 CREATE TABLE users(
     id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     firstname VARCHAR(255) NOT NULL,
     lastname VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
-    order_id BIGINT NOT NULL
+    order_id BIGINT UNSIGNED NOT NULL
 );
+
 CREATE TABLE guests(
     id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(255) NOT NULL,
     firstname VARCHAR(255) NOT NULL,
     lastname VARCHAR(255) NOT NULL,
-    order_id BIGINT NOT NULL
+    order_id BIGINT UNSIGNED NOT NULL
 );
+
 CREATE TABLE artists_brand(
     id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     product_id BIGINT UNSIGNED NOT NULL
 );
-CREATE TABLE products(
-    id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    price DECIMAL(8, 2) NOT NULL,
-    description LONGTEXT NOT NULL,
-    order_id BIGINT NOT NULL,
-    units INT NOT NULL
-);
-CREATE TABLE product_order(
-    product_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT INDEX,
-    order_id BIGINT NOT NULL,
-    product_quantity INT NOT NULL
-);
+
+
+
+SET foreign_key_checks = 1;
 
 ALTER TABLE
     product_order ADD INDEX product_order_order_id_index(order_id);
