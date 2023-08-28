@@ -5,6 +5,7 @@ CREATE TABLE `payments`(
     `expiration_mm` BIGINT NOT NULL,
     `expiration_yy` BIGINT NOT NULL
 );
+
 CREATE TABLE `orders`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `address_1` VARCHAR(255) NOT NULL,
@@ -17,6 +18,7 @@ CREATE TABLE `orders`(
     `fulfilled` TINYINT(1) NOT NULL,
     `cancelled` TINYINT(1) NOT NULL DEFAULT 0
 );
+
 CREATE TABLE `users`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `firstname` VARCHAR(255) NOT NULL,
@@ -25,6 +27,7 @@ CREATE TABLE `users`(
     `password` VARCHAR(255) NOT NULL,
     `order_id` BIGINT UNSIGNED NOT NULL
 );
+
 CREATE TABLE `guests`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `email` VARCHAR(255) NOT NULL,
@@ -32,11 +35,13 @@ CREATE TABLE `guests`(
     `lastname` VARCHAR(255) NOT NULL,
     `order_id` BIGINT UNSIGNED NOT NULL
 );
+
 CREATE TABLE `artists_brand`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `name` VARCHAR(255) NOT NULL,
     `product_id` BIGINT UNSIGNED NOT NULL
 );
+
 CREATE TABLE `products`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `name` VARCHAR(255) NOT NULL,
@@ -44,11 +49,13 @@ CREATE TABLE `products`(
     `description` LONGTEXT NOT NULL,
     `units` INT NOT NULL
 );
+
 CREATE TABLE `product_order`(
     `product_id` BIGINT UNSIGNED NOT NULL,
     `order_id` BIGINT UNSIGNED NOT NULL,
     `product_quantity` INT NOT NULL
 );
+
 ALTER TABLE
     `product_order` ADD INDEX `product_order_product_id_index`(`product_id`);
 ALTER TABLE
@@ -68,3 +75,5 @@ ALTER TABLE
     -- CONFIRM WITH SOFIA: CASCADE OR SET NULL?
 ALTER TABLE
     `guests` ADD CONSTRAINT `guests_order_id_foreign` FOREIGN KEY(`order_id`) REFERENCES `orders`(`id`);
+
+INSERT INTO products(name ,price ,currency ,description, units, collection, brand, ) VALUES ();
