@@ -1,7 +1,9 @@
 //import helper functions 
 //import selectAll from './utils/selectAll';
 // import selectByKey from './utils/selectByKey';
+
 const selectAll = require('./utils/selectAll');
+const selectByKey = require('./utils/selectByKey'); 
 const express = require('express');
 const router = express.Router();
 const db = require("../model/helper");
