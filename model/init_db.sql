@@ -24,15 +24,7 @@ CREATE TABLE payments(
     allowed TINYINT(1) NOT NULL
 );
 
-CREATE TABLE product_order(
-    product_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-    order_id BIGINT UNSIGNED NOT NULL,
-    product_quantity INT NOT NULL,
-    PRIMARY KEY (product_id, order_id),
-    INDEX product_order_order_id_index(order_id),
-    FOREIGN KEY (product_id) REFERENCES products(id),
-    FOREIGN KEY (order_id) REFERENCES orders(id)
-);
+
 
 CREATE TABLE orders(
     id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -52,6 +44,16 @@ CREATE TABLE products(
     price DECIMAL(8, 2) NOT NULL,
     description LONGTEXT NOT NULL,
     units INT NOT NULL
+);
+
+CREATE TABLE product_order(
+    product_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    order_id BIGINT UNSIGNED NOT NULL,
+    product_quantity INT NOT NULL,
+    PRIMARY KEY (product_id, order_id),
+    INDEX product_order_order_id_index(order_id),
+    FOREIGN KEY (product_id) REFERENCES products(id),
+    FOREIGN KEY (order_id) REFERENCES orders(id)
 );
 
 CREATE TABLE users(
@@ -79,7 +81,7 @@ CREATE TABLE artists_brand(
 
 
 
-SET foreign_key_checks = 1;
+-- SET foreign_key_checks = 1;
 
 ALTER TABLE
     product_order ADD INDEX product_order_order_id_index(order_id);
