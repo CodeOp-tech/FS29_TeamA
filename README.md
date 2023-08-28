@@ -1,4 +1,4 @@
-# nft ecommerce app
+# NFT e-Commerce App
 
 This MVP is an e-commerce app that sells NFTs.
 
