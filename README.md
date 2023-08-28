@@ -20,9 +20,10 @@ This MVP is an e-commerce app that sells NFTs.
   DB_NAME=ecommerce
   DB_PASS=YOURPASSWORD
 ```
+
 - Run the following commands to your MySQL console: `CREATE DATABASE ecommerce;` and then `USE ecommerce;`.
-- Run `npm run migrate` in the project folder of this repository, in a new terminal window. This will create the required tables in your database: "payments," "orders," "users," "guests," "artists," "products," and "product_order."
-- Make sure you understand how the tables are constructed. In your MySQL console, you can run `DESCRIBE tablename;` to see the structure of each table. Please mind that "tablename" in `DESCRIBE tablename;` needs to be replaced by the name of the table that you want to see.
+- Run `npm run migrate` in the project folder of this repository, in a new terminal window. This will create the required tables in your database: "payments", "orders", "users", "guests", "artists", "products", and "product_order".
+- Make sure you understand how the tables are constructed. In your MySQL console, you can run `DESCRIBE tablename;` to see the structure of each table. Please mind that "tablename" in `DESCRIBE tablename;` needs to be replaced by the name of the table that you want to describe.
 
 ### Development
 
