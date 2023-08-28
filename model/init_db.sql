@@ -12,9 +12,10 @@ CREATE TABLE `orders`(
     `postal_code` INT NOT NULL,
     `city` VARCHAR(255) NOT NULL,
     `country` VARCHAR(255) NOT NULL,
-    `final_price` DECIMAL(8, 2) NOT NULL,
+    `total` DECIMAL(8, 2) NOT NULL,
     `payment_id` BIGINT UNSIGNED NOT NULL,
-    `fulfilled` TINYINT(1) NOT NULL
+    `fulfilled` TINYINT(1) NOT NULL,
+    `cancelled` TINYINT(1) NOT NULL DEFAULT 0
 );
 CREATE TABLE `users`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -55,12 +56,15 @@ ALTER TABLE
 ALTER TABLE
     `orders` ADD CONSTRAINT `orders_payment_id_foreign` FOREIGN KEY(`payment_id`) REFERENCES `payments`(`id`);
 ALTER TABLE
-    `users` ADD CONSTRAINT `users_order_id_foreign` FOREIGN KEY(`order_id`) REFERENCES `orders`(`id`);
+    `users` ADD CONSTRAINT `users_order_id_foreign` FOREIGN KEY(`order_id`) REFERENCES `orders`(`id`) ON DELETE SET NULL;
 ALTER TABLE
-    `artists_brand` ADD CONSTRAINT `artists_brand_product_id_foreign` FOREIGN KEY(`product_id`) REFERENCES `products`(`id`);
+    `artists_brand` ADD CONSTRAINT `artists_brand_product_id_foreign` FOREIGN KEY(`product_id`) REFERENCES `products`(`id`) ON DELETE CASCADE;
+    -- CONFIRM WITH SOFIA: CASCADE OR SET NULL?
 ALTER TABLE
     `product_order` ADD CONSTRAINT `product_order_product_id_foreign` FOREIGN KEY(`product_id`) REFERENCES `products`(`id`);
+    -- CONFIRM WITH SOFIA: CASCADE OR SET NULL?
 ALTER TABLE
     `product_order` ADD CONSTRAINT `product_order_order_id_foreign` FOREIGN KEY(`order_id`) REFERENCES `orders`(`id`);
+    -- CONFIRM WITH SOFIA: CASCADE OR SET NULL?
 ALTER TABLE
     `guests` ADD CONSTRAINT `guests_order_id_foreign` FOREIGN KEY(`order_id`) REFERENCES `orders`(`id`);
