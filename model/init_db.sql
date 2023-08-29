@@ -23,6 +23,7 @@ CREATE TABLE `orders`(
     `cancelled` TINYINT(1) NOT NULL DEFAULT 0,
     `date` DATE NOT NULL
 );
+
 CREATE TABLE `users`(
     `id` BIGINT UNSIGNED NULL AUTO_INCREMENT UNIQUE KEY,
     `firstname` VARCHAR(255) NOT NULL,
@@ -32,10 +33,12 @@ CREATE TABLE `users`(
     `guest` TINYINT(1) NOT NULL,
     `marketing` TINYINT(1) NOT NULL DEFAULT 0
 );
+
 CREATE TABLE `artists`(
     `id` BIGINT UNSIGNED NULL AUTO_INCREMENT UNIQUE KEY,
     `name` VARCHAR(255) NOT NULL
 );
+
 CREATE TABLE `products`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `name` VARCHAR(255) NOT NULL,
@@ -48,11 +51,13 @@ CREATE TABLE `products`(
     `image_2` VARCHAR(255) NULL,
     `image_3` VARCHAR(255) NULL
 );
+
 CREATE TABLE `product_order`(
     `product_id` BIGINT UNSIGNED NOT NULL,
     `order_id` BIGINT UNSIGNED NOT NULL,
     `product_quantity` INT NOT NULL
 );
+
 ALTER TABLE
     `product_order` ADD INDEX `product_order_product_id_index`(`product_id`);
 ALTER TABLE
