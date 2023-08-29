@@ -1,4 +1,4 @@
-const db = require("../model/helper");
+const db = require("../../model/helper");
 
 function selectAll(req, res, table, key) {
 	db(`SELECT * FROM ${table} ORDER BY ${key} ASC;`)

@@ -1,3 +1,5 @@
+const db = require("../../model/helper");
+
 function selectByKey(req, res, table, key, value) {
 	db(`SELECT * FROM ${table} WHERE ${key} = "${value}";`)
 		.then(results => {
