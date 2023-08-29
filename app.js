@@ -7,6 +7,9 @@ const cors = require('cors');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+//new router
+const proRouter = require('./routes/products');
+
 
 const app = express();
 
@@ -19,6 +22,8 @@ app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/products', proRouter);
+//api一定要吗 大多情况最好有
 
 module.exports = app;
 
