@@ -2,6 +2,15 @@ var express = require("express");
 var router = express.Router();
 const db = require("../model/helper");
 
+const getAllItems = async (req, res) => {
+  try {
+    const allItems = await db(`SELECT * FROM products;`);
+
+    res.send(allItems.data);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
 //GET all Products or filtering
 router.get("/", async (req, res) => {
   if (!req.query.search) {
@@ -21,6 +30,7 @@ router.get("/", async (req, res) => {
       const searchParam = `%${search}%`;
       const results = await db(query, [searchParam]);
       res.send(results.data);
+      getAllItems(req, res);
     } catch (error) {
       res.status(500).send(error);
     }
@@ -88,29 +98,29 @@ router.put("/:product_id", async (req, res) => {
     image_2,
     image_3,
   } = req.body;
-  if (!req.query.search) {
-    try {
-      const productResult = await db(
-        `UPDATE products SET name ="${name} ", price=${price} , currency="${currency} ", description="${description} ",collection="${collection} ",units=${units} ,artist_id=${artist_id}, image_1="${image_1}", image_2="${image_2}", image_3="${image_3}" WHERE id=${product_id}; `
-      );
-      const product = productResult.data;
 
-      res.send(product);
-      console.log("It works");
-    } catch (error) {
-      res.status(500).send(error);
-    }
-  } else {
-    const search = req.query.search;
+  try {
+    await db(
+      `UPDATE products SET name ="${name} ", price=${price} , currency="${currency} ", description="${description} ",collection="${collection} ",units=${units} ,artist_id=${artist_id}, image_1="${image_1}", image_2="${image_2}", image_3="${image_3}" WHERE id=${product_id}; `
+    );
 
-    try {
-      const query = `SELECT * FROM products WHERE name LIKE "%${search}%";`;
-      const searchParam = `%${search}%`;
-      const results = await db(query, [searchParam]);
-      res.send(results.data);
-    } catch (error) {
-      res.status(500).send(error);
-    }
+    getAllItems(req, res);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
+//DELETE
+
+router.delete("/:product_id", async (req, res) => {
+  const { product_id } = req.params;
+
+  try {
+    await db(`DELETE FROM products where id=${product_id};`);
+
+    getAllItems(req, res);
+  } catch (error) {
+    res.status(500).send(error);
   }
 });
 
