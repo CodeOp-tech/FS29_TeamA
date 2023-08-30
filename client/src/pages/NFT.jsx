@@ -62,6 +62,9 @@ export default function NFT() {
             <li>
               <Link to="/Page4">Page4</Link>
             </li>
+            <button>
+              <Link to="/Login">Account</Link>
+            </button>
           </ul>
         </nav>
 
