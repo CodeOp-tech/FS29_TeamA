@@ -9,45 +9,43 @@ const saltRounds = 10;
 const supersecret = process.env.SUPER_SECRET;
 
 router.post("/register", async (req, res) => {
-	const { username, password } = req.body;
+  const { firstname, lastname, email, password } = req.body;
 
-	try {
-   const hash = await bcrypt.hash(password, saltRounds);
+  try {
+    const hash = await bcrypt.hash(password, saltRounds);
 
-   await db(
+    await db(
       `INSERT INTO users (firstname, lastname, email, password, guest, marketing) VALUES 
 		('${firstname}', '${lastname}', '${email}', '${hash}', ${guest}, ${marketing})`
-   );
+    );
 
-   res.send({ message: "Register successful" });
-	} catch (err) {
-   res.status(400).send({ message: err.message });
-	}
+    res.send({ message: "Register successful" });
+  } catch (err) {
+    res.status(400).send({ message: err.message });
+  }
 });
 
 router.post("/login", async (req, res) => {
-	const { username, password } = req.body;
+  const { email, password } = req.body;
 
-	try {
-		const results = await db(
-		 `SELECT * FROM users WHERE username = "${username}"`
-		);
-		const user = results.data[0];
-		if (user) {
-		const user_id = user.id;
+  try {
+    const results = await db(`SELECT * FROM users WHERE email = "${email}";`);
+    const user = results.data[0];
+    if (user) {
+      const user_id = user.id;
 
-		const correctPassword = await bcrypt.compare(password, user.password);
+      const correctPassword = await bcrypt.compare(password, user.password);
 
-		if (!correctPassword) throw new Error("Incorrect password");
+      if (!correctPassword) throw new Error("Incorrect password");
 
-		const token = jwt.sign({ user_id }, supersecret);
-		res.send({ message: "Login successful, here is your token", token });
-		} else {
-		throw new Error("User does not exist");
-		}
-	} catch (err) {
-		res.status(400).send({ message: err.message });
-	}
+      var token = jwt.sign({ user_id }, supersecret);
+      res.send({ message: "Login successful, here is your token", token });
+    } else {
+      throw new Error("User does not exist");
+    }
+  } catch (err) {
+    res.status(400).send({ message: err.message });
+  }
 });
 
 router.get("/profile", (req, res) => {});

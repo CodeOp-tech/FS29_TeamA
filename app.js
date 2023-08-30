@@ -6,6 +6,7 @@ const cors = require("cors");
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
+const ordersRouter = require("./routes/orders");
 //new router
 const proRouter = require("./routes/products");
 
@@ -20,7 +21,7 @@ app.use(cors());
 
 app.use("/api", indexRouter);
 app.use("/api/users", usersRouter);
+app.use("/api/orders", ordersRouter);
 app.use("/api/products", proRouter);
-//api一定要吗 大多情况最好有
 
 module.exports = app;

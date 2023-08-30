@@ -12,19 +12,17 @@ CREATE TABLE `payments`(
     `address_2` VARCHAR(255) NULL,
     `postal_code` INT NOT NULL,
     `city` VARCHAR(255) NOT NULL,
-    `country` VARCHAR(255) NOT NULL
+    `country` VARCHAR(255) NOT NULL,
+    `order_id` BIGINT UNSIGNED NOT NULL
 );
 CREATE TABLE `orders`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `user_id` BIGINT UNSIGNED NULL,
     `total` DECIMAL(8, 2) NOT NULL,
-    `payment_id` BIGINT UNSIGNED NOT NULL,
-    `fulfilled` TINYINT(1) NOT NULL,
-    `cancelled` TINYINT(1) NOT NULL DEFAULT 0,
+    `fulfilled` TINYINT(1) NULL,
+    `cancelled` TINYINT(1) NULL,
     `date` DATE NOT NULL
 );
-
-
 CREATE TABLE `users`(
     `id` BIGINT UNSIGNED NULL AUTO_INCREMENT UNIQUE KEY,
     `firstname` VARCHAR(255) NOT NULL,
@@ -34,19 +32,16 @@ CREATE TABLE `users`(
     `guest` TINYINT(1) NOT NULL,
     `marketing` TINYINT(1) NOT NULL DEFAULT 0
 );
-
-
 CREATE TABLE `artists`(
     `id` BIGINT UNSIGNED NULL AUTO_INCREMENT UNIQUE KEY,
-    `brand` VARCHAR(255) NOT NULL
+    `brand` VARCHAR(255) NOT NULL,
+    `about` LONGTEXT NULL
 );
-
-
 CREATE TABLE `products`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `name` VARCHAR(255) NOT NULL,
     `price` DECIMAL(8, 2) NOT NULL,
-    `currency` VARCHAR (255) NOT NULL, 
+    `currency` VARCHAR(255) NOT NULL,
     `description` LONGTEXT NOT NULL,
     `collection` VARCHAR(255) NULL,
     `units` INT NOT NULL DEFAULT 1,
@@ -55,23 +50,16 @@ CREATE TABLE `products`(
     `image_2` VARCHAR(255) NULL,
     `image_3` VARCHAR(255) NULL
 );
-
-
 CREATE TABLE `product_order`(
     `product_id` BIGINT UNSIGNED NOT NULL,
     `order_id` BIGINT UNSIGNED NOT NULL,
     `product_quantity` INT NOT NULL
 );
 
-
-
-
 ALTER TABLE
     `product_order` ADD INDEX `product_order_product_id_index`(`product_id`);
 ALTER TABLE
     `product_order` ADD INDEX `product_order_order_id_index`(`order_id`);
-ALTER TABLE
-    `orders` ADD CONSTRAINT `orders_payment_id_foreign` FOREIGN KEY(`payment_id`) REFERENCES `payments`(`id`) ON DELETE CASCADE;
 ALTER TABLE
     `orders` ADD CONSTRAINT `orders_user_id_foreign` FOREIGN KEY(`user_id`) REFERENCES `users`(`id`) ON DELETE SET NULL;
 ALTER TABLE
@@ -79,7 +67,9 @@ ALTER TABLE
 ALTER TABLE
     `product_order` ADD CONSTRAINT `product_order_order_id_foreign` FOREIGN KEY(`order_id`) REFERENCES `orders`(`id`) ON DELETE CASCADE;
 ALTER TABLE
-    `products` ADD CONSTRAINT `products_artist_id_foreign` FOREIGN KEY(`artist_id`) REFERENCES `artists`(`id`) ON DELETE SET NULL;      
+    `payments` ADD CONSTRAINT `payments_order_id_foreign` FOREIGN KEY(`order_id`) REFERENCES `orders`(`id`) ON DELETE CASCADE;
+ALTER TABLE
+    `products` ADD CONSTRAINT `products_artist_id_foreign` FOREIGN KEY(`artist_id`) REFERENCES `artists`(`id`) ON DELETE SET NULL;     
 
    -- Insert statements for artist table 
 
@@ -132,7 +122,4 @@ INSERT INTO products (name, price, currency, description, units, image_1, image_
 INSERT INTO products (name, price, currency, description, units, image_1, image_2, image_3) VALUES ("Multicolored pants", 30.00, "USD", "KAI KAI is a digital fashion brand created by Tatiana Rumiantseva - Bali-based 3D designer, who found a balance between the endless possibilities of digital space and the life in nature. By creating, as she names it, ‘thought couture’, Tatiana aims to show that we all are capable of transforming through virtual garments to meet the new year with new super powers. ‘Thought couture’ by KAI KAI is the clothing that can take its wearer to the world of the changed laws of physics. KAI KAI garments can take off, disintegrate, change colors, and reflect space. The collection, and specifically multicolored garments, were created using a custom-made HDRI map, which makes them reflect the surrounding space and transform in motion. Color: multicolored metallic. Material: liquid metal and snake skin. Digital clothes fit all sizes.", 14, "https://dressx.com/cdn/shop/products/1911_4_1_540x.jpg?v=1633374631", "https://dressx.com/cdn/shop/products/1497_pants-V2_540x.jpg?v=1633374680", "https://dressx.com/cdn/shop/products/Copyof01_multicoloredpants_kaikai_540x.png?v=1633374680");
 INSERT INTO products (name, price, currency, description, units, image_1, image_2, image_3) VALUES ("Venus dress", 1000.00, "EURO", "Venus, the goddess of love, in a voluminous hoodie glazed in mother of pearl with encrusted crystals draped on top of a deep cut chain link dress. The Julian crossbody in fiberoptic material explodes with quartz clusters complimenting the crystal platform boots with RM’s signature dog clip heel. Crystal starbursts dangle on the end of the punk lip ring. This NFT includes a 3D asset (.usdz file), 2D collectibles (.pngs), a turntable video (.mp4). Further, owners of this NFT receive exclusive access to a branded experience and unlockable Rebecca Minkoff products in Roblox. The accessories from this NFT are wearable in Snapchat and Instagram.", 34, "https://storage.thedematerialised.com/20669f7f-493d-4de3-b74b-0a6e726509c3/imageUrls/venus_comp_v3.mp4", "https://storage.thedematerialised.com/20669f7f-493d-4de3-b74b-0a6e726509c3/imageUrls/venus_image_1.jpg", "https://storage.thedematerialised.com/20669f7f-493d-4de3-b74b-0a6e726509c3/imageUrls/venus_image_3.jpg");
 INSERT INTO products (name, price, currency, description, units, image_1, image_2, image_3) VALUES ("Archaistic Jade Armour by Cady Lee", 160.00, "EURO", "Cady Lee's -Archaistic Jade Armour- is inspired by a traditional Chinese decorative hairpin and its chain ornaments, with spiral claw details on the shoulder creating an erotic and animalistic sense. Made with jade, the material's subtle, translucent qualities lent a poetic, luxurious tone and added a mystical aura. This NFT includes a video (.mp4) and 2D collectibles (.pngs).", 11, "https://storage.thedematerialised.com/c696ce8d-4146-41a5-8864-2084ce2ea4b2/imageUrls/cady_lee_virtual_dressing1.jpg", "https://storage.thedematerialised.com/c696ce8d-4146-41a5-8864-2084ce2ea4b2/imageUrls/cady_lee_virtual_dressing2.jpg", "null");
-
-
-
 
