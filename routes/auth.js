@@ -9,14 +9,14 @@ const saltRounds = 10;
 const supersecret = process.env.SUPER_SECRET;
 
 router.post("/register", async (req, res) => {
-  const { firstname, lastname, email, password } = req.body;
+  const { firstname, lastname, email, password, marketing } = req.body;
 
   try {
     const hash = await bcrypt.hash(password, saltRounds);
 
     await db(
       `INSERT INTO users (firstname, lastname, email, password, guest, marketing) VALUES 
-		('${firstname}', '${lastname}', '${email}', '${hash}', ${guest}, ${marketing})`
+		('${firstname}', '${lastname}', '${email}', '${hash}', 0, ${marketing})`
     );
 
     res.send({ message: "Register successful" });
