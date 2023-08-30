@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import "./Login.css";
 
 function Login() {
 	const [credentials, setCredentials] = useState({
@@ -23,7 +24,7 @@ function Login() {
 	const requestData = async () => {};
 
 	return (
-	<div>
+	<div className="page-conteiner">
       <div>
 			<input
 				value={username}

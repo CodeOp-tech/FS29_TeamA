@@ -1,0 +1,32 @@
+.header {
+	z-index: 10;
+	position: fixed;
+	background-color: grey;
+	top: 10px;
+	left: 10px; 
+
+	max-width: 1500px;
+	min-width: 1700px;
+}
+
+nav {
+	margin: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-content: center;
+	border: black thick;
+}
+
+nav ul {
+	display: flex;
+	align-content: center;
+	padding-right: 900px;
+}
+
+nav ul li {
+	list-style-type: none;
+	margin: 10px;
+	padding: 0;
+	display: inline;
+}
+

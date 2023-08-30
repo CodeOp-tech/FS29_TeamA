@@ -1,14 +1,9 @@
 #root {
-  max-width: 1280px;
+  /* min-width: 1280px; */
+  min-height: 1500px;
   margin: 0 auto;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
 
 @keyframes logo-spin {
   from {
@@ -25,14 +20,3 @@
   }
 }
 
-nav {
-  margin: 20px;
-  display: flex;
-  justify-content: space-between;
-}
-nav ul li {
-  list-style-type: none;
-  margin: 10px;
-  padding: 0;
-  display: inline;
-}
