@@ -1,10 +1,13 @@
-var express = require("express");
-var router = express.Router();
-var jwt = require("jsonwebtoken");
-var db = require("../model/helper");
 require("dotenv").config();
-var bcrypt = require("bcrypt");
+
+const express = require("express");
+const router = express.Router();
+const jwt = require("jsonwebtoken");
+const db = require("../model/helper");
+const bcrypt = require("bcrypt");
 const saltRounds = 10;
+const userShouldBeLoggedIn = require("../guards/userShouldBeLoggedIn.js");
+const selectByKey = require("./utils/selectByKey");
 
 const supersecret = process.env.SUPER_SECRET;
 
@@ -15,9 +18,9 @@ router.post("/register", async (req, res) => {
    const hash = await bcrypt.hash(password, saltRounds);
 
    await db(
-      `INSERT INTO users (firstname, lastname, email, password, guest, marketing) VALUES 
-		('${firstname}', '${lastname}', '${email}', '${hash}', 0, ${marketing})`
-    );
+      `INSERT INTO users (firstname, lastname, email, password, marketing) VALUES 
+		('${firstname}', '${lastname}', '${email}', '${hash}', ${marketing})`
+   );
 
    res.send({ message: "Register successful" });
 	} catch (err) {
@@ -30,6 +33,8 @@ router.post("/login", async (req, res) => {
 
 	try {
    const results = await db(`SELECT * FROM users WHERE email = "${email}";`);
+	//const data = selectByKey("users", "email", email);
+	//const user = data;
    const user = results.data[0];
    if (user) {
       const user_id = user.id;
@@ -38,7 +43,7 @@ router.post("/login", async (req, res) => {
 
       if (!correctPassword) throw new Error("Incorrect password");
 
-      var token = jwt.sign({ user_id }, supersecret);
+      const token = jwt.sign({ user_id }, supersecret);
       res.send({ message: "Login successful, here is your token", token });
    } else {
       throw new Error("User does not exist");
@@ -48,6 +53,12 @@ router.post("/login", async (req, res) => {
 	}
 });
 
-router.get("/profile", (req, res) => {});
+router.get("/profile", userShouldBeLoggedIn, async function (req, res, next) {
+	//console.log(req.user_id);
+	//const data = selectByKey("users", "id", req.user_id);
+	const result = await db(`SELECT * FROM users WHERE id = ${req.user_id};`)
+	console.log(result);
+	res.send(result.data[0]);
+});
 
 module.exports = router;
