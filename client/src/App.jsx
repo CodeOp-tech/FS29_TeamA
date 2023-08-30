@@ -8,6 +8,7 @@ import Page1 from './pages/Page1';
 import Page2 from './pages/Page2';
 import Page3 from './pages/Page3';
 import Page4 from './pages/Page4';
+import Login from './pages/Login';
 
 
 
@@ -20,9 +21,10 @@ function App() {
         <Route path="/" element={<Frame/>} >
           {/* all page routes go here */}
           <Route path="/" element={<Page1 />} />
-          <Route path="/" element={<Page2 />} />
-          <Route path="/" element={<Page3 />} />
-          <Route path="/" element={<Page4 />} />
+          <Route path="/Page2" element={<Page2 />} />
+          <Route path="/Page3" element={<Page3 />} />
+          <Route path="/Page4" element={<Page4 />} />
+          <Route path="/Login" element={<Login />} />
 
         </Route>
       </Routes>
