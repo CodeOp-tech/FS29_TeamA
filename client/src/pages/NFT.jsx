@@ -51,10 +51,10 @@ export default function NFT() {
         <nav>
           <ul>
             <li>
-              <Link to="/pages/home">Page1</Link>
+              <Link to="/pages/home">Home</Link>
             </li>
             <li>
-              <Link to="/pages/products">Page2</Link>
+              <Link to="/pages/products">Product</Link>
             </li>
             <li>
               <Link to="/Page3">Page3</Link>
