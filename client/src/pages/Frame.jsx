@@ -33,6 +33,12 @@ export default function Frame() {
 
 				<div>
 					{/* Cart , Login and Log Out */}
+					<button>
+						<Link to="/Login"> 
+							Account
+						</Link>
+					</button>
+
 				</div>
 			</div>
 
