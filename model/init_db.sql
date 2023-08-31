@@ -1,5 +1,5 @@
-DROP TABLE if exists payments;
 DROP TABLE if exists product_order;
+DROP TABLE if exists payments;
 DROP TABLE if exists orders;
 DROP TABLE if exists users;
 DROP TABLE if exists products;
@@ -131,3 +131,12 @@ INSERT INTO products (name, price, currency, description, units, image_1, image_
 -- Insert login test users --
 INSERT INTO users (firstname, lastname, email, password, marketing) VALUES ('test', 'test', 'test', '$2b$10$xUt8hBde6s4S.pWfOVIPNecnpwZeaVS5kYTlMBwa0mUxzxmxB5n7S', 1);
 INSERT INTO users (firstname, lastname, email, password, marketing) VALUES ('root', 'root', 'root', '$2b$10$NvvsbEwwq0kKO3z4gZQ6seSQk6l2BsC.BoFGOaoka3Hjs10kqYRna', 1);
+
+-- Insert orders test users --
+INSERT INTO orders (user_id, total, date) VALUES (1, 160, "2023-08-31");
+INSERT INTO product_order (product_id, order_id, product_quantity) VALUES (1, 1, 1);
+INSERT INTO product_order (product_id, order_id, product_quantity) VALUES (2, 1, 2);
+
+INSERT INTO orders (user_id, total, date) VALUES (1, 130, "2023-08-29");
+INSERT INTO product_order (product_id, order_id, product_quantity) VALUES (3, 2, 3);
+INSERT INTO product_order (product_id, order_id, product_quantity) VALUES (4, 2, 1);
