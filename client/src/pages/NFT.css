@@ -31,3 +31,6 @@ nav ul li {
 	display: inline;
 }
 
+svg {
+	fill: rgb(235, 36, 182);
+}
