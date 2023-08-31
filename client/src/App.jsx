@@ -27,6 +27,11 @@ function App() {
           <Route path="/Cart" element={<Cart />} />
         </Route>
       </Routes>
+
+      {/* test button for stripe */}
+      <div>
+        <PayButton/>
+      </div>
     </>
   );
 }
