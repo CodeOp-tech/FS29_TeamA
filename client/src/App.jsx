@@ -3,7 +3,6 @@ import { useState } from "react";
 
 // Routes and pages
 
-
 import { Routes, Route } from "react-router-dom";
 import NFT from "./pages/NFT";
 import Home from "./pages/Home";
