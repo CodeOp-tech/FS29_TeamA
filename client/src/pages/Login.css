@@ -1,3 +1,14 @@
 .page-conteiner {
 	padding: 100px 10px;
 }
+
+.logout {
+	position: fixed;
+	top: 100px;
+	right: 20px;
+}
+.logout > a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
