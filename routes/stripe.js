@@ -5,12 +5,6 @@ const stripe = require('stripe')(process.env.STRIPE_KEY);
 
 
 
-
-
-
-
-
-
 router.post('/create-checkout-session', async (req, res) => {
 
   // const line_items = req.body.cartItems.map(item => {

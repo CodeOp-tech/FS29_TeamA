@@ -34,7 +34,18 @@ function Login() {
 
 	const logout = () => {};
 
-	const requestData = async () => {};
+	const requestData = async () => {
+		try {
+			const { data } = await axios("/api/auth/profile", {
+				headers: {
+				authorization: "Bearer " + localStorage.getItem("token"),
+			},
+		});
+			console.log(data.message);
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
 	return (
 	<div className="page-conteiner">
