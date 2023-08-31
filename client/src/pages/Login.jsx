@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import "./Login.css";
 
 function Login() {
 	const [credentials, setCredentials] = useState({
@@ -16,14 +17,26 @@ function Login() {
 	setCredentials({ ...credentials, [name]: value });
 	};
 
-	const login = async () => {};
+	const login = async () => {
+		try {
+			const { data } = await axios("api/auth/login", {
+			method: "POST",
+			data: credentials,
+		});
+		//store it locally
+		localStorage.setItem("token", data.token);
+		console.log(data.message, data.token);
+		} catch (error) {
+		console.log(error);
+		}
+	};
 
 	const logout = () => {};
 
 	const requestData = async () => {};
 
 	return (
-	<div>
+	<div className="page-conteiner">
       <div>
 			<input
 				value={username}

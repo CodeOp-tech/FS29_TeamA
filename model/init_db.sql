@@ -15,6 +15,7 @@ CREATE TABLE `payments`(
     `country` VARCHAR(255) NOT NULL,
     `order_id` BIGINT UNSIGNED NOT NULL
 );
+
 CREATE TABLE `orders`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `user_id` BIGINT UNSIGNED NULL,
@@ -23,20 +24,23 @@ CREATE TABLE `orders`(
     `cancelled` TINYINT(1) NULL,
     `date` DATE NOT NULL
 );
+
 CREATE TABLE `users`(
     `id` BIGINT UNSIGNED NULL AUTO_INCREMENT UNIQUE KEY,
     `firstname` VARCHAR(255) NOT NULL,
     `lastname` VARCHAR(255) NOT NULL,
     `email` VARCHAR(255) NOT NULL,
     `password` VARCHAR(255) NULL,
-    `guest` TINYINT(1) NOT NULL,
-    `marketing` TINYINT(1) NOT NULL DEFAULT 0
+    `guest` TINYINT(1) NOT NULL DEFAULT 0,
+    `marketing` TINYINT(1) NOT NULL
 );
+
 CREATE TABLE `artists`(
-    `id` BIGINT UNSIGNED NULL AUTO_INCREMENT UNIQUE KEY,
+    `id` BIGINT UNSIGNED AUTO_INCREMENT UNIQUE KEY,
     `brand` VARCHAR(255) NOT NULL,
     `about` LONGTEXT NULL
 );
+
 CREATE TABLE `products`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `name` VARCHAR(255) NOT NULL,
@@ -50,6 +54,7 @@ CREATE TABLE `products`(
     `image_2` VARCHAR(255) NULL,
     `image_3` VARCHAR(255) NULL
 );
+
 CREATE TABLE `product_order`(
     `product_id` BIGINT UNSIGNED NOT NULL,
     `order_id` BIGINT UNSIGNED NOT NULL,

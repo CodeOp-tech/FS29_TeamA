@@ -18,8 +18,8 @@ function App() {
         {/* general route with content that's displayed on all pages */}
         <Route path="/" element={<NFT />}>
           {/* all page routes go here */}
-          <Route path="/pages/home" element={<Home />} />
-          <Route path="/pages/products" element={<Products />} />
+          <Route path="/Home" element={<Home />} />
+          <Route path="/Products" element={<Products />} />
           <Route path="/Page3" element={<Page3 />} />
           <Route path="/Page4" element={<Page4 />} />
           <Route path="/Login" element={<Login />} />
