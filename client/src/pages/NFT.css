@@ -2,11 +2,12 @@
 	z-index: 10;
 	position: fixed;
 	background-color: grey;
-	top: 10px;
-	left: 10px; 
-
+	/* top: 10px;
+	left: 10px;  */
+/* 
 	max-width: 1500px;
-	min-width: 1700px;
+	min-width: 1700px; */
+	width: 100%;
 }
 
 nav {
@@ -20,7 +21,7 @@ nav {
 nav ul {
 	display: flex;
 	align-content: center;
-	padding-right: 900px;
+	;
 }
 
 nav ul li {
