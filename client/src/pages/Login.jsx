@@ -1,34 +1,59 @@
 import { useState } from "react";
 import axios from "axios";
+import "./Login.css";
 
 function Login() {
 	const [credentials, setCredentials] = useState({
-   username: "test",
+   email: "test",
    password: "test",
 	});
 
 	const [data, setData] = useState(null);
 
-	const { username, password } = credentials;
+	const { email, password } = credentials;
 
 	const handleChange = (e) => {
 	const { name, value } = e.target;
 	setCredentials({ ...credentials, [name]: value });
 	};
 
-	const login = async () => {};
+	const login = async () => {
+		try {
+			const { data } = await axios("api/auth/login", {
+			method: "POST",
+			data: credentials,
+		});
+		//store it locally
+		localStorage.setItem("token", data.token);
+		console.log(data.message, data.token);
+		setData(data.message);
+		} catch (error) {
+		console.log(error);
+		}
+	};
 
 	const logout = () => {};
 
-	const requestData = async () => {};
+	const requestData = async () => {
+		try {
+			const { data } = await axios("/api/auth/profile", {
+				headers: {
+				authorization: "Bearer " + localStorage.getItem("token"),
+			},
+		});
+			console.log(data.message);
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
 	return (
-	<div>
+	<div className="page-conteiner">
       <div>
 			<input
-				value={username}
+				value={email}
 				onChange={handleChange}
-				name="username"
+				name="email"
 				type="text"
 				className="form-control mb-2"
 			/>

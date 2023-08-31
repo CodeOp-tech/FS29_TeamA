@@ -1,60 +1,18 @@
 import { Link, Outlet } from "react-router-dom";
+import "./NFT.css";
+
 
 export default function NFT() {
   return (
     <div className="app-container">
       <div className="header">
-        {/* <svg
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          aria-hidden="true"
-          role="img"
-          class="iconify iconify--logos"
-          width="31.88"
-          height="32"
-          preserveAspectRatio="xMidYMid meet"
-          viewBox="0 0 256 257"
-        >
-          <defs>
-            <linearGradient
-              id="IconifyId1813088fe1fbc01fb466"
-              x1="-.828%"
-              x2="57.636%"
-              y1="7.652%"
-              y2="78.411%"
-            >
-              <stop offset="0%" stop-color="rgba(255,65,246,0.056)"></stop>
-              <stop offset="100%" stop-color="#BD34FE"></stop>
-            </linearGradient>
-            <linearGradient
-              id="IconifyId1813088fe1fbc01fb467"
-              x1="43.376%"
-              x2="50.316%"
-              y1="2.242%"
-              y2="89.03%"
-            >
-              <stop offset="0%" stop-color="#5dc580"></stop>
-              <stop offset="8.333%" stop-color="#57b81c"></stop>
-              <stop offset="100%" stop-color="#0084ff"></stop>
-            </linearGradient>
-          </defs>
-          <path
-            fill="url(#IconifyId1813088fe1fbc01fb466)"
-            d="M255.153 37.938L134.897 252.976c-2.483 4.44-8.862 4.466-11.382.048L.875 37.958c-2.746-4.814 1.371-10.646 6.827-9.67l120.385 21.517a6.537 6.537 0 0 0 2.322-.004l117.867-21.483c5.438-.991 9.574 4.796 6.877 9.62Z"
-          ></path>
-          <path
-            fill="url(#IconifyId1813088fe1fbc01fb467)"
-            d="M185.432.063L96.44 17.501a3.268 3.268 0 0 0-2.634 3.014l-5.474 92.456a3.268 3.268 0 0 0 3.997 3.378l24.777-5.718c2.318-.535 4.413 1.507 3.936 3.838l-7.361 36.047c-.495 2.426 1.782 4.5 4.151 3.78l15.304-4.649c2.372-.72 4.652 1.36 4.15 3.788l-11.698 56.621c-.732 3.542 3.979 5.473 5.943 2.437l1.313-2.028l72.516-144.72c1.215-2.423-.88-5.186-3.54-4.672l-25.505 4.922c-2.396.462-4.435-1.77-3.759-4.114l16.646-57.705c.677-2.35-1.37-4.583-3.769-4.113Z"
-          ></path>
-        </svg> */}
-
         <nav>
           <ul>
             <li>
-              <Link to="/pages/home">Home</Link>
+              <Link to="/Home">Home</Link>
             </li>
             <li>
-              <Link to="/pages/products">Product</Link>
+              <Link to="/Products">Products</Link>
             </li>
             <li>
               <Link to="/Page3">Page3</Link>
@@ -62,16 +20,32 @@ export default function NFT() {
             <li>
               <Link to="/Page4">Page4</Link>
             </li>
-            <button>
-              <Link to="/Login">Account</Link>
-            </button>
           </ul>
+          <div>
+          <button>
+              <Link to="/Login">
+                <svg width="30px" height="30px" viewBox="0 0 48 48">
+                  <path d="M0 0h48v48H0z" fill="none"/>
+                      <g>
+                        <path d="M33.843,26.914L24,36l-9.843-9.086C8.674,30.421,5,36.749,5,44h38C43,36.749,39.326,30.421,33.843,26.914z"/>
+                        <path d="M24,28c3.55,0,6.729-1.55,8.926-4C34.831,21.876,36,19.078,36,16c0-6.627-5.373-12-12-12S12,9.373,12,16   c0,3.078,1.169,5.876,3.074,8C17.271,26.45,20.45,28,24,28z"/>
+                      </g>
+                  </svg>
+              </Link>
+          </button>
+          <button>
+            <Link to="/Cart">
+            <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+            </Link>
+          </button>
+        </div>
         </nav>
-
-        <div>{/* Cart , Login and Log Out */}</div>
       </div>
 
-      <Outlet />
+      <div className="page-conteiner">
+        <Outlet />
+      </div>
+
     </div>
   );
 }

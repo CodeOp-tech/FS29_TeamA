@@ -4,14 +4,18 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const cors = require("cors");
 
+
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const ordersRouter = require("./routes/orders");
 const proRouter = require("./routes/products");
 const authRouter = require("./routes/auth");
+const stripeRouter = require('./routes/stripe');
+
 
 const app = express();
 
+app.use(logger("dev"));
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -24,5 +28,6 @@ app.use("/api/users", usersRouter);
 app.use("/api/orders", ordersRouter);
 app.use("/api/products", proRouter);
 app.use("/api/auth", authRouter);
+
 
 module.exports = app;

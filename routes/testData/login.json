@@ -1,0 +1,19 @@
+// register a new user, register body 
+
+{
+	"firstname":"root",
+	"lastname":"root",
+	"email":"root",
+	"password":"root",
+	"marketing": 1
+}
+
+//regisiter a new guest
+
+{
+	"firstname":"guest",
+	"lastname":"guest",
+	"email":"guest",
+	"guest":1,
+	"marketing": 1
+}

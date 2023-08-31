@@ -1,7 +1,7 @@
+DROP TABLE if exists payments;
 DROP TABLE if exists product_order;
 DROP TABLE if exists orders;
 DROP TABLE if exists users;
-DROP TABLE if exists payments;
 DROP TABLE if exists products;
 DROP TABLE if exists artists;
 
@@ -15,6 +15,7 @@ CREATE TABLE `payments`(
     `country` VARCHAR(255) NOT NULL,
     `order_id` BIGINT UNSIGNED NOT NULL
 );
+
 CREATE TABLE `orders`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `user_id` BIGINT UNSIGNED NULL,
@@ -23,20 +24,23 @@ CREATE TABLE `orders`(
     `cancelled` TINYINT(1) NULL,
     `date` DATE NOT NULL
 );
+
 CREATE TABLE `users`(
     `id` BIGINT UNSIGNED NULL AUTO_INCREMENT UNIQUE KEY,
     `firstname` VARCHAR(255) NOT NULL,
     `lastname` VARCHAR(255) NOT NULL,
     `email` VARCHAR(255) NOT NULL,
     `password` VARCHAR(255) NULL,
-    `guest` TINYINT(1) NOT NULL,
-    `marketing` TINYINT(1) NOT NULL DEFAULT 0
+    `guest` TINYINT(1) NOT NULL DEFAULT 0,
+    `marketing` TINYINT(1) NOT NULL
 );
+
 CREATE TABLE `artists`(
-    `id` BIGINT UNSIGNED NULL AUTO_INCREMENT UNIQUE KEY,
+    `id` BIGINT UNSIGNED AUTO_INCREMENT UNIQUE KEY,
     `brand` VARCHAR(255) NOT NULL,
     `about` LONGTEXT NULL
 );
+
 CREATE TABLE `products`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `name` VARCHAR(255) NOT NULL,
@@ -50,6 +54,7 @@ CREATE TABLE `products`(
     `image_2` VARCHAR(255) NULL,
     `image_3` VARCHAR(255) NULL
 );
+
 CREATE TABLE `product_order`(
     `product_id` BIGINT UNSIGNED NOT NULL,
     `order_id` BIGINT UNSIGNED NOT NULL,
@@ -123,3 +128,6 @@ INSERT INTO products (name, price, currency, description, units, image_1, image_
 INSERT INTO products (name, price, currency, description, units, image_1, image_2, image_3) VALUES ("Venus dress", 1000.00, "EURO", "Venus, the goddess of love, in a voluminous hoodie glazed in mother of pearl with encrusted crystals draped on top of a deep cut chain link dress. The Julian crossbody in fiberoptic material explodes with quartz clusters complimenting the crystal platform boots with RM’s signature dog clip heel. Crystal starbursts dangle on the end of the punk lip ring. This NFT includes a 3D asset (.usdz file), 2D collectibles (.pngs), a turntable video (.mp4). Further, owners of this NFT receive exclusive access to a branded experience and unlockable Rebecca Minkoff products in Roblox. The accessories from this NFT are wearable in Snapchat and Instagram.", 34, "https://storage.thedematerialised.com/20669f7f-493d-4de3-b74b-0a6e726509c3/imageUrls/venus_comp_v3.mp4", "https://storage.thedematerialised.com/20669f7f-493d-4de3-b74b-0a6e726509c3/imageUrls/venus_image_1.jpg", "https://storage.thedematerialised.com/20669f7f-493d-4de3-b74b-0a6e726509c3/imageUrls/venus_image_3.jpg");
 INSERT INTO products (name, price, currency, description, units, image_1, image_2, image_3) VALUES ("Archaistic Jade Armour by Cady Lee", 160.00, "EURO", "Cady Lee's -Archaistic Jade Armour- is inspired by a traditional Chinese decorative hairpin and its chain ornaments, with spiral claw details on the shoulder creating an erotic and animalistic sense. Made with jade, the material's subtle, translucent qualities lent a poetic, luxurious tone and added a mystical aura. This NFT includes a video (.mp4) and 2D collectibles (.pngs).", 11, "https://storage.thedematerialised.com/c696ce8d-4146-41a5-8864-2084ce2ea4b2/imageUrls/cady_lee_virtual_dressing1.jpg", "https://storage.thedematerialised.com/c696ce8d-4146-41a5-8864-2084ce2ea4b2/imageUrls/cady_lee_virtual_dressing2.jpg", "null");
 
+-- Insert login test users --
+INSERT INTO users (firstname, lastname, email, password, marketing) VALUES ('test', 'test', 'test', '$2b$10$xUt8hBde6s4S.pWfOVIPNecnpwZeaVS5kYTlMBwa0mUxzxmxB5n7S', 1);
+INSERT INTO users (firstname, lastname, email, password, marketing) VALUES ('root', 'root', 'root', '$2b$10$NvvsbEwwq0kKO3z4gZQ6seSQk6l2BsC.BoFGOaoka3Hjs10kqYRna', 1);

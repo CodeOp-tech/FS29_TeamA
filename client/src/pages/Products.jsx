@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Products.css";
+
 export default function Products() {
   const [products, SetProducts] = useState([]);
   // const [featureImage, setFeatureImage] = useState();
@@ -18,7 +19,7 @@ export default function Products() {
       }
     };
     fetchProducts();
-    console.log(products[0].image_1);
+    // console.log(products[0].image_1);
     // setFeatureImage(products[0]);
   }, []);
 
