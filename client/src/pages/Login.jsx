@@ -4,13 +4,13 @@ import "./Login.css";
 
 function Login() {
 	const [credentials, setCredentials] = useState({
-   username: "test",
+   email: "test",
    password: "test",
 	});
 
 	const [data, setData] = useState(null);
 
-	const { username, password } = credentials;
+	const { email, password } = credentials;
 
 	const handleChange = (e) => {
 	const { name, value } = e.target;
@@ -26,6 +26,7 @@ function Login() {
 		//store it locally
 		localStorage.setItem("token", data.token);
 		console.log(data.message, data.token);
+		setData(data.message);
 		} catch (error) {
 		console.log(error);
 		}
@@ -33,15 +34,26 @@ function Login() {
 
 	const logout = () => {};
 
-	const requestData = async () => {};
+	const requestData = async () => {
+		try {
+			const { data } = await axios("/api/auth/profile", {
+				headers: {
+				authorization: "Bearer " + localStorage.getItem("token"),
+			},
+		});
+		console.log(data);
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
 	return (
 	<div className="page-conteiner">
       <div>
 			<input
-				value={username}
+				value={email}
 				onChange={handleChange}
-				name="username"
+				name="email"
 				type="text"
 				className="form-control mb-2"
 			/>

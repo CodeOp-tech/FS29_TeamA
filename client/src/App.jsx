@@ -6,9 +6,9 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import NFT from "./pages/NFT";
 import Home from "./pages/Home";
-import Products from "./pages/Products";
-import Page3 from "./pages/Page3";
-import Page4 from "./pages/Page4";
+import Shop from "./pages/Shop";
+import Brands from "./pages/Brands";
+import About from "./pages/About";
 import Login from "./pages/Login";
 import Cart from "./pages/Cart";
 
@@ -20,13 +20,16 @@ function App() {
         <Route path="/" element={<NFT />}>
           {/* all page routes go here */}
           <Route path="/Home" element={<Home />} />
-          <Route path="/Products" element={<Products />} />
-          <Route path="/Page3" element={<Page3 />} />
-          <Route path="/Page4" element={<Page4 />} />
+          <Route path="/Shop" element={<Shop />} />
+          <Route path="/Brands" element={<Brands />} />
+          <Route path="/About" element={<About />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/Cart" element={<Cart />} />
         </Route>
       </Routes>
+
+      {/* test button for stripe */}
+
     </>
   );
 }
