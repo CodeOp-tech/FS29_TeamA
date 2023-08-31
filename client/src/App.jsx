@@ -29,9 +29,7 @@ function App() {
       </Routes>
 
       {/* test button for stripe */}
-      <div>
-        <PayButton/>
-      </div>
+
     </>
   );
 }
