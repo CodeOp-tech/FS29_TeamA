@@ -41,7 +41,7 @@ function Login() {
 				authorization: "Bearer " + localStorage.getItem("token"),
 			},
 		});
-			console.log(data.message);
+		console.log(data);
 		} catch (error) {
 			console.log(error);
 		}
