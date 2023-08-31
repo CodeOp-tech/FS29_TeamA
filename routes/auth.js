@@ -28,6 +28,20 @@ router.post("/register", async (req, res) => {
 	}
 });
 
+router.post("/guest", async (req, res) => {
+	const { firstname, lastname, email, marketing } = req.body;
+	try {
+	await db(
+		`INSERT INTO users (firstname, lastname, email, guest, marketing) VALUES 
+		('${firstname}', '${lastname}', '${email}', 1, ${marketing})`
+	);
+	res.send({ message: "Guest sucessfully successful" });
+	} catch (err) {
+	res.status(400).send({ message: err.message });
+	}
+});
+
+
 router.post("/login", async (req, res) => {
 	const { email, password } = req.body;
 

@@ -1,7 +1,7 @@
+DROP TABLE if exists payments;
 DROP TABLE if exists product_order;
 DROP TABLE if exists orders;
 DROP TABLE if exists users;
-DROP TABLE if exists payments;
 DROP TABLE if exists products;
 DROP TABLE if exists artists;
 
