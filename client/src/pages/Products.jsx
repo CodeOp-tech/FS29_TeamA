@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Products.css";
 
-
 export default function Products() {
   const [products, SetProducts] = useState([]);
   // const [featureImage, setFeatureImage] = useState();
