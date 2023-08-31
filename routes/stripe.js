@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 const stripe = require('stripe')(process.env.STRIPE_KEY);
 
+require("dotenv").config();
+
 
 
 
@@ -14,11 +16,11 @@ router.post('/create-checkout-session', async (req, res) => {
       line_items: [
         { 
           price_data: { 
-            currency: "inr", 
+            currency: "euro", 
             product_data: { 
               name: 'product name', 
             }, 
-            unit_amount: 30*100, 
+            unit_amount: 2000, 
           }, 
           quantity: 3, 
         }, 

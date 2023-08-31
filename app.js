@@ -27,7 +27,9 @@ app.use("/api/index", indexRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/orders", ordersRouter);
 app.use("/api/products", proRouter);
+app.use("/api/stripe", stripeRouter);
 app.use("/api/auth", authRouter);
+
 
 
 module.exports = app;
