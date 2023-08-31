@@ -1,5 +1,13 @@
+import { Link } from "react-router-dom";
+
 export default function Cart() {
   return (
-	 <div>Cart</div>
+	<div>
+		<button>
+		<Link to="./../components/PayButton">
+		Pay Now
+		</Link>
+		</button>
+	</div>
   )
 }
