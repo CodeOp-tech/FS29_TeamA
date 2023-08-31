@@ -47,9 +47,9 @@ router.post("/login", async (req, res) => {
 
 	try {
    const results = await db(`SELECT * FROM users WHERE email = "${email}";`);
-	//const data = selectByKey("users", "email", email);
-	//const user = data;
-   const user = results.data[0];
+	const user = results.data[0];
+	// const data = selectByKey("users", "email", email);
+	// const user = data[0];
    if (user) {
       const user_id = user.id;
 
