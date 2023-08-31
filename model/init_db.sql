@@ -47,7 +47,6 @@ CREATE TABLE `products`(
     `name` VARCHAR(255) NOT NULL,
     `price` DECIMAL(8, 2) NOT NULL,
     `currency` VARCHAR (255) NOT NULL, 
-    `currency` VARCHAR (255) NOT NULL, 
     `description` LONGTEXT NOT NULL,
     `collection` VARCHAR(255) NULL,
     `units` INT NOT NULL DEFAULT 1,
@@ -114,7 +113,7 @@ INSERT INTO products (name, price, currency, description, units, image_1, image_
 INSERT INTO products (name, price, currency, description, units, image_1, image_2, image_3) VALUES ("Archaistic Jade Armour by Cady Lee", 160.00, "EURO", "Cady Lee's -Archaistic Jade Armour- is inspired by a traditional Chinese decorative hairpin and its chain ornaments, with spiral claw details on the shoulder creating an erotic and animalistic sense. Made with jade, the material's subtle, translucent qualities lent a poetic, luxurious tone and added a mystical aura. This NFT includes a video (.mp4) and 2D collectibles (.pngs).", 11, "https://storage.thedematerialised.com/c696ce8d-4146-41a5-8864-2084ce2ea4b2/imageUrls/cady_lee_virtual_dressing1.jpg", "https://storage.thedematerialised.com/c696ce8d-4146-41a5-8864-2084ce2ea4b2/imageUrls/cady_lee_virtual_dressing2.jpg", "null");
 
 
-INSERT INTO artists (brand) VALUES ("bdudue")
+INSERT INTO artists (brand) VALUES ("bdudue");
 
 
    -- Insert statements 

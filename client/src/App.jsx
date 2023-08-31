@@ -11,6 +11,7 @@ import Page4 from './pages/Page4';
 
 
 
+
 function App() {
 
   return (
@@ -23,9 +24,17 @@ function App() {
           <Route path="/" element={<Page2 />} />
           <Route path="/" element={<Page3 />} />
           <Route path="/" element={<Page4 />} />
+        
+          
+          
 
         </Route>
       </Routes>
+
+      {/* test button for stripe */}
+      <div>
+        <PayButton/>
+      </div>
     </>
   )
 }
