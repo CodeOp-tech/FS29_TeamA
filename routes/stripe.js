@@ -12,16 +12,16 @@ router.post('/create-checkout-session', async (req, res) => {
   // })
     const session = await stripe.checkout.sessions.create({
       line_items: [
-        {
-          price_data: {
-            currency: "inr",
-            product_data: {
-              name: 'product name',
+        { 
+          price_data: { 
+            currency: "euro", 
+            product_data: { 
+              name: 'product name', 
             }, 
-            unit_amount: 30*100,
-          },
-          quantity: 3,
-        },
+            unit_amount: 2000, 
+          }, 
+          quantity: 3, 
+        }, 
       ],
       mode: 'payment',
       success_url: `http://localhost:5001`,
