@@ -1,7 +1,7 @@
 import { Link} from "react-router-dom";
 import { useNavigate} from "react-router-dom";
 import { useContext , useState} from "react";
-import authContext from "../context/AuthContext";
+import authContext from "../../context/AuthContext";
 import axios from "axios";
 import "./Login.css";
 
@@ -76,8 +76,8 @@ function Login() {
 									type="text"
 									className="form"
 								/>
-							</div>
-							<div className="password">
+						</div>
+						<div className="password">
 								<input
 									value={password}
 									onChange={handleChange}
@@ -85,17 +85,17 @@ function Login() {
 									type="password"
 									className="form"
 								/>
-							</div>
-							<div>
-								<button className="signIn" onClick={login}>
-									Sign in
-								</button>
-							</div>
+						</div>
+						<div>
+							<button className="signIn" onClick={login}>
+								Sign in
+							</button>
+						</div>
 					</div>
 
 					<div className="form-footer">
 						<Link to="/Register">Register here{"->"}</Link>
-						<a href="">Forgot your password?</a>
+						<Link to="/PasswordReset">Forgot your password?</Link>
 					</div>
 				</div>
 			</div>

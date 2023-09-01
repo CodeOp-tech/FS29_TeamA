@@ -11,15 +11,17 @@ import PrivateRoute from "./components/PrivateRoute.jsx";
 
 // Routes and pages
 import NFT from "./pages/NFT";
-import Home from "./pages/Home";
-import Shop from "./pages/Shop";
-import Brands from "./pages/Brands";
-import About from "./pages/About";
-import Login from "./pages/Login";
-import Cart from "./pages/Cart";
+
+import Home from "./pages/home/Home";
+import Shop from "./pages/shop/Shop";
+import Brands from "./pages/brands/Brands";
+import About from "./pages/about/About";
+import Login from "./pages/login/Login";
+import Cart from "./pages/cart/Cart";
+import Profile from "./pages/profile/Profile";
+import Register from "./pages/login/Register";
+import PasswordReset from "./pages/login/PasswordReset";
 import Product from "./pages/Product";
-import Profile from "./pages/Profile";
-import Register from "./pages/Register";
 
 
 function App() {
@@ -70,9 +72,14 @@ function App() {
               element={<PrivateRoute><Profile /></PrivateRoute>}
             />
             <Route path="/Register" element={<Register />} />
+
+            <Route path="/PasswordReset" element={<PasswordReset />} />
+            <Route path="/Cart" element={<Cart />} />
+
             {/* <cartContext.Provider value={cart}>
               <Route path="/Cart" element={<Cart />} />
             </cartContext.Provider> */}
+
           </Route>
         </Routes>
     </authContext.Provider>
