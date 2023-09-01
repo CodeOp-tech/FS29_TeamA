@@ -73,9 +73,10 @@ function App() {
               element={<PrivateRoute><Profile /></PrivateRoute>}
             />
             <Route path="/Register" element={<Register />} />
-
             <Route path="/PasswordReset" element={<PasswordReset />} />
             <Route path="/Cart" element={<Cart />} />
+            <Route path="/Orders" element={<Orders />} />
+            <Route path="/Success" element={<CheckoutSuccess />} />
           </Route>
         </Routes>
     </authContext.Provider>
