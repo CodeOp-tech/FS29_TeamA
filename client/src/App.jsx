@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useContext } from "react";
 import authContext from "./context/AuthContext";
+import cartContext from "./context/cartContext";
 import axios from "axios";
 
 //Components
@@ -23,6 +24,7 @@ import Register from "./pages/Register";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
+  // const [cart, setCart] = useState([]);
 
   const login = async (user) => {
     try {
@@ -68,7 +70,9 @@ function App() {
               element={<PrivateRoute><Profile /></PrivateRoute>}
             />
             <Route path="/Register" element={<Register />} />
-            <Route path="/Cart" element={<Cart />} />
+            {/* <cartContext.Provider value={cart}>
+              <Route path="/Cart" element={<Cart />} />
+            </cartContext.Provider> */}
           </Route>
         </Routes>
     </authContext.Provider>
