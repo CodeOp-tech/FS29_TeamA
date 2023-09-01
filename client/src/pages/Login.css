@@ -1,3 +1,51 @@
 .page-conteiner {
 	padding: 100px 10px;
 }
+
+.logout {
+	position: fixed;
+	top: 100px;
+	right: 20px;
+}
+.logout > a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.login-form {
+	box-shadow: 8px 8px 8px 8px #cbcccc;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.login-form-inner {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.login-form-inner  input {
+	border-radius: 2px;
+}
+
+.password {
+	margin-top: 15px;
+}
+
+.signIn {
+	width: 100%;
+	margin-top: 10px;
+	border-radius: 2px;
+	background-color: rgb(235, 36, 182)
+}
+
+.form-footer {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	margin: 20px 0;
+}
