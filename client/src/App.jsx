@@ -18,6 +18,7 @@ import Login from "./pages/Login";
 import Cart from "./pages/Cart";
 import Profile from "./pages/Profile";
 import Register from "./pages/Register";
+import PasswordReset from "./pages/PasswordReset";
 
 
 function App() {
@@ -65,6 +66,7 @@ function App() {
               element={<PrivateRoute><Profile /></PrivateRoute>}
             />
             <Route path="/Register" element={<Register />} />
+            <Route path="/PasswordReset" element={<PasswordReset />} />
             <Route path="/Cart" element={<Cart />} />
           </Route>
         </Routes>
