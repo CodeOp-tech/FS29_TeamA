@@ -18,6 +18,14 @@ import Login from "./pages/Login";
 import Cart from "./pages/Cart";
 import Profile from "./pages/Profile";
 import Register from "./pages/Register";
+import CheckoutSuccess from "./components/CheckoutSuccess";
+import Orders from "./pages/Orders";
+
+
+
+
+
+
 
 
 function App() {
@@ -66,6 +74,9 @@ function App() {
             />
             <Route path="/Register" element={<Register />} />
             <Route path="/Cart" element={<Cart />} />
+            <Route path="/Success" element={<CheckoutSuccess />} />
+            <Route path ="/Orders" element={<Orders />}/>
+
           </Route>
         </Routes>
     </authContext.Provider>
