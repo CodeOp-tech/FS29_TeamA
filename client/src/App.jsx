@@ -48,7 +48,8 @@ function App() {
     isLoggedIn,
     login,
     logout
-  }
+  };
+
   return (
     <>
     <authContext.Provider value={authContentextObject}>

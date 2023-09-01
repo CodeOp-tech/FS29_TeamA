@@ -6,7 +6,6 @@ export default function Product() {
     const [product, setProduct] = useState({
         name: "",
         price: null,
-        currency: "",
         description: "",
         collection: "",
         image_1: "",
@@ -46,7 +45,7 @@ export default function Product() {
                 <h2>By {product["brand"]}</h2>
                 <h3>{product["collection"]}</h3>
                 <p>{product["description"]}</p>
-                <p>{product["price"]} {product["currency"]}</p>
+                <p>{product["price"]} USD</p>
             </div>
         </div>
     )
