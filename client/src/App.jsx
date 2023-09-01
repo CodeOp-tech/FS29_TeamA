@@ -77,7 +77,8 @@ function App() {
               }
             />
             <Route path="/Register" element={<Register />} />
-
+            <Route path="/Orders" element={<Orders />} />
+            <Route path="/Success" element={<CheckoutSuccess />} />
             <Route path="/PasswordReset" element={<PasswordReset />} />
             <Route path="/Cart" element={<Cart />} />
             <Route path="/success" element={<CheckoutSuccess />} />
