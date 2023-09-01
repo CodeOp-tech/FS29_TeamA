@@ -1,7 +1,7 @@
-import { Link, Outlet } from "react-router-dom";
-import { useState } from "react";
-import { useContext } from "react";
-import authContext from "../context/AuthContext";
+import { Link} from "react-router-dom";
+import { useNavigate} from "react-router-dom";
+import { useContext , useState} from "react";
+import authContext from "../../context/AuthContext";
 import axios from "axios";
 import "./Login.css";
 
@@ -10,6 +10,8 @@ function Login() {
    email: "test",
    password: "test",
 	});
+
+	const navigate = useNavigate();
 
 	const [data, setData] = useState(null);
 
@@ -32,6 +34,7 @@ function Login() {
 			},
 		});
 		console.log(data);
+		navigate("/Profile")
 		} catch (error) {
 			console.log(error);
 		}
@@ -41,21 +44,8 @@ function Login() {
 		auth.logout();
 	};
 
-	const requestData = async () => {
-		try {
-			const { data } = await axios("/api/auth/profile", {
-				headers: {
-				authorization: "Bearer " + localStorage.getItem("token"),
-			},
-		});
-		console.log(data);
-		} catch (error) {
-			console.log(error);
-		}
-	};
-
 	return (
-	<div className="page-conteiner">
+		<div className="page-conteiner">
       <div>
 			{/* this can be removed since log-out option should be displayed on the Profile page */}
 			{auth.isLoggedIn && (
@@ -74,48 +64,43 @@ function Login() {
 							</Link>
 						</div>
 			)}
-			<div>
-				<p>Email</p>
-				<input
-					value={email}
-					onChange={handleChange}
-					name="email"
-					type="text"
-					className="form"
-				/>
-			</div>
-			<div>
-				<p>Password</p>
-				<input
-					value={password}
-					onChange={handleChange}
-					name="password"
-					type="password"
-					className="form"
-				/>
-			</div>
-			<div>
-				<button onClick={login}>
-					Sign in
-				</button>
-				<Link onClick={login} to="/Profile">Sign in</Link>
-			</div>
-			<div>
-				<p>Don&apos;t have an account? <Link to="/Register">Register{"->"}</Link></p>
+			<div className="login-form">
+				<div className="login-form-inner">
+				<h1>Login</h1>
+					<div className="loginForm">
+						<div className="email">
+								<input
+									value={email}
+									onChange={handleChange}
+									name="email"
+									type="text"
+									className="form"
+								/>
+						</div>
+						<div className="password">
+								<input
+									value={password}
+									onChange={handleChange}
+									name="password"
+									type="password"
+									className="form"
+								/>
+						</div>
+						<div>
+							<button className="signIn" onClick={login}>
+								Sign in
+							</button>
+						</div>
+					</div>
+
+					<div className="form-footer">
+						<Link to="/Register">Register here{"->"}</Link>
+						<Link to="/PasswordReset">Forgot your password?</Link>
+					</div>
+				</div>
 			</div>
 		</div>
-		{auth.isLoggedIn && (
-					<div>
-						<Link to="/Profile">Profile</Link>
-					</div>
-		
-				// {data && (
-				// <div className="text-center p-4">
-				// 	<div className="alert">{data}</div>
-				// </div>
-				// )}
-		)}
-
+		{auth.isLoggedIn && (navigate("/Profile"))}
    </div>
 	);
 }

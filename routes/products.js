@@ -4,21 +4,25 @@ const db = require("../model/helper");
 
 const getAllItems = async (req, res) => {
   try {
-    const allItems = await db(`SELECT * FROM products;`);
+    const allItems = await db(
+      `SELECT p.id, p.name, p.price, p.description, p.collection, p.units, p.image_1, p.image_2, p.image_3, a.brand FROM products AS p LEFT JOIN artists AS a ON p.artist_id = a.id;`
+    );
 
     res.send(allItems.data);
   } catch (error) {
     res.status(500).send(error);
   }
 };
+
 //GET all Products or filtering
 router.get("/", async (req, res) => {
   if (!req.query.search) {
     try {
-      const productResult = await db(`SELECT * FROM products;`);
-      const product = productResult.data;
+      const productResult = await db(
+        `SELECT p.id, p.name, p.price, p.description, p.collection, p.units, p.image_1, p.image_2, p.image_3, a.brand FROM products AS p LEFT JOIN artists AS a ON p.artist_id = a.id;`
+      );
 
-      res.send(product);
+      res.send(productResult.data);
     } catch (error) {
       res.status(500).send(error);
     }
@@ -26,7 +30,7 @@ router.get("/", async (req, res) => {
     const search = req.query.search;
 
     try {
-      const query = `SELECT * FROM products WHERE name LIKE "%${search}%";`;
+      const query = `SELECT p.id, p.name, p.price, p.description, p.collection, p.units, p.image_1, p.image_2, p.image_3, a.brand FROM products AS p LEFT JOIN artists AS a ON p.artist_id = a.id WHERE p.name LIKE "%${search}%";`;
       const searchParam = `%${search}%`;
       const results = await db(query, [searchParam]);
       res.send(results.data);
@@ -39,14 +43,14 @@ router.get("/", async (req, res) => {
 
 //GET single product by its id
 router.get("/:id", async (req, res) => {
-  const id = req.params.id;
+  const { id } = req.params;
 
   try {
-    const productResults = await db(`SELECT * FROM products where id = ${id};`);
+    const productResult = await db(
+      `SELECT p.id, p.name, p.price, p.description, p.collection, p.units, p.image_1, p.image_2, p.image_3, a.brand FROM products AS p LEFT JOIN artists AS a ON p.artist_id = a.id WHERE p.id = ${id};`
+    );
 
-    const product = productResults.data[0];
-
-    res.send(product);
+    res.send(productResult.data);
   } catch (error) {
     res.status(500).send(error);
   }
@@ -59,7 +63,6 @@ router.post("/", async (req, res) => {
   const {
     name,
     price,
-    currency,
     description,
     collection,
     units,
@@ -71,8 +74,8 @@ router.post("/", async (req, res) => {
 
   try {
     await db(
-      `INSERT INTO products (name, price, currency, description, collection, units, artist_id, image_1, image_2, image_3) VALUES 
-          ('${name}', ${price}, '${currency}', '${description}', '${collection}', '${units}', ${artist_id}, '${image_1}', '${image_2}', '${image_3}');`
+      `INSERT INTO products (name, price, description, collection, units, artist_id, image_1, image_2, image_3) VALUES 
+          ('${name}', ${price}, '${description}', '${collection}', '${units}', ${artist_id}, '${image_1}', '${image_2}', '${image_3}');`
     );
 
     res.status(200).send({ message: "Pruduct added!" });
@@ -84,12 +87,11 @@ router.post("/", async (req, res) => {
 });
 
 //PUT to update the ressource
-router.put("/:product_id", async (req, res) => {
-  const { product_id } = req.params;
+router.put("/:id", async (req, res) => {
+  const { id } = req.params;
   const {
     name,
     price,
-    currency,
     description,
     collection,
     units,
@@ -101,7 +103,7 @@ router.put("/:product_id", async (req, res) => {
 
   try {
     await db(
-      `UPDATE products SET name ="${name} ", price=${price} , currency="${currency} ", description="${description} ",collection="${collection} ",units=${units} ,artist_id=${artist_id}, image_1="${image_1}", image_2="${image_2}", image_3="${image_3}" WHERE id=${product_id}; `
+      `UPDATE products SET name = "${name}", price = ${price}, description = "${description}", collection = "${collection}", units = ${units}, artist_id = ${artist_id}, image_1 = " ${image_1}", image_2 = "${image_2}", image_3 = "${image_3}" WHERE id = ${id};`
     );
 
     getAllItems(req, res);
@@ -112,11 +114,11 @@ router.put("/:product_id", async (req, res) => {
 
 //DELETE
 
-router.delete("/:product_id", async (req, res) => {
-  const { product_id } = req.params;
+router.delete("/:id", async (req, res) => {
+  const { id } = req.params;
 
   try {
-    await db(`DELETE FROM products where id=${product_id};`);
+    await db(`DELETE FROM products WHERE id = ${id};`);
 
     getAllItems(req, res);
   } catch (error) {

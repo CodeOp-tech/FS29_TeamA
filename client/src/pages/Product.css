@@ -1,0 +1,25 @@
+#Product{
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    margin: auto 5%;
+}
+
+.carosel-container{
+    max-width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.carousel{
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel img{
+    width: 100%;
+    height: auto;
+}
+
+.description{
+    margin-left: 5%;
+}
