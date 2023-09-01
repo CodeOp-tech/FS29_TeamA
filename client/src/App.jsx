@@ -18,39 +18,39 @@ import Login from "./pages/Login";
 import Cart from "./pages/Cart";
 import Profile from "./pages/Profile";
 import Register from "./pages/Register";
-
+import CheckoutSuccess from "./pages/CheckoutSuccess";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
 
   const login = async (user) => {
     try {
-			const { data } = await axios("api/auth/login", {
-			method: "POST",
-			data: user,
-		});
-		//store it locally
+      const { data } = await axios("api/auth/login", {
+        method: "POST",
+        data: user,
+      });
+      //store it locally
       localStorage.setItem("token", data.token);
       setIsLoggedIn(true);
-		} catch (error) {
-		console.log(error);
-		}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const logout = () => {
-    console.log("user is logged out!")
+    console.log("user is logged out!");
     localStorage.removeItem("token");
     setIsLoggedIn(false);
   };
 
-  const authContentextObject ={
+  const authContentextObject = {
     isLoggedIn,
     login,
-    logout
-  }
+    logout,
+  };
   return (
     <>
-    <authContext.Provider value={authContentextObject}>
+      <authContext.Provider value={authContentextObject}>
         <Routes>
           {/* general route with content that's displayed on all pages */}
           <Route path="/" element={<NFT />}>
@@ -60,15 +60,20 @@ function App() {
             <Route path="/Brands" element={<Brands />} />
             <Route path="/About" element={<About />} />
             <Route path="/Login" element={<Login />} />
-            <Route 
-              path="/Profile" 
-              element={<PrivateRoute><Profile /></PrivateRoute>}
+            <Route
+              path="/Profile"
+              element={
+                <PrivateRoute>
+                  <Profile />
+                </PrivateRoute>
+              }
             />
             <Route path="/Register" element={<Register />} />
             <Route path="/Cart" element={<Cart />} />
+            <Route path="/success" element={<CheckoutSuccess />} />
           </Route>
         </Routes>
-    </authContext.Provider>
+      </authContext.Provider>
     </>
   );
 }
