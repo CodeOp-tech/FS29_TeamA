@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useContext } from "react";
-import authContext from "../context/AuthContext";
+import authContext from "../../context/AuthContext";
 
 
 export default function Profile() {
@@ -46,13 +46,22 @@ export default function Profile() {
 					</svg>
 					<p>Sign out</p>
 				</Link>
+	
 			</div>
+
+			
+
 		{user && <div> 
 			<h3>Welcome back {user.firstname}!</h3> 
 			
 				<p>
 					User: {user.email}'s profile
 				</p>
+
+				<div>
+		 		<Link to="/Orders">Orders</Link>
+			    </div>
+
 			</div>}
 		</>
 	)
