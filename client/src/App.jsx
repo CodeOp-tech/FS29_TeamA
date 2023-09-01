@@ -20,8 +20,12 @@ import Login from "./pages/login/Login";
 import Cart from "./pages/cart/Cart";
 import Profile from "./pages/profile/Profile";
 import Register from "./pages/login/Register";
+import CheckoutSuccess from "./components/CheckoutSuccess";
+import Orders from "./pages/Orders";
 import PasswordReset from "./pages/login/PasswordReset";
 import Product from "./pages/Product";
+
+
 
 
 function App() {
@@ -75,11 +79,6 @@ function App() {
 
             <Route path="/PasswordReset" element={<PasswordReset />} />
             <Route path="/Cart" element={<Cart />} />
-
-            {/* <cartContext.Provider value={cart}>
-              <Route path="/Cart" element={<Cart />} />
-            </cartContext.Provider> */}
-
           </Route>
         </Routes>
     </authContext.Provider>

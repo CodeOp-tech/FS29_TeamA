@@ -20,6 +20,7 @@ export default function NFT() {
             <li>
               <Link to="/About">About</Link>
             </li>
+           
           </ul>
           <div>
           <button>
