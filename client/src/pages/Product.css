@@ -1,0 +1,10 @@
+#Product{
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    margin: auto 5%;
+}
+
+.product-image{
+    object-fit: cover;
+    max-width: 100%;
+}

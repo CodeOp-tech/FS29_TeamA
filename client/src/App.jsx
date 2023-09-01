@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useContext } from "react";
 import authContext from "./context/AuthContext";
+import cartContext from "./context/cartContext";
 import axios from "axios";
 
 //Components
@@ -10,6 +11,7 @@ import PrivateRoute from "./components/PrivateRoute.jsx";
 
 // Routes and pages
 import NFT from "./pages/NFT";
+
 import Home from "./pages/home/Home";
 import Shop from "./pages/shop/Shop";
 import Brands from "./pages/brands/Brands";
@@ -19,10 +21,12 @@ import Cart from "./pages/cart/Cart";
 import Profile from "./pages/profile/Profile";
 import Register from "./pages/login/Register";
 import PasswordReset from "./pages/login/PasswordReset";
+import Product from "./pages/Product";
 
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
+  // const [cart, setCart] = useState([]);
 
   const login = async (user) => {
     try {
@@ -48,7 +52,8 @@ function App() {
     isLoggedIn,
     login,
     logout
-  }
+  };
+
   return (
     <>
     <authContext.Provider value={authContentextObject}>
@@ -58,6 +63,7 @@ function App() {
             {/* all page routes go here */}
             <Route path="/Home" element={<Home />} />
             <Route path="/Shop" element={<Shop />} />
+            <Route path="/Shop/:id" element={<Product />} />
             <Route path="/Brands" element={<Brands />} />
             <Route path="/About" element={<About />} />
             <Route path="/Login" element={<Login />} />
@@ -66,8 +72,14 @@ function App() {
               element={<PrivateRoute><Profile /></PrivateRoute>}
             />
             <Route path="/Register" element={<Register />} />
+
             <Route path="/PasswordReset" element={<PasswordReset />} />
             <Route path="/Cart" element={<Cart />} />
+
+            {/* <cartContext.Provider value={cart}>
+              <Route path="/Cart" element={<Cart />} />
+            </cartContext.Provider> */}
+
           </Route>
         </Routes>
     </authContext.Provider>

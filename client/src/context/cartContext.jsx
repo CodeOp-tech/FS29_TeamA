@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect, useCallback} from "react";
 
-const authContext = createContext();
+const cartContext = createContext();
 
-export default authContext;
+export default cartContext;
+
