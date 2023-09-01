@@ -5,7 +5,7 @@ const db = require("../model/helper");
 const getAllItems = async (req, res) => {
   try {
     const allItems = await db(
-      `SELECT p.name, p.price, p.currency, p.description, p.collection, p.units, p.image_1, p.image_2, p.image_3, a.brand FROM products AS p LEFT JOIN artists AS a ON p.artist_id = a.id;`
+      `SELECT p.id, p.name, p.price, p.description, p.collection, p.units, p.image_1, p.image_2, p.image_3, a.brand FROM products AS p LEFT JOIN artists AS a ON p.artist_id = a.id;`
     );
 
     res.send(allItems.data);
@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
   if (!req.query.search) {
     try {
       const productResult = await db(
-        `SELECT p.name, p.price, p.currency, p.description, p.collection, p.units, p.image_1, p.image_2, p.image_3, a.brand FROM products AS p LEFT JOIN artists AS a ON p.artist_id = a.id;`
+        `SELECT p.id, p.name, p.price, p.description, p.collection, p.units, p.image_1, p.image_2, p.image_3, a.brand FROM products AS p LEFT JOIN artists AS a ON p.artist_id = a.id;`
       );
 
       res.send(productResult.data);
@@ -30,7 +30,7 @@ router.get("/", async (req, res) => {
     const search = req.query.search;
 
     try {
-      const query = `SELECT p.name, p.price, p.currency, p.description, p.collection, p.units, p.image_1, p.image_2, p.image_3, a.brand FROM products AS p LEFT JOIN artists AS a ON p.artist_id = a.id WHERE p.name LIKE "%${search}%";`;
+      const query = `SELECT p.id, p.name, p.price, p.description, p.collection, p.units, p.image_1, p.image_2, p.image_3, a.brand FROM products AS p LEFT JOIN artists AS a ON p.artist_id = a.id WHERE p.name LIKE "%${search}%";`;
       const searchParam = `%${search}%`;
       const results = await db(query, [searchParam]);
       res.send(results.data);
@@ -47,7 +47,7 @@ router.get("/:id", async (req, res) => {
 
   try {
     const productResult = await db(
-      `SELECT p.name, p.price, p.currency, p.description, p.collection, p.units, p.image_1, p.image_2, p.image_3, a.brand FROM products AS p LEFT JOIN artists AS a ON p.artist_id = a.id WHERE p.id = ${id};`
+      `SELECT p.id, p.name, p.price, p.description, p.collection, p.units, p.image_1, p.image_2, p.image_3, a.brand FROM products AS p LEFT JOIN artists AS a ON p.artist_id = a.id WHERE p.id = ${id};`
     );
 
     res.send(productResult.data);
@@ -63,7 +63,6 @@ router.post("/", async (req, res) => {
   const {
     name,
     price,
-    currency,
     description,
     collection,
     units,
@@ -75,8 +74,8 @@ router.post("/", async (req, res) => {
 
   try {
     await db(
-      `INSERT INTO products (name, price, currency, description, collection, units, artist_id, image_1, image_2, image_3) VALUES 
-          ('${name}', ${price}, '${currency}', '${description}', '${collection}', '${units}', ${artist_id}, '${image_1}', '${image_2}', '${image_3}');`
+      `INSERT INTO products (name, price, description, collection, units, artist_id, image_1, image_2, image_3) VALUES 
+          ('${name}', ${price}, '${description}', '${collection}', '${units}', ${artist_id}, '${image_1}', '${image_2}', '${image_3}');`
     );
 
     res.status(200).send({ message: "Pruduct added!" });
@@ -93,7 +92,6 @@ router.put("/:id", async (req, res) => {
   const {
     name,
     price,
-    currency,
     description,
     collection,
     units,
@@ -105,7 +103,7 @@ router.put("/:id", async (req, res) => {
 
   try {
     await db(
-      `UPDATE products SET name = "${name}", price = ${price}, currency = "${currency}", description = "${description}", collection = "${collection}", units = ${units}, artist_id = ${artist_id}, image_1 = " ${image_1}", image_2 = "${image_2}", image_3 = "${image_3}" WHERE id = ${id};`
+      `UPDATE products SET name = "${name}", price = ${price}, description = "${description}", collection = "${collection}", units = ${units}, artist_id = ${artist_id}, image_1 = " ${image_1}", image_2 = "${image_2}", image_3 = "${image_3}" WHERE id = ${id};`
     );
 
     getAllItems(req, res);
