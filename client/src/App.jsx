@@ -16,6 +16,7 @@ import Brands from "./pages/Brands";
 import About from "./pages/About";
 import Login from "./pages/Login";
 import Cart from "./pages/Cart";
+import Product from "./pages/Product";
 import Profile from "./pages/Profile";
 import Register from "./pages/Register";
 
@@ -57,6 +58,7 @@ function App() {
             {/* all page routes go here */}
             <Route path="/Home" element={<Home />} />
             <Route path="/Shop" element={<Shop />} />
+            <Route path="/Shop/:id" element={<Product />} />
             <Route path="/Brands" element={<Brands />} />
             <Route path="/About" element={<About />} />
             <Route path="/Login" element={<Login />} />
