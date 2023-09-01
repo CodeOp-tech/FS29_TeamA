@@ -15,6 +15,7 @@ export default function Product() {
     });
     const { id } = useParams();
     const [quantity, setQuantity] = useState(0);
+    const [currentImage, setCurrentImage] = useState("image_1");
 
     useEffect(() => {
         getProduct();
@@ -46,6 +47,38 @@ export default function Product() {
         }
     };
 
+    const prevImage = () => {
+        switch (currentImage) {
+            case "image_2":
+                setCurrentImage("image_1");
+                break;
+            case "image_3":
+                setCurrentImage("image_2");
+                break;
+            case "image_1":
+                setCurrentImage("image_3");
+                break;
+            default:
+                break;
+        }
+    };
+
+    const nextImage = () => {
+        switch (currentImage) {
+            case "image_1":
+                setCurrentImage("image_2");
+                break;
+            case "image_2":
+                setCurrentImage("image_3");
+                break;
+            case "image_3":
+                setCurrentImage("image_1");
+                break;
+            default:
+                break;
+        }
+    };
+
     const handleAddToCart = async (e) => {
         e.preventDefault();
 
@@ -66,12 +99,15 @@ export default function Product() {
     return (
         <div id="Product">
             <div>
-                <img src={product.image_1} alt="image 1" className="product-image" />
-                <img src={product.image_2} alt="image 2" className="product-image" />
-                <img src={product.image_3} alt="image 3" className="product-image" />
+                <div className="carousel-container">
+                    <img src={product[currentImage]} alt={`Image ${currentImage.split(" ")[1]}`} className="product-image" />
+                </div>
+
+                <button className="prev-button" onClick={prevImage}>Previous</button>
+                <button className="next-button" onClick={nextImage}>Next</button>
             </div>
 
-            <div>
+            <div className="description">
                 <div>
                     <h1>{product.name}</h1>
                     <h2>By {product.brand}</h2>
