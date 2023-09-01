@@ -76,6 +76,7 @@ function App() {
 
             <Route path="/PasswordReset" element={<PasswordReset />} />
             <Route path="/Cart" element={<Cart />} />
+            <Route path="/Orders" element={<Orders />} />
           </Route>
         </Routes>
     </authContext.Provider>
