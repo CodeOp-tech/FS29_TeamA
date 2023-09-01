@@ -1,7 +1,7 @@
 import { Link} from "react-router-dom";
 import { useNavigate} from "react-router-dom";
 import { useContext , useState} from "react";
-import authContext from "../context/AuthContext";
+import authContext from "../../context/AuthContext";
 import axios from "axios";
 import "./Login.css";
 
@@ -13,7 +13,7 @@ function Login() {
 
 	const navigate = useNavigate();
 
-	// const [data, setData] = useState(null);
+	const [data, setData] = useState(null);
 
 	const auth = useContext(authContext);
 	console.log(auth);
