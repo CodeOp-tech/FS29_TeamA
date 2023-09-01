@@ -1,17 +1,15 @@
 require("dotenv").config();
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const stripe = require('stripe')(process.env.STRIPE_KEY);
+
+const stripe = require("stripe")(process.env.STRIPE_KEY);
 
 
-
-
-
-router.post('/create-checkout-session', async (req, res) => {
-
+router.post("/create-checkout-session", async (req, res) => {
   // const line_items = req.body.cartItems.map(item => {
 
   // })
+
 
     
 
@@ -35,24 +33,6 @@ router.post('/create-checkout-session', async (req, res) => {
     });
     res.send({url: session.url});
   });
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   module.exports = router
+

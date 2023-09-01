@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Shop.css";
+import { Link } from "react-router-dom";
 
 export default function Products() {
   const [products, SetProducts] = useState([]);
@@ -8,7 +9,7 @@ export default function Products() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch(`/api/products`, {
+        const response = await fetch("/api/products", {
           method: "GET",
         });
 
@@ -34,7 +35,9 @@ export default function Products() {
           <div key={product.id} className="card">
             <img src={product.image_1} alt="Image" className="card-img" />
             <h2 className="card-title">{product.name}</h2>
-            <h3 className="card-description">{product.description}</h3>
+            <button>
+              <Link to={`/Shop/${product.id}`}>Details</Link>
+            </button>
           </div>
         ))}
       </div>
