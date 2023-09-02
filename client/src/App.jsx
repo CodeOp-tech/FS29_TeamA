@@ -24,6 +24,7 @@ import CheckoutSuccess from "./components/CheckoutSuccess";
 import Orders from "./pages/Orders";
 import PasswordReset from "./pages/login/PasswordReset";
 import Product from "./pages/Product";
+import Terms from "./pages/footer/Terms";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
@@ -81,9 +82,10 @@ function App() {
             <Route path="/PasswordReset" element={<PasswordReset />} />
             <Route path="/Cart" element={<Cart />} />
 
-            <Route path="/success" element={<CheckoutSuccess />} />
-            <Route path="/orders" element={<Orders />} />
-
+            <Route path="/Success" element={<CheckoutSuccess />} />
+            <Route path="/Orders" element={<Orders />} />
+            <Route path="/Terms" element={<Terms />} />
+            
           </Route>
         </Routes>
       </authContext.Provider>
