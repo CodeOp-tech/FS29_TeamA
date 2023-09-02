@@ -1,9 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import { useContext } from "react";
 import authContext from "./context/AuthContext";
-import cartContext from "./context/cartContext";
 import axios from "axios";
 
 //Components
@@ -24,6 +22,7 @@ import CheckoutSuccess from "./components/CheckoutSuccess";
 import Orders from "./pages/Orders";
 import PasswordReset from "./pages/login/PasswordReset";
 import Product from "./pages/Product";
+import Contact from "./components/contact-form/Contact";
 import Terms from "./pages/footer/Terms";
 
 function App() {
@@ -67,25 +66,25 @@ function App() {
             <Route path="/Shop" element={<Shop />} />
             <Route path="/Shop/:id" element={<Product />} />
             <Route path="/Brands" element={<Brands />} />
-            <Route path="/About" element={<About />} />
+            <Route path="/About" element={<About />}>
+              <Route index="/Contact" Component={<Contact />} />
+            </Route>
             <Route path="/Login" element={<Login />} />
-            <Route
-              path="/Profile"
-              element={
+            <Route path="/Profile" element={
                 <PrivateRoute>
                   <Profile />
                 </PrivateRoute>
               }
             />
             <Route path="/Register" element={<Register />} />
-
             <Route path="/PasswordReset" element={<PasswordReset />} />
             <Route path="/Cart" element={<Cart />} />
-
             <Route path="/Success" element={<CheckoutSuccess />} />
             <Route path="/Orders" element={<Orders />} />
             <Route path="/Terms" element={<Terms />} />
             
+            
+
           </Route>
         </Routes>
       </authContext.Provider>

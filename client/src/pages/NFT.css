@@ -30,7 +30,10 @@ nav ul li {
 	padding: 0;
 	display: inline;
 }
-
+.nav-svg{
+	display: flex;
+	gap: 10px;
+}
 svg {
 	fill: rgb(235, 59, 188);
 }

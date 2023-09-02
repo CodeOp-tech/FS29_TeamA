@@ -7,6 +7,7 @@
     "migrate": "node model/database.js"
   },
   "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
     "axios": "^1.5.0",
     "bcrypt": "^5.1.1",
     "cookie-parser": "~1.4.4",
@@ -20,6 +21,7 @@
     "mysql": "^2.18.1",
     "nodemon": "^3.0.1",
     "npm": "^9.8.1",
+    "sendgrid": "^5.2.3",
     "stripe": "^13.3.0"
   },
   "devDependencies": {
