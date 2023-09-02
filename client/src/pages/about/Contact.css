@@ -1,0 +1,43 @@
+.contact {
+	width: 60%;
+	margin-left: 20%;
+	margin-top: 5%;
+	margin-right: 20%;
+	border-radius:10px;
+	background: #f9f9f9; 
+}
+
+.contact-header {
+	text-align: center;
+	padding-top: 5%;
+	color:#0D122B;
+}
+
+.contact-header p {
+	width: 50%;
+	margin: auto;
+}
+
+.contact-content {
+	width:100%;
+	height: 800px;
+}
+
+.logo-div {
+	text-align:center;
+	width:50%;
+	vertical-align: middle;
+}
+
+.logo-div > img {
+	width:50%;
+	margin-bottom:10%;
+	vertical-align: middle;
+}
+
+.contact-form form {
+	margin: 10%;
+	margin-left:5%;
+	width: 350px;
+}
+
