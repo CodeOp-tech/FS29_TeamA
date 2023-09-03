@@ -25,7 +25,6 @@ export default function NFT() {
             <li>
               <Link to="/About">About</Link>
             </li>
-           
           </ul>
           <div className="nav-svg">
           <div>
@@ -47,7 +46,7 @@ export default function NFT() {
                 <path d="M21 49C23.2091 49 25 47.2091 25 45C25 42.7909 23.2091 41 21 41C18.7909 41 17 42.7909 17 45C17 47.2091 18.7909 49 21 49Z"></path>
                 <path d="M45 49C47.2091 49 49 47.2091 49 45C49 42.7909 47.2091 41 45 41C42.7909 41 41 42.7909 41 45C41 47.2091 42.7909 49 45 49Z"></path>
               </svg>
-              </Link>
+            </Link>
             { cartItems.length > 0 && (
                 <div className="item_count">
                   <span>{cartItems.length}</span>
