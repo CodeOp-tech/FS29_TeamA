@@ -22,7 +22,6 @@ import CheckoutSuccess from "./components/CheckoutSuccess";
 import Orders from "./pages/Orders";
 import PasswordReset from "./pages/login/PasswordReset";
 import Product from "./pages/Product";
-import Contact from "./components/contact-form/Contact";
 import Terms from "./pages/footer/Terms";
 
 function App() {
@@ -66,9 +65,7 @@ function App() {
             <Route path="/Shop" element={<Shop />} />
             <Route path="/Shop/:id" element={<Product />} />
             <Route path="/Brands" element={<Brands />} />
-            <Route path="/About" element={<About />}>
-              <Route index="/Contact" Component={<Contact />} />
-            </Route>
+            <Route path="/About" element={<About />}/>
             <Route path="/Login" element={<Login />} />
             <Route path="/Profile" element={
                 <PrivateRoute>
@@ -83,8 +80,6 @@ function App() {
             <Route path="/Orders" element={<Orders />} />
             <Route path="/Terms" element={<Terms />} />
             
-            
-
           </Route>
         </Routes>
       </authContext.Provider>

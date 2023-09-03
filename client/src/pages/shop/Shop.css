@@ -1,7 +1,8 @@
 .card {
-  width: 15rem;
-  border-radius: 1rem;
-  box-shadow: 0px 10px 8px #4a4e69;
+  width: 16rem;
+  /* border-radius: 2px; */
+  /* box-shadow: 0px 10px 8px #4a4e69; */
+  box-shadow: 8px 8px 8px 8px #cbcccc;
   display: flex;
   flex-direction: column;
   margin: 0.5rem;
@@ -9,16 +10,25 @@
   height: fit-content;
 }
 
+.card:hover {
+  box-shadow: 8px 8px 8px 8px #4a4e69;
+  width: 17rem;
+}
+
 .card-img {
   width: 100%;
-  border-radius: 1rem 1rem 0 0;
+  border-radius: 2px;
   object-fit: cover;
   height: 175px;
 }
 
 .card-title {
-  margin: 0.5rem 5%;
+  width: 15rem;
+  height: 5rem;
+  margin: 0.5rem 2%;
   font-size: 23px;
+  text-align: center;
+  text-decoration: none;
 }
 
 .card-description {
