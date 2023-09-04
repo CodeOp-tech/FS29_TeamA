@@ -10,6 +10,7 @@ const ordersRouter = require("./routes/orders");
 const proRouter = require("./routes/products");
 const authRouter = require("./routes/auth");
 const stripeRouter = require("./routes/stripe");
+const sendgridRouter = require("./routes/sendgrid");
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use("/api/users", usersRouter);
 app.use("/api/orders", ordersRouter);
 app.use("/api/products", proRouter);
 app.use("/api/stripe", stripeRouter);
+app.use("/api/sendgrid", sendgridRouter);
 app.use("/api/auth", authRouter);
 
 

@@ -14,6 +14,7 @@
 }
 
 .login-form {
+	height: 600px;
 	box-shadow: 8px 8px 8px 8px #cbcccc;
 	display: flex;
 	justify-content: center;
@@ -42,13 +43,7 @@
 	border-radius: 2px;
 	background-color: rgb(235, 36, 182)
 }
-.email 
-.password
-.firstname 
-.lastname {
-	margin-top: 15px;
-	width: 100%;
-}
+
 
 .form-footer {
 	display: flex;
@@ -64,7 +59,7 @@
 
 .password-reset > div {
 	width: 100%;
-	height: 400px;
+	height: 600px;
 	box-shadow: 8px 8px 8px 8px #cbcccc;
 }
 
@@ -77,3 +72,14 @@
 	gap: 10px;
 }
 
+input {
+	width: 80%;
+	background: transparent;
+	border: 1px solid #e5e5e5;
+	margin: 0 10px 20px 10px;
+	max-width: 100%;
+	text-indent: 10px;
+	outline: none;
+	height: 40px;
+	line-height: 40px;
+}
