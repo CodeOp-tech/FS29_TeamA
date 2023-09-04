@@ -1,9 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import { useContext } from "react";
 import authContext from "./context/AuthContext";
-import cartContext from "./context/cartContext";
 import axios from "axios";
 
 //Components
@@ -11,7 +9,6 @@ import PrivateRoute from "./components/PrivateRoute.jsx";
 
 // Routes and pages
 import NFT from "./pages/NFT";
-
 import Home from "./pages/home/Home";
 import Shop from "./pages/shop/Shop";
 import Brands from "./pages/brands/Brands";
@@ -24,20 +21,23 @@ import CheckoutSuccess from "./components/CheckoutSuccess";
 import Orders from "./pages/Orders";
 import PasswordReset from "./pages/login/PasswordReset";
 import Product from "./pages/Product";
+import Terms from "./pages/footer/Terms";
+import CartLogin from "./pages/cartLogin/CartLogin";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   // const [cart, setCart] = useState([]);
 
-  const login = async (user) => {
+  const login = async (user, cb) => {
     try {
       const { data } = await axios("api/auth/login", {
         method: "POST",
-        data: user,
+        data: user
       });
       //store it locally
       localStorage.setItem("token", data.token);
       setIsLoggedIn(true);
+      if (cb) cb();
     } catch (error) {
       console.log(error);
     }
@@ -66,11 +66,9 @@ function App() {
             <Route path="/Shop" element={<Shop />} />
             <Route path="/Shop/:id" element={<Product />} />
             <Route path="/Brands" element={<Brands />} />
-            <Route path="/About" element={<About />} />
+            <Route path="/About" element={<About />}/>
             <Route path="/Login" element={<Login />} />
-            <Route
-              path="/Profile"
-              element={
+            <Route path="/Profile" element={
                 <PrivateRoute>
                   <Profile />
                 </PrivateRoute>
@@ -79,8 +77,11 @@ function App() {
             <Route path="/Register" element={<Register />} />
             <Route path="/PasswordReset" element={<PasswordReset />} />
             <Route path="/Cart" element={<Cart />} />
-            <Route path="/Orders" element={<Orders />} />
+            <Route path="/CheckoutLogin" element={<CartLogin />} />
             <Route path="/Success" element={<CheckoutSuccess />} />
+            <Route path="/Orders" element={<Orders />} />
+            <Route path="/Terms" element={<Terms />} />
+            
           </Route>
         </Routes>
       </authContext.Provider>

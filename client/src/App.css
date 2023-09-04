@@ -4,6 +4,9 @@
   margin: 0 auto;
 }
 
+a {
+  text-decoration: none;
+}
 
 @keyframes logo-spin {
   from {

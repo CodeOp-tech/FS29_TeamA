@@ -1,8 +1,12 @@
 import "./Product.css"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
+import CartContext from "../context/cart/CartContext";
 
 export default function Product() {
+
+    const {addToCart} = useContext(CartContext);
+
     const [product, setProduct] = useState({
         name: "",
         price: null,
@@ -28,7 +32,7 @@ export default function Product() {
             });
             const data = await response.json();
 
-            const priceInCents = data[0].price;
+            const priceInCents = (data[0].price) / 10;
             const priceInDollars = (priceInCents / 100).toFixed(2);
 
             setProduct({ ...data[0], price: priceInDollars});
@@ -121,7 +125,12 @@ export default function Product() {
                     <span>{quantity}</span>
                     <button onClick={increaseQuantity}>+</button>
                 
-                    <button onClick={handleAddToCart}>Add To Cart</button>
+                    <button 
+                        disabled={quantity === 0}
+                        onClick={() => addToCart(product)}
+                    >
+                        Add To Cart
+                    </button>
                 </div>
             </div>
         </div>
