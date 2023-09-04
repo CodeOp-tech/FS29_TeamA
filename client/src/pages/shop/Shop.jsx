@@ -26,19 +26,24 @@ export default function Products() {
 
   return (
     <div>
-      <h2>Products</h2>
       {/* <div className="featured-image">
         <img src={featureImage.image_1} />
       </div> */}
       <div className="card-grid">
         {products.map((product) => (
-          <div key={product.id} className="card">
-            <img src={product.image_1} alt="Image" className="card-img" />
-            <h2 className="card-title">{product.name}</h2>
-            <button>
-              <Link to={`/Shop/${product.id}`}>Details</Link>
-            </button>
-          </div>
+          // <div key={product.id} className="card">
+          //   <img src={product.image_1} alt="Image" className="card-img" />
+          //   <h2 className="card-title">{product.name}</h2>
+          //   <button>
+          //     <Link to={`/Shop/${product.id}`}>Details</Link>
+          //   </button>
+          // </div>
+          <Link key={product.id} className="card" to={`/Shop/${product.id}`}>
+            <div>
+              <img src={product.image_1} alt="Image" className="card-img" />
+              <h2 className="card-title">{product.name}</h2>
+            </div>
+          </Link>
         ))}
       </div>
     </div>

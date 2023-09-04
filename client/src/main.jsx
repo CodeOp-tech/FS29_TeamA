@@ -3,11 +3,17 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx';
 import './index.css';
+import CartState from "./context/cart/CartState";
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+  
+      <BrowserRouter>
+      <CartState>
+        <App />
+      </CartState>
+      </BrowserRouter>
+  
   </React.StrictMode>
 )
