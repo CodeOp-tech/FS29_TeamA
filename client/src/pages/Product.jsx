@@ -1,8 +1,12 @@
 import "./Product.css"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
+import CartContext from "../context/cart/CartContext";
 
 export default function Product() {
+
+    const {addToCart} = useContext(CartContext);
+
     const [product, setProduct] = useState({
         name: "",
         price: null,
@@ -121,7 +125,11 @@ export default function Product() {
                     <span>{quantity}</span>
                     <button onClick={increaseQuantity}>+</button>
                 
-                    <button onClick={handleAddToCart}>Add To Cart</button>
+                    <button 
+                        onClick={() => addToCart(product)}
+                    >
+                        Add To Cart
+                    </button>
                 </div>
             </div>
         </div>

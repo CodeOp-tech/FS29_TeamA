@@ -1,28 +1,26 @@
-// import ShopItem from '../../interface/shop-item.interface';
-
 export const addPriceToTotal = (totalCost, cartItemPrice) => {
   return totalCost + cartItemPrice;
-}
+};
 
-export const removePriceFromTotal = (totalCost: number, cartItemPrice: number): number => {
+export const removePriceFromTotal = (totalCost, cartItemPrice) => {
   return totalCost - cartItemPrice;
-}
+};
 
-export const addItemToCount = (cartItemCount: number, count: number): number => {
+export const addItemToCount = (cartItemCount, count) => {
   return cartItemCount + count;
-}
+};
 
-export const removeItemFromCount = (cartItemCount: number, count: number): number => {
+export const removeItemFromCount = (cartItemCount, count) => {
   return cartItemCount - count;
-}
+};
 
-export const addItemToCart = (cartItems: ShopItem[], cartItemToAdd: ShopItem) => {
+export const addItemToCart = (cartItems, cartItemToAdd) => {
   const existingCartItem = cartItems.find(
     cartItem => cartItem.name === cartItemToAdd.name
   );
 
 	if (existingCartItem) {
-   return cartItems.map(cartItem =>
+  return cartItems.map(cartItem =>
       cartItem.name === cartItemToAdd.name
         ? { ...cartItem, quantity: cartItem.quantity + 1 }
         : cartItem
@@ -32,9 +30,9 @@ export const addItemToCart = (cartItems: ShopItem[], cartItemToAdd: ShopItem) =>
   return [...cartItems, { ...cartItemToAdd, quantity: 1 }];
 };
 
-export const removeItemFromCart = (cartItems: ShopItem[], cartItemToRemove: ShopItem): ShopItem[] => {
+export const removeItemFromCart = (cartItems, cartItemToRemove) => {
 	const existingCartItem = cartItems.find(
-   cartItem => cartItem.name === cartItemToRemove.name
+    cartItem => cartItem.name === cartItemToRemove.name
 	);
 
   if (existingCartItem.quantity === 1) {
@@ -48,18 +46,18 @@ export const removeItemFromCart = (cartItems: ShopItem[], cartItemToRemove: Shop
   );
 };
 
-export const filterItemFromCart = (cartItems: ShopItem[], item: ShopItem) =>
+export const filterItemFromCart = (cartItems, item) =>
   cartItems.filter(cartItem => cartItem.name !== item.name);
 
-export const getCartItemsCount = (cartItems: ShopItem[]) =>
+export const getCartItemsCount = (cartItems) =>
   cartItems.reduce(
-    (accumalatedQuantity: number, cartItem: ShopItem) => accumalatedQuantity + cartItem.quantity,
+    (accumalatedQuantity, cartItem) => accumalatedQuantity + cartItem.quantity,
     0
-  );
+);
 
-export const getCartTotalCost = (cartItems: ShopItem[]) =>
+export const getCartTotalCost = (cartItems) =>
   cartItems.reduce(
-    (accumalatedQuantity: number, cartItem: ShopItem) =>
+    (accumalatedQuantity, cartItem) =>
       accumalatedQuantity + cartItem.quantity * cartItem.price,
     0
-  );
+);
