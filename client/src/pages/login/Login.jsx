@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import authContext from "../../context/AuthContext";
-import axios from "axios";
 import "./Login.css";
 
 function Login() {
@@ -13,7 +12,7 @@ function Login() {
 
   const navigate = useNavigate();
 
-  const [data, setData] = useState(null);
+  // const [data, setData] = useState(null);
 
   const auth = useContext(authContext);
   console.log(auth);
@@ -27,17 +26,6 @@ function Login() {
 
   const login = async () => {
     auth.login(credentials);
-    try {
-      const { data } = await axios("/api/auth/profile", {
-        headers: {
-          authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      });
-      console.log(data);
-      navigate("/Profile");
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   const logout = () => {

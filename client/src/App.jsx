@@ -9,7 +9,6 @@ import PrivateRoute from "./components/PrivateRoute.jsx";
 
 // Routes and pages
 import NFT from "./pages/NFT";
-
 import Home from "./pages/home/Home";
 import Shop from "./pages/shop/Shop";
 import Brands from "./pages/brands/Brands";
@@ -23,20 +22,22 @@ import Orders from "./pages/Orders";
 import PasswordReset from "./pages/login/PasswordReset";
 import Product from "./pages/Product";
 import Terms from "./pages/footer/Terms";
+import CartLogin from "./pages/cartLogin/CartLogin";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   // const [cart, setCart] = useState([]);
 
-  const login = async (user) => {
+  const login = async (user, cb) => {
     try {
       const { data } = await axios("api/auth/login", {
         method: "POST",
-        data: user,
+        data: user
       });
       //store it locally
       localStorage.setItem("token", data.token);
       setIsLoggedIn(true);
+      if (cb) cb();
     } catch (error) {
       console.log(error);
     }
@@ -76,6 +77,7 @@ function App() {
             <Route path="/Register" element={<Register />} />
             <Route path="/PasswordReset" element={<PasswordReset />} />
             <Route path="/Cart" element={<Cart />} />
+            <Route path="/CheckoutLogin" element={<CartLogin />} />
             <Route path="/Success" element={<CheckoutSuccess />} />
             <Route path="/Orders" element={<Orders />} />
             <Route path="/Terms" element={<Terms />} />
