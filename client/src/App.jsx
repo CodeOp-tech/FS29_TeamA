@@ -81,8 +81,7 @@ function App() {
             <Route path="/Success" element={<CheckoutSuccess />} />
             <Route path="/PasswordReset" element={<PasswordReset />} />
             <Route path="/Cart" element={<Cart />} />
-            <Route path="/success" element={<CheckoutSuccess />} />
-            <Route path="/orders" element={<Orders />} />
+           
           </Route>
         </Routes>
       </authContext.Provider>
