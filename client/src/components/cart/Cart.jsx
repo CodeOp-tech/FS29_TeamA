@@ -1,13 +1,14 @@
-import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { useContext} from "react";
 import "./Cart.css";
 import CartContext from "../../context/cart/CartContext";
-// import formatCurrency from "format-currency";
+import { formatCurrency } from "../../utils/formatCurrency";
 import CartItem from "../cartItem/CartItem";
+import CartPage from "../../pages/cart/CartPage"
 
 
 export default function Cart() {
 	const { showCart, cartItems, showHideCart } = useContext(CartContext);
-	// let opts = { format: "%s%v", symbol: "€" };
 
 	return (
 		<>
@@ -16,7 +17,7 @@ export default function Cart() {
          <div style={{ textAlign: "right" }}>
 				<i
 					style={{ cursor: "pointer" }}
-					className='fa fa-times-circle'
+					className='fa-times-circle'
 					aria-hidden='true'
 					onClick={showHideCart}
 				>
@@ -27,22 +28,24 @@ export default function Cart() {
             <h4>Cart is Empty</h4>
             ) : (
             <ul>
-               {cartItems.map((item) => (
-                  <CartItem key={item._id} item={item} />
+					{cartItems.map((item) => (
+                  <CartItem key={item.id} item={item} />
                ))}
             </ul>
             )}
          </div>
          <div className='Cart__cartTotal'>
             <div>Cart Total</div>
-            <div></div>
-            <div style={{ marginLeft: 5 }}>
-				{cartItems.reduce((amount, item) => item.price + amount, 0)}
-            {/* {formatCurrency(
-               cartItems.reduce((amount, item) => item.price + amount, 0),
-               opts
-            )} */}
+            <div className="cartTotal" style={{ marginLeft: 5 }}>
+            {formatCurrency(
+               cartItems.reduce((amount, item) => +item.price + amount, 0)
+            )}
             </div>
+         </div>
+         <div>
+            <button>
+               <Link to="/CartPage">View Cart</Link>
+            </button>
          </div>
       </div>
       )}

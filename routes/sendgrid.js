@@ -24,6 +24,7 @@ router.post('/contact', (req, res) => {
       res.send("Message Could not be Sent");
    }
 });
+
 router.post('/send', (req, res) => {
    console.log(req);
    const msg = {

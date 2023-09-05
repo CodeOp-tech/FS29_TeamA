@@ -1,6 +1,7 @@
 import "./Product.css"
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
+import { formatCurrency } from "../utils/formatCurrency";
 import CartContext from "../context/cart/CartContext";
 
 export default function Product() {
@@ -117,7 +118,7 @@ export default function Product() {
                     <h2>By {product.brand}</h2>
                     <h3>{product.collection}</h3>
                     <p>{product.description}</p>
-                    <p>{product.price} USD</p>
+                    <p>{formatCurrency(product.price)}</p>
                 </div>
 
                 <div>
