@@ -9,13 +9,12 @@ import PrivateRoute from "./components/PrivateRoute.jsx";
 
 // Routes and pages
 import NFT from "./pages/NFT";
-
 import Home from "./pages/home/Home";
 import Shop from "./pages/shop/Shop";
 import Brands from "./pages/brands/Brands";
 import About from "./pages/about/About";
 import Login from "./pages/login/Login";
-import Cart from "./pages/cart/Cart";
+import CartPage from "./pages/cart/CartPage";
 import Profile from "./pages/profile/Profile";
 import Register from "./pages/login/Register";
 import CheckoutSuccess from "./components/CheckoutSuccess";
@@ -23,12 +22,14 @@ import Orders from "./components/orders/Orders";
 import PasswordReset from "./pages/login/PasswordReset";
 import Product from "./pages/Product";
 import Terms from "./pages/footer/Terms";
+import CartLogin from "./pages/cartLogin/CartLogin";
+import BrandPage from "./pages/brands/BrandPage";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   // const [cart, setCart] = useState([]);
 
-  const login = async (user) => {
+  const login = async (user, cb) => {
     try {
       const { data } = await axios("api/auth/login", {
         method: "POST",
@@ -38,6 +39,7 @@ function App() {
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", data.user);
       setIsLoggedIn(true);
+      if (cb) cb();
     } catch (error) {
       console.log(error);
     }
@@ -66,9 +68,12 @@ function App() {
             <Route path="/Shop" element={<Shop />} />
             <Route path="/Shop/:id" element={<Product />} />
             <Route path="/Brands" element={<Brands />} />
-            <Route path="/About" element={<About />}/>
+            <Route path="/Brands/:id" element={<BrandPage />} />
+            <Route path="/About" element={<About />} />
             <Route path="/Login" element={<Login />} />
-            <Route path="/Profile" element={
+            <Route
+              path="/Profile"
+              element={
                 <PrivateRoute>
                   <Profile />
                 </PrivateRoute>
@@ -76,7 +81,10 @@ function App() {
             />
             <Route path="/Register" element={<Register />} />
             <Route path="/PasswordReset" element={<PasswordReset />} />
-            <Route path="/Cart" element={<Cart />} />
+
+            <Route path="/CartPage" element={<CartPage />} />
+            <Route path="/CheckoutLogin" element={<CartLogin />} />
+
             <Route path="/Success" element={<CheckoutSuccess />} />
             <Route path="/Orders" element={<Orders />} />
             <Route path="/Terms" element={<Terms />} />

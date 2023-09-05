@@ -1,6 +1,7 @@
 import "./Product.css"
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
+import { formatCurrency } from "../utils/formatCurrency";
 import CartContext from "../context/cart/CartContext";
 
 export default function Product() {
@@ -12,6 +13,7 @@ export default function Product() {
         price: null,
         description: "",
         collection: "",
+        units: null,
         image_1: "",
         image_2: "",
         image_3: "",
@@ -22,17 +24,17 @@ export default function Product() {
     const [currentImage, setCurrentImage] = useState("image_1");
 
     useEffect(() => {
-        getProduct();
+        getProduct(id);
     }, [id]);
 
-    const getProduct = async () => {
+    const getProduct = async (id) => {
         try {
             const response = await fetch(`/api/products/${id}`, {
                 method: "GET",
             });
             const data = await response.json();
 
-            const priceInCents = data[0].price;
+            const priceInCents = (data[0].price) / 10;
             const priceInDollars = (priceInCents / 100).toFixed(2);
 
             setProduct({ ...data[0], price: priceInDollars});
@@ -40,15 +42,13 @@ export default function Product() {
             console.log("Error fetching product", error);
         }
     };
-
+    console.log("Product Page State:", product);
     const increaseQuantity = () => {
-        setQuantity(quantity + 1);
+        if (quantity < product.units) setQuantity(quantity + 1);
     };
 
     const decreaseQuantity = () => {
-        if (quantity > 0) {
-            setQuantity(quantity - 1);
-        }
+        if (quantity > 0) setQuantity(quantity - 1);
     };
 
     const prevImage = () => {
@@ -95,8 +95,8 @@ export default function Product() {
             };
 
             // code missing to add cartItem into the cart
-            setQuantity(0);
             console.log(`Added ${quantity} product(s) to the cart`);
+            setQuantity(0);
         }
     };
 
@@ -117,19 +117,24 @@ export default function Product() {
                     <h2>By {product.brand}</h2>
                     <h3>{product.collection}</h3>
                     <p>{product.description}</p>
-                    <p>{product.price} USD</p>
+                    <p>{formatCurrency(product.price)}</p>
                 </div>
 
                 <div>
-                    <button onClick={decreaseQuantity} disabled={quantity === 0}>-</button>
-                    <span>{quantity}</span>
-                    <button onClick={increaseQuantity}>+</button>
-                
-                    <button 
-                        onClick={() => addToCart(product)}
-                    >
-                        Add To Cart
-                    </button>
+                    {product.units ?
+                        (<>
+                            <button onClick={decreaseQuantity} disabled={quantity === 0}>-</button>
+                            <span>{quantity}</span>
+                            <button onClick={increaseQuantity} disabled={quantity === product.units}>+</button>
+                        
+                            <button 
+                                disabled={quantity === 0}
+                                onClick={() => addToCart(product)}
+                            >
+                                Add To Cart
+                            </button>
+                        </>)
+                    : (<p>Out of Order</p>)}
                 </div>
             </div>
         </div>
