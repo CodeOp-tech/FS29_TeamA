@@ -3,6 +3,7 @@ const selectByKey = require("./utils/selectByKey");
 const express = require("express");
 const router = express.Router();
 const db = require("../model/helper");
+const userShouldBeLoggedIn = require("../guards/userShouldBeLoggedIn");
 
 //READ
 
@@ -38,5 +39,16 @@ router.delete("/:id", async function (req, res, next) {
     res.status(500).send(err);
   }
 });
+
+
+
+
+
+
+
+
+
+
+
 
 module.exports = router;

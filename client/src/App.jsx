@@ -19,7 +19,7 @@ import Cart from "./pages/cart/Cart";
 import Profile from "./pages/profile/Profile";
 import Register from "./pages/login/Register";
 import CheckoutSuccess from "./components/CheckoutSuccess";
-import Orders from "./pages/Orders";
+import Orders from "./components/orders/Orders";
 import PasswordReset from "./pages/login/PasswordReset";
 import Product from "./pages/Product";
 import Terms from "./pages/footer/Terms";
@@ -36,6 +36,7 @@ function App() {
       });
       //store it locally
       localStorage.setItem("token", data.token);
+      localStorage.setItem("user", data.user);
       setIsLoggedIn(true);
     } catch (error) {
       console.log(error);
@@ -79,6 +80,7 @@ function App() {
             <Route path="/Success" element={<CheckoutSuccess />} />
             <Route path="/Orders" element={<Orders />} />
             <Route path="/Terms" element={<Terms />} />
+            <Route path="/Orders/all/:user_id" element={<Orders />} />
             
           </Route>
         </Routes>

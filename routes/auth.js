@@ -58,7 +58,7 @@ router.post("/login", async (req, res) => {
       if (!correctPassword) throw new Error("Incorrect password");
 
       const token = jwt.sign({ user_id }, supersecret);
-      res.send({ message: "Login successful, here is your token", token });
+      res.send({ message: "Login successful, here is your token", token, user:user});
    } else {
       throw new Error("User does not exist");
    }
