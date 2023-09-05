@@ -145,7 +145,7 @@ router.post("/checkout", userShouldBeLoggedIn, async (req, res) => {
 
     await products.map((product) =>
       db(
-        `INSERT INTO product_order (product_id, order_id, product_quantity) VALUES (${product.id}, ${last_id}, ${product.quantity});`
+        `INSERT INTO product_order (product_id, order_id, product_quantity) VALUES (${product.id}, ${last_id}, ${product.quantity}); UPDATE products SET units = units - ${product.quantity} WHERE id = ${product.id};`
       )
     );
 

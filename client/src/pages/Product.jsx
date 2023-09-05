@@ -12,6 +12,7 @@ export default function Product() {
         price: null,
         description: "",
         collection: "",
+        units: null,
         image_1: "",
         image_2: "",
         image_3: "",
@@ -42,13 +43,11 @@ export default function Product() {
     };
 
     const increaseQuantity = () => {
-        setQuantity(quantity + 1);
+        if (quantity < product.units) setQuantity(quantity + 1);
     };
 
     const decreaseQuantity = () => {
-        if (quantity > 0) {
-            setQuantity(quantity - 1);
-        }
+        if (quantity > 0) setQuantity(quantity - 1);
     };
 
     const prevImage = () => {
@@ -123,7 +122,7 @@ export default function Product() {
                 <div>
                     <button onClick={decreaseQuantity} disabled={quantity === 0}>-</button>
                     <span>{quantity}</span>
-                    <button onClick={increaseQuantity}>+</button>
+                    <button onClick={increaseQuantity} disabled={quantity === product.units}>+</button>
                 
                     <button 
                         disabled={quantity === 0}
