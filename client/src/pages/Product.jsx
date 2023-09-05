@@ -94,8 +94,8 @@ export default function Product() {
             };
 
             // code missing to add cartItem into the cart
-            setQuantity(0);
             console.log(`Added ${quantity} product(s) to the cart`);
+            setQuantity(0);
         }
     };
 
