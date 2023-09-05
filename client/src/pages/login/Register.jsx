@@ -30,11 +30,12 @@ export default function Register() {
 			});
 			console.log(data.message);
 			setCredentials(data.message);
+
 		} catch (error) {
 			console.log(error);
 			setData(error.message);
 		}
-	}
+	};
 
 	return (
 	<div className="password-reset">
