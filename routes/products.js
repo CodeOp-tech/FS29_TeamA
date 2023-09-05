@@ -14,7 +14,7 @@ const getAllItems = async (req, res) => {
   }
 };
 
-//GET all Products or filtering
+// GET all Products or filtering
 router.get("/", async (req, res) => {
   if (!req.query.search) {
     try {
@@ -41,7 +41,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-//GET single product by its id
+// GET single product by its id
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
 
@@ -56,8 +56,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-//POST new product by id
-
+// POST new product by id
 router.post("/", async (req, res) => {
   //  everything that is aftet the semicolon is a variable, ie whatever, you could write banana if you like
   const {
@@ -86,7 +85,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-//PUT to update the ressource
+// PUT to update the ressource
 router.put("/:id", async (req, res) => {
   const { id } = req.params;
   const {
@@ -112,8 +111,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-//DELETE
-
+// DELETE
 router.delete("/:id", async (req, res) => {
   const { id } = req.params;
 
