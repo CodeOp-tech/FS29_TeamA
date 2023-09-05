@@ -120,16 +120,20 @@ export default function Product() {
                 </div>
 
                 <div>
-                    <button onClick={decreaseQuantity} disabled={quantity === 0}>-</button>
-                    <span>{quantity}</span>
-                    <button onClick={increaseQuantity} disabled={quantity === product.units}>+</button>
-                
-                    <button 
-                        disabled={quantity === 0}
-                        onClick={() => addToCart(product)}
-                    >
-                        Add To Cart
-                    </button>
+                    {product.units ?
+                        (<>
+                            <button onClick={decreaseQuantity} disabled={quantity === 0}>-</button>
+                            <span>{quantity}</span>
+                            <button onClick={increaseQuantity} disabled={quantity === product.units}>+</button>
+                        
+                            <button 
+                                disabled={quantity === 0}
+                                onClick={() => addToCart(product)}
+                            >
+                                Add To Cart
+                            </button>
+                        </>)
+                    : (<p>Out of Order</p>)}
                 </div>
             </div>
         </div>
