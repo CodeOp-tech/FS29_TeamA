@@ -23,10 +23,10 @@ export default function Product() {
     const [currentImage, setCurrentImage] = useState("image_1");
 
     useEffect(() => {
-        getProduct();
+        getProduct(id);
     }, [id]);
 
-    const getProduct = async () => {
+    const getProduct = async (id) => {
         try {
             const response = await fetch(`/api/products/${id}`, {
                 method: "GET",
@@ -41,7 +41,7 @@ export default function Product() {
             console.log("Error fetching product", error);
         }
     };
-
+    console.log("Product Page State:", product);
     const increaseQuantity = () => {
         setQuantity(quantity + 1);
     };
@@ -125,10 +125,11 @@ export default function Product() {
                     <button onClick={decreaseQuantity} disabled={quantity === 0}>-</button>
                     <span>{quantity}</span>
                     <button onClick={increaseQuantity}>+</button>
-                
+                    {console.log(product.price)}
                     <button 
                         disabled={quantity === 0}
                         onClick={() => addToCart(product)}
+                        
                     >
                         Add To Cart
                     </button>
