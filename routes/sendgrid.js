@@ -24,21 +24,20 @@ router.post("/contact", (req, res) => {
     res.send("Message Could not be Sent");
   }
 });
-
-router.post("/send", (req, res) => {
-  console.log(req);
-  const msg = {
-    to: req.body.to, // Change to your recipient
-    from: req.body.from, // Change to your verified sender
-    subject: req.body.subject,
-    text: `Hey, Thank you for joining us!`,
-  };
-  try {
-    sgMail.send(msg);
-    res.send("Message Successfully Sent!");
-  } catch (error) {
-    res.send("Message Could not be Sent");
-  }
+router.post('/send', (req, res) => {
+   console.log(req);
+   const msg = {
+      to: req.body.to, // Change to your recipient
+      from: req.body.from, // Change to your verified sender
+      subject: req.body.subject,
+      text: `Hey, Thank you for joining us!`,
+   }
+   try {
+      sgMail.send(msg);
+      res.send("Message Successfully Sent!");
+   } catch (error) {
+      res.send("Message Could not be Sent");
+   }
 });
 
 module.exports = router;

@@ -21,7 +21,7 @@ li img {
 	border-top: 1px solid gray;
 }
 
-.CartItem__button {
+.Remove_button {
 	margin-left: auto;
 	padding: 4px 8px;
 	border-radius: 4px;
@@ -29,7 +29,7 @@ li img {
 	cursor: pointer;
 }
 
-.CartItem__button:focus,
+.Remove_button:focus,
 .CartItem__button:active {
 	outline: none;
 }

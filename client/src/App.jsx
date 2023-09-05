@@ -14,7 +14,7 @@ import Shop from "./pages/shop/Shop";
 import Brands from "./pages/brands/Brands";
 import About from "./pages/about/About";
 import Login from "./pages/login/Login";
-import Cart from "./pages/cart/Cart";
+import CartPage from "./pages/cart/CartPage";
 import Profile from "./pages/profile/Profile";
 import Register from "./pages/login/Register";
 import CheckoutSuccess from "./components/CheckoutSuccess";
@@ -80,8 +80,10 @@ function App() {
             />
             <Route path="/Register" element={<Register />} />
             <Route path="/PasswordReset" element={<PasswordReset />} />
-            <Route path="/Cart" element={<Cart />} />
+
+            <Route path="/CartPage" element={<CartPage />} />
             <Route path="/CheckoutLogin" element={<CartLogin />} />
+
             <Route path="/Success" element={<CheckoutSuccess />} />
             <Route path="/Orders" element={<Orders />} />
             <Route path="/Terms" element={<Terms />} />
