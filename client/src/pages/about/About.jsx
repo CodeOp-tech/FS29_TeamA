@@ -51,16 +51,16 @@ export default function About() {
             <form onSubmit={contact}>
               <div>
                 <label htmlFor="">Email address</label>
-                <input type="text"name="to" aria-describedby="emailHelp" placeholder="Enter email" value={to} onChange={handleChange}/>
+                <input type="text"name="to" aria-describedby="emailHelp" placeholder="Enter email" value={to} onChange={handleChange} required/>
                 <small>We&apos;ll never share your email with anyone else.</small>
               </div>
               <div>
                 <label htmlFor="">Subject</label>
-                <input type="text" name="subject" aria-describedby="emailHelp" placeholder="Subject" value={subject} onChange={handleChange}/>
+                <input type="text" name="subject" aria-describedby="emailHelp" placeholder="Subject" value={subject} onChange={handleChange} required/>
               </div>
               <div>
                 <label htmlFor="">Message</label>
-                <textarea name="message" placeholder="Message" cols="30" rows="5" value={message} onChange={handleChange}></textarea>
+                <textarea name="message" placeholder="Message" cols="30" rows="5" value={message} onChange={handleChange} required></textarea>
               </div>
               <button type="submit">Submit</button>
             </form>

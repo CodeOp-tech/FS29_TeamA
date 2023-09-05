@@ -33,7 +33,7 @@ export default function Product() {
             });
             const data = await response.json();
 
-            const priceInCents = data[0].price;
+            const priceInCents = (data[0].price) / 10;
             const priceInDollars = (priceInCents / 100).toFixed(2);
 
             setProduct({ ...data[0], price: priceInDollars});
@@ -127,6 +127,7 @@ export default function Product() {
                     <button onClick={increaseQuantity}>+</button>
                 
                     <button 
+                        disabled={quantity === 0}
                         onClick={() => addToCart(product)}
                     >
                         Add To Cart
