@@ -13,6 +13,7 @@ export default function Product() {
         price: null,
         description: "",
         collection: "",
+        units: null,
         image_1: "",
         image_2: "",
         image_3: "",
@@ -43,13 +44,11 @@ export default function Product() {
     };
     console.log("Product Page State:", product);
     const increaseQuantity = () => {
-        setQuantity(quantity + 1);
+        if (quantity < product.units) setQuantity(quantity + 1);
     };
 
     const decreaseQuantity = () => {
-        if (quantity > 0) {
-            setQuantity(quantity - 1);
-        }
+        if (quantity > 0) setQuantity(quantity - 1);
     };
 
     const prevImage = () => {
@@ -96,8 +95,8 @@ export default function Product() {
             };
 
             // code missing to add cartItem into the cart
-            setQuantity(0);
             console.log(`Added ${quantity} product(s) to the cart`);
+            setQuantity(0);
         }
     };
 
@@ -122,17 +121,20 @@ export default function Product() {
                 </div>
 
                 <div>
-                    <button onClick={decreaseQuantity} disabled={quantity === 0}>-</button>
-                    <span>{quantity}</span>
-                    <button onClick={increaseQuantity}>+</button>
-                    {console.log(product.price)}
-                    <button 
-                        disabled={quantity === 0}
-                        onClick={() => addToCart(product)}
+                    {product.units ?
+                        (<>
+                            <button onClick={decreaseQuantity} disabled={quantity === 0}>-</button>
+                            <span>{quantity}</span>
+                            <button onClick={increaseQuantity} disabled={quantity === product.units}>+</button>
                         
-                    >
-                        Add To Cart
-                    </button>
+                            <button 
+                                disabled={quantity === 0}
+                                onClick={() => addToCart(product)}
+                            >
+                                Add To Cart
+                            </button>
+                        </>)
+                    : (<p>Out of Order</p>)}
                 </div>
             </div>
         </div>

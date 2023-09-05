@@ -1,4 +1,5 @@
 var express = require("express");
+
 var router = express.Router();
 const db = require("../model/helper");
 const userShouldBeLoggedIn = require("../guards/userShouldBeLoggedIn");
@@ -10,7 +11,31 @@ router.get("/all", async (req, res) => {
 
   try {
     const results = await db(
-      "SELECT o.*, po.product_quantity, p.name, p.price, p.currency, a.brand, u.firstname, u.lastname, u.guest, pa.approved FROM orders AS o LEFT JOIN product_order AS po ON o.id = po.order_id LEFT JOIN products AS p ON po.product_id = p.id LEFT JOIN artists AS a ON a.id = p.artist_id LEFT JOIN users AS u ON o.user_id = u.id LEFT JOIN payments AS pa ON o.id = pa.order_id ORDER BY o.id ASC;"
+      "SELECT o.*, po.product_quantity, p.name, p.price, a.brand, u.firstname, u.lastname, u.guest, pa.approved FROM orders AS o LEFT JOIN product_order AS po ON o.id = po.order_id LEFT JOIN products AS p ON po.product_id = p.id LEFT JOIN artists AS a ON a.id = p.artist_id LEFT JOIN users AS u ON o.user_id = u.id LEFT JOIN payments AS pa ON o.id = pa.order_id ORDER BY o.id ASC;"
+    );
+
+    res.send(results.data);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
+/* GET all orders for 1 user  */
+router.get("/all/:user_id", async (req, res) => {
+  const { user_id } = req.params;
+  console.log(req.query);
+
+  try {
+    const results = await db(
+      `SELECT o.*, po.product_quantity, p.name, p.price, a.brand, u.firstname, u.lastname, u.guest, pa.approved 
+    FROM orders AS o 
+    LEFT JOIN product_order AS po ON o.id = po.order_id 
+    LEFT JOIN products AS p ON po.product_id = p.id 
+    LEFT JOIN artists AS a ON a.id = p.artist_id 
+    LEFT JOIN users AS u ON o.user_id = u.id 
+    LEFT JOIN payments AS pa ON o.id = pa.order_id 
+    WHERE u.id = ${user_id};
+    `
     );
 
     res.send(results.data);
@@ -26,7 +51,7 @@ router.get("/all/ticket", async (req, res) => {
 
   try {
     const results = await db(
-      "SELECT o.*, po.product_quantity, p.name, p.price, p.currency, a.brand, u.firstname, u.lastname, u.guest, pa.approved FROM orders AS o LEFT JOIN product_order AS po ON o.id = po.order_id LEFT JOIN products AS p ON po.product_id = p.id LEFT JOIN artists AS a ON a.id = p.artist_id LEFT JOIN users AS u ON o.user_id = u.id LEFT JOIN payments AS pa ON o.id = pa.order_id WHERE fulfilled = 1 ORDER BY o.id ASC;"
+      "SELECT o.*, po.product_quantity, p.name, p.price, a.brand, u.firstname, u.lastname, u.guest, pa.approved FROM orders AS o LEFT JOIN product_order AS po ON o.id = po.order_id LEFT JOIN products AS p ON po.product_id = p.id LEFT JOIN artists AS a ON a.id = p.artist_id LEFT JOIN users AS u ON o.user_id = u.id LEFT JOIN payments AS pa ON o.id = pa.order_id WHERE fulfilled = 1 ORDER BY o.id ASC;"
     );
 
     res.send(results.data);
@@ -43,7 +68,7 @@ router.get("/ticket/:order_id", async (req, res) => {
 
   try {
     const results = await db(
-      `SELECT o.*, po.product_quantity, p.name, p.price, p.currency, a.brand, u.firstname, u.lastname, u.guest, pa.approved FROM orders AS o LEFT JOIN product_order AS po ON o.id = po.order_id LEFT JOIN products AS p ON po.product_id = p.id LEFT JOIN artists AS a ON a.id = p.artist_id LEFT JOIN users AS u ON o.user_id = u.id LEFT JOIN payments AS pa ON o.id = pa.order_id WHERE o.id = ${order_id} AND fulfilled = 1;`
+      `SELECT o.*, po.product_quantity, p.name, p.price, a.brand, u.firstname, u.lastname, u.guest, pa.approved FROM orders AS o LEFT JOIN product_order AS po ON o.id = po.order_id LEFT JOIN products AS p ON po.product_id = p.id LEFT JOIN artists AS a ON a.id = p.artist_id LEFT JOIN users AS u ON o.user_id = u.id LEFT JOIN payments AS pa ON o.id = pa.order_id WHERE o.id = ${order_id} AND fulfilled = 1;`
     );
 
     res.send(results.data);
@@ -59,7 +84,7 @@ router.get("/all/checkout", async (req, res) => {
 
   try {
     const results = await db(
-      "SELECT o.*, po.product_quantity, p.name, p.price, p.currency, a.brand, u.firstname, u.lastname, u.guest, pa.approved FROM orders AS o LEFT JOIN product_order AS po ON o.id = po.order_id LEFT JOIN products AS p ON po.product_id = p.id LEFT JOIN artists AS a ON a.id = p.artist_id LEFT JOIN users AS u ON o.user_id = u.id LEFT JOIN payments AS pa ON o.id = pa.order_id WHERE fulfilled = 0 ORDER BY o.id ASC;"
+      "SELECT o.*, po.product_quantity, p.name, p.price, a.brand, u.firstname, u.lastname, u.guest, pa.approved FROM orders AS o LEFT JOIN product_order AS po ON o.id = po.order_id LEFT JOIN products AS p ON po.product_id = p.id LEFT JOIN artists AS a ON a.id = p.artist_id LEFT JOIN users AS u ON o.user_id = u.id LEFT JOIN payments AS pa ON o.id = pa.order_id WHERE fulfilled = 0 ORDER BY o.id ASC;"
     );
 
     res.send(results.data);
@@ -76,7 +101,7 @@ router.get("/checkout/:order_id", async (req, res) => {
 
   try {
     const results = await db(
-      `SELECT o.*, po.product_quantity, p.name, p.price, p.currency, a.brand, u.firstname, u.lastname, u.guest, pa.approved FROM orders AS o LEFT JOIN product_order AS po ON o.id = po.order_id LEFT JOIN products AS p ON po.product_id = p.id LEFT JOIN artists AS a ON a.id = p.artist_id LEFT JOIN users AS u ON o.user_id = u.id LEFT JOIN payments AS pa ON o.id = pa.order_id WHERE o.id = ${order_id} AND fulfilled = 0;`
+      `SELECT o.*, po.product_quantity, p.name, p.price, a.brand, u.firstname, u.lastname, u.guest, pa.approved FROM orders AS o LEFT JOIN product_order AS po ON o.id = po.order_id LEFT JOIN products AS p ON po.product_id = p.id LEFT JOIN artists AS a ON a.id = p.artist_id LEFT JOIN users AS u ON o.user_id = u.id LEFT JOIN payments AS pa ON o.id = pa.order_id WHERE o.id = ${order_id} AND fulfilled = 0;`
     );
 
     res.send(results.data);
@@ -92,7 +117,7 @@ router.get("/all/cancelled", async (req, res) => {
 
   try {
     const results = await db(
-      "SELECT o.*, po.product_quantity, p.name, p.price, p.currency, a.brand, u.firstname, u.lastname, u.guest, pa.approved FROM orders AS o LEFT JOIN product_order AS po ON o.id = po.order_id LEFT JOIN products AS p ON po.product_id = p.id LEFT JOIN artists AS a ON a.id = p.artist_id LEFT JOIN users AS u ON o.user_id = u.id LEFT JOIN payments AS pa ON o.id = pa.order_id WHERE cancelled = 1 ORDER BY o.id ASC;"
+      "SELECT o.*, po.product_quantity, p.name, p.price, a.brand, u.firstname, u.lastname, u.guest, pa.approved FROM orders AS o LEFT JOIN product_order AS po ON o.id = po.order_id LEFT JOIN products AS p ON po.product_id = p.id LEFT JOIN artists AS a ON a.id = p.artist_id LEFT JOIN users AS u ON o.user_id = u.id LEFT JOIN payments AS pa ON o.id = pa.order_id WHERE cancelled = 1 ORDER BY o.id ASC;"
     );
 
     res.send(results.data);
@@ -121,7 +146,7 @@ router.get("/date/:date", async (req, res) => {
   }
 });
 
-/* POST order - this is not working as wanted yet */
+/* POST order (after fulfilled) */
 router.post("/checkout", userShouldBeLoggedIn, async (req, res) => {
   const { total, products } = req.body;
 
@@ -135,9 +160,9 @@ router.post("/checkout", userShouldBeLoggedIn, async (req, res) => {
 
   try {
     const resultyay = await db(
-      `INSERT INTO orders (user_id, total, date) VALUES (${
+      `INSERT INTO orders (user_id, total, fulfilled, cancelled, date) VALUES (${
         req.user_id ? req.user_id : req.body.user_id
-      }, ${total}, '${date}'); select last_insert_id();`
+      }, ${total}, 1, 0, '${date}'); select last_insert_id();`
     );
 
     const last_id = resultyay.data[0].insertId;
@@ -145,13 +170,14 @@ router.post("/checkout", userShouldBeLoggedIn, async (req, res) => {
 
     await products.map((product) =>
       db(
-        `INSERT INTO product_order (product_id, order_id, product_quantity) VALUES (${product.id}, ${last_id}, ${product.quantity});`
+        `INSERT INTO product_order (product_id, order_id, product_quantity) VALUES (${product.id}, ${last_id}, ${product.quantity}); UPDATE products SET units = units - ${product.quantity} WHERE id = ${product.id};`
       )
     );
 
     const results = await db(
       `SELECT o.*, po.product_quantity, p.name, p.price, a.brand, u.firstname, u.lastname, u.guest, pa.approved FROM orders AS o LEFT JOIN product_order AS po ON o.id = po.order_id LEFT JOIN products AS p ON po.product_id = p.id LEFT JOIN artists AS a ON a.id = p.artist_id LEFT JOIN users AS u ON o.user_id = u.id LEFT JOIN payments AS pa ON o.id = po.order_id WHERE o.id = ${last_id}`
     );
+
     res.send(results.data);
   } catch (error) {
     res.status(500).send(error);

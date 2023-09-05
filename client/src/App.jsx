@@ -23,6 +23,7 @@ import PasswordReset from "./pages/login/PasswordReset";
 import Product from "./pages/Product";
 import Terms from "./pages/footer/Terms";
 import CartLogin from "./pages/cartLogin/CartLogin";
+import BrandPage from "./pages/brands/BrandPage";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
@@ -32,7 +33,7 @@ function App() {
     try {
       const { data } = await axios("api/auth/login", {
         method: "POST",
-        data: user
+        data: user,
       });
       //store it locally
       localStorage.setItem("token", data.token);
@@ -66,9 +67,12 @@ function App() {
             <Route path="/Shop" element={<Shop />} />
             <Route path="/Shop/:id" element={<Product />} />
             <Route path="/Brands" element={<Brands />} />
-            <Route path="/About" element={<About />}/>
+            <Route path="/Brands/:id" element={<BrandPage />} />
+            <Route path="/About" element={<About />} />
             <Route path="/Login" element={<Login />} />
-            <Route path="/Profile" element={
+            <Route
+              path="/Profile"
+              element={
                 <PrivateRoute>
                   <Profile />
                 </PrivateRoute>
@@ -83,7 +87,6 @@ function App() {
             <Route path="/Success" element={<CheckoutSuccess />} />
             <Route path="/Orders" element={<Orders />} />
             <Route path="/Terms" element={<Terms />} />
-            
           </Route>
         </Routes>
       </authContext.Provider>
