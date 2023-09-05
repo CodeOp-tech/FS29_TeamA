@@ -138,3 +138,11 @@ INSERT INTO product_order (product_id, order_id, product_quantity) VALUES (2, 1,
 INSERT INTO orders (user_id, total, date) VALUES (1, 130, "2023-08-29");
 INSERT INTO product_order (product_id, order_id, product_quantity) VALUES (3, 2, 3);
 INSERT INTO product_order (product_id, order_id, product_quantity) VALUES (4, 2, 1);
+
+INSERT INTO orders (user_id, total, date) VALUES (2, 160, "2023-05-11");
+INSERT INTO product_order (product_id, order_id, product_quantity) VALUES (11, 3, 1);
+INSERT INTO product_order (product_id, order_id, product_quantity) VALUES (15, 3, 2);
+
+INSERT INTO orders (user_id, total, date) VALUES (2, 130, "2023-02-06");
+INSERT INTO product_order (product_id, order_id, product_quantity) VALUES (13, 4, 3);
+INSERT INTO product_order (product_id, order_id, product_quantity) VALUES (14, 4, 1);

@@ -19,6 +19,30 @@ router.get("/all", async (req, res) => {
   }
 });
 
+/* GET all orders for 1 user  */
+router.get("/all/:user_id", async (req, res) => {
+  const { user_id } = req.params;
+  console.log(req.query);
+
+  try {
+    const results = await db(
+      `SELECT o.*, po.product_quantity, p.name, p.price, a.brand, u.firstname, u.lastname, u.guest, pa.approved 
+    FROM orders AS o 
+    LEFT JOIN product_order AS po ON o.id = po.order_id 
+    LEFT JOIN products AS p ON po.product_id = p.id 
+    LEFT JOIN artists AS a ON a.id = p.artist_id 
+    LEFT JOIN users AS u ON o.user_id = u.id 
+    LEFT JOIN payments AS pa ON o.id = pa.order_id 
+    WHERE u.id = ${user_id};
+    `
+    );
+
+    res.send(results.data);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
 /* GET all fulfilled orders: this is for us */
 router.get("/all/ticket", async (req, res) => {
   console.log(req.query);
