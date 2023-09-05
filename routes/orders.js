@@ -184,16 +184,16 @@ router.post("/checkout", userShouldBeLoggedIn, async (req, res) => {
   }
 });
 
-/* PATCH (update) order to cancelled - not to handle yet in the front-end */
+/* PATCH (update) order to fulfilled */
 router.patch("/ticket/:order_id", async (req, res) => {
   const order_id = req.params.order_id;
   console.log(req.query);
-  console.log("cancel one order");
+  console.log("order fulfilled");
 
   try {
-    await db(`UPDATE orders set cancelled = 1 WHERE id = ${order_id};`);
+    await db(`UPDATE orders SET fulfilled = 1 WHERE id = ${order_id};`);
     const results = await db(
-      `SELECT o.*, po.product_quantity, p.name, p.price, a.name, u.firstname, u.lastname, u.guest, pa.approved FROM orders AS o LEFT JOIN product_order AS po ON o.id = po.order_id LEFT JOIN products AS p ON po.product_id = p.id LEFT JOIN artists AS a ON a.id = p.artist_id LEFT JOIN users AS u ON o.user_id = u.id LEFT JOIN payments AS pa ON o.id = po.order_id WHERE o.id = ${order_id}`
+      `SELECT o.*, po.product_quantity, p.name, p.price, a.brand, u.firstname, u.lastname, u.guest, pa.approved FROM orders AS o LEFT JOIN product_order AS po ON o.id = po.order_id LEFT JOIN products AS p ON po.product_id = p.id LEFT JOIN artists AS a ON a.id = p.artist_id LEFT JOIN users AS u ON o.user_id = u.id LEFT JOIN payments AS pa ON o.id = po.order_id WHERE o.id = ${order_id}`
     );
 
     res.send(results.data);
