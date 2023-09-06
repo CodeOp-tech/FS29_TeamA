@@ -3,9 +3,11 @@ import { useContext } from 'react';
 import CheckoutItem from '../../components/cartItem/CartItem';
 import StripeCheckOutButton from '../../components/StripeCheckOutBtn';
 
+
 import CartContext from "../../context/cart/CartContext";
 
 // const {cartItem, idx} = CheckoutItem;
+
 
 
 const CheckoutPage = () => {

@@ -22,6 +22,7 @@ const CartItem = ({item}) => {
 			Remove
 			</button>
 			<div className="card-btns">
+
 				<button onClick={() => decreaseItem(item)}> - </button>
 				<button onClick={() => addToCart(item)}> + </button>
 			</div>
