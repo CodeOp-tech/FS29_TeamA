@@ -49,8 +49,6 @@ export default function Profile() {
 	
 			</div>
 
-			
-
 		{user && <div> 
 			<h3>Welcome back {user.firstname}!</h3> 
 			
@@ -60,7 +58,7 @@ export default function Profile() {
 
 				<div>
 		 		<Link to="/Orders">Orders</Link>
-			    </div>
+			   </div>
 
 			</div>}
 		</>

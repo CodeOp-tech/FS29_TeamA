@@ -10,7 +10,7 @@ export default function Product() {
 
     const [product, setProduct] = useState({
         name: "",
-        price: null,
+        price: 0,
         description: "",
         collection: "",
         units: null,
@@ -37,16 +37,16 @@ export default function Product() {
             const priceInCents = (data[0].price) / 10;
             const priceInDollars = (priceInCents / 100).toFixed(2);
 
-            setProduct({ ...data[0], price: priceInDollars});
+            setProduct({ ...data[0], price: +priceInDollars});
         } catch (error) {
             console.log("Error fetching product", error);
         }
     };
-    console.log("Product Page State:", product);
+    // console.log("Product Page State:", product);
     const increaseQuantity = () => {
-        if (quantity < product.units) setQuantity(quantity + 1);
+        if (quantity <= product.units) setQuantity(quantity + 1);
     };
-
+    console.log(product.price);
     const decreaseQuantity = () => {
         if (quantity > 0) setQuantity(quantity - 1);
     };
@@ -85,7 +85,6 @@ export default function Product() {
 
     const handleAddToCart = async (e) => {
         e.preventDefault();
-
         if (quantity > 0) {
             const cartItem = {
                 id: product.id,
@@ -93,7 +92,6 @@ export default function Product() {
                 price: product.price,
                 quantity: quantity
             };
-
             // code missing to add cartItem into the cart
             console.log(`Added ${quantity} product(s) to the cart`);
             setQuantity(0);

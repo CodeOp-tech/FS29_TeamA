@@ -36,7 +36,7 @@ function Login() {
     <div className="page-conteiner">
       <div>
         {/* this can be removed since log-out option should be displayed on the Profile page */}
-        {auth.isLoggedIn && (
+        {/* {auth.isLoggedIn && (
           <div className="logout">
             <Link to="/Home" onClick={logout}>
               <svg
@@ -74,7 +74,7 @@ function Login() {
               <p>Sign out</p>
             </Link>
           </div>
-        )}
+        )} */}
         <div className="login-form">
           <div className="login-form-inner">
             <h1>Login</h1>
@@ -86,6 +86,7 @@ function Login() {
                   name="email"
                   type="text"
                   className="form"
+                  required
                 />
               </div>
               <div className="password">
@@ -95,6 +96,7 @@ function Login() {
                   name="password"
                   type="password"
                   className="form"
+                  required
                 />
               </div>
               <div>
