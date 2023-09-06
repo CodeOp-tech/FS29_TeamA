@@ -1,7 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import authContext from "./context/AuthContext";
+import authContext from "./context/authContext";
 import axios from "axios";
 
 //Components
@@ -26,6 +26,7 @@ import CartLogin from "./pages/cartLogin/CartLogin";
 import BrandPage from "./pages/brands/BrandPage";
 import CheckOut from  "./pages/check-out/CheckOut";
 
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   // const [cart, setCart] = useState([]);
@@ -38,9 +39,10 @@ function App() {
       });
       //store it locally
       localStorage.setItem("token", data.token);
-      localStorage.setItem("user", data.user);
+      localStorage.setItem("user", data.user.id);
       setIsLoggedIn(true);
       if (cb) cb();
+      console.log("user is logged in!");
     } catch (error) {
       console.log(error);
     }

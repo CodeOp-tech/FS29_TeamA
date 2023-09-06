@@ -2,6 +2,8 @@ import "./CartPage.css";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import CartContext from "../../context/cart/CartContext";
+// import Cart from "../../components/cart/Cart";
+
 import { formatCurrency } from "../../utils/formatCurrency";
 import CartItem from "../../components/cartItem/CartItem";
 import CheckOut from "../check-out/CheckOut"
@@ -35,6 +37,11 @@ export default function Cart() {
 						</div>
 						)}
 					</div>
+				</div>
+				<div>
+            <button> Checkout
+               {/* <Link to="/CheckOut">Checkout</Link> */}
+            </button>
 				</div>
 			</div>
 		)}
