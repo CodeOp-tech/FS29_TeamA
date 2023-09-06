@@ -3,13 +3,22 @@ import { CartContext } from "../../context/cartContext";
 import CheckoutItem from "../../components/checkout-item";
 import StripeCheckOutButton from "../../components/StripeCheckOutBtn";
 
-const { cartItem, idx } = CheckoutItem;
+
+import CheckoutItem from '../../components/cartItem/CartItem';
+import StripeCheckOutButton from '../../components/StripeCheckOutBtn';
+
+
+import CartContext from "../../context/cart/CartContext";
+
+// const {cartItem, idx} = CheckoutItem;
+
+
 
 const CheckoutPage = () => {
-  const { cartItems, totalCost } = useContext(CartContext);
-
-  return (
-    <div className="checkout-page">
+	const { cartItems, totalCost } = useContext(CartContext);
+	
+	return (
+   <div className="checkout-page">
       <div className="checkout-header">
         <div className="header-block">
           <span>Product</span>
