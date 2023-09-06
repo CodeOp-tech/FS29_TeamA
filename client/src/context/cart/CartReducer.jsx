@@ -36,6 +36,7 @@ const CartReducer = (state, action) => {
 					item => item.id !== action.payload
 				)
 			}
+
 		}
 		case DECREASE_ITEM: {
 			let currentItems = [...state.cartItems];
@@ -64,7 +65,26 @@ const CartReducer = (state, action) => {
 				cartItems: currentItems
 			}
 		}
+		case DECREASE_ITEM: {
+			let currentItems = [...state.cartItems];
 
+			console.log("DECREASE currentItems", currentItems);
+			const existingCartItemIndex = currentItems.findIndex(
+				(item) => item.id === action.payload.id );
+			if (currentItems[existingCartItemIndex].quantity > 1) {
+				const updatedItem = {
+					...currentItems[existingCartItemIndex],
+					quantity: currentItems[existingCartItemIndex].quantity - 1
+				}
+				currentItems[existingCartItemIndex] = updatedItem;
+			} else {
+				currentItems.splice(existingCartItemIndex, 1);
+			}
+			return {
+				...state,
+				cartItems: currentItems
+			}
+		}
 	default: 
 		return state;
 	}

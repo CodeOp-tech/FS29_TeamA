@@ -22,6 +22,7 @@
     border-top: 1px solid gray;
 }
 
+.card-btns  button,
 .Remove_button {
     margin-left: auto;
     padding: 4px 8px;

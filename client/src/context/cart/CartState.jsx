@@ -12,7 +12,6 @@ const CartState = ({children}) => {
 	};
 	console.log("cartItems in the initial state", initialState.cartItems);
 	const [state, dispatch] = useReducer(CartReducer, initialState);
-	console.log(state.item);
 
 	const addToCart = (item) => {
 		dispatch({ type: ADD_TO_CART, payload : item });
@@ -27,6 +26,10 @@ const CartState = ({children}) => {
 	
 	const decreaseItem = (id) => {
 		dispatch({ type: DECREASE_ITEM, payload: id })
+	}
+
+	const decreaseItem = (item) => {
+		dispatch({ type: DECREASE_ITEM, payload: item });
 	}
 
 	return (

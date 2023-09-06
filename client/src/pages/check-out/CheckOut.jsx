@@ -1,15 +1,13 @@
 import { useContext } from 'react';
 
-import './checkout.styles.scss';
-
-import { CartContext } from '../../context/cartContext';
-import CheckoutItem from '../../components/checkout-item';
+import CheckoutItem from '../../components/cartItem/CartItem';
 import StripeCheckOutButton from '../../components/StripeCheckOutBtn';
 
-import { useContext } from "react";
+
 import CartContext from "../../context/cart/CartContext";
 
-const {cartItem, idx} = CheckoutItem;
+// const {cartItem, idx} = CheckoutItem;
+
 
 
 const CheckoutPage = () => {

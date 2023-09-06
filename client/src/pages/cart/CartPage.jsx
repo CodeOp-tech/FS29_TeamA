@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import CartContext from "../../context/cart/CartContext";
 // import Cart from "../../components/cart/Cart";
 
+
 export default function Cart() {
 	const { showCart, cartItems, showHideCart } = useContext(CartContext);
 
@@ -32,8 +33,13 @@ export default function Cart() {
 					</div>
 				</div>
 				<div>
+
+            <button> Checkout
+               {/* <Link to="/CheckOut">Checkout</Link> */}
+            </button>
 					{/* <button><CheckOut></CheckOut></button> */}
 					{/* <Link to="/CheckOut">Check Out</Link> */}
+
 				</div>
 			</div>
 		)}
