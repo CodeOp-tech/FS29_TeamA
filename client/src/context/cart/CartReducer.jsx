@@ -50,7 +50,8 @@ const CartReducer = (state, action) => {
 				}
 				currentItems[existingCartItemIndex] = updatedItem;
 			} else {
-				currentItems.splice(existingCartItemIndex, 1);
+				// currentItems.splice(existingCartItemIndex, 1);
+				currentItems.pop();
 			}
 			return {
 				...state,

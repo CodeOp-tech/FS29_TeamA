@@ -2,7 +2,9 @@ import "./CartPage.css";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import CartContext from "../../context/cart/CartContext";
-
+import { formatCurrency } from "../../utils/formatCurrency";
+import CartItem from "../../components/cartItem/CartItem";
+import CheckOut from "../check-out/CheckOut"
 
 export default function Cart() {
 	const { showCart, cartItems, showHideCart } = useContext(CartContext);
@@ -14,27 +16,25 @@ export default function Cart() {
 				<div>
 					<p>ALL THE CART ITEMS</p>
 					<div>
-					{cartItems.length === 0 ? (
-            <h4>Cart is Empty</h4>
-            ) : (
-            <div>
-					{cartItems.map((item) => (
-						<div className="cartItem" key={item.id}>
-							<div className="cart-img">
-								<img className="cart-img" src={item.image_1} alt={item.name}/>
+						{cartItems.length === 0 ? (
+						<h4>Cart is Empty</h4>
+						) : (
+						<div>
+							<div>
+								<ul>
+									{cartItems.map((item) => (
+										<CartItem key={item.id} item={item} />
+									))}
+								</ul>
 							</div>
-							<p key={item.id}>{item.name} {item.price}</p>
+							<div>
+								<button>
+									CheckOut Now
+								</button>
+							</div>
 						</div>
-                  
-               ))}
-            </div>
-            )}
+						)}
 					</div>
-				</div>
-				<div>
-            <button> Checkout
-               {/* <Link to="/CheckOut">Checkout</Link> */}
-            </button>
 				</div>
 			</div>
 		)}
