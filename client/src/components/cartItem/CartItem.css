@@ -4,19 +4,20 @@
   margin-top: 10px;
 }
 
-li {
+.CartItem__item {
   list-style-type: none;
-
+  height: 100px;
   display: flex;
   gap: 5px;
   align-items: center;
 }
 
-li img {
+.CartItem__item img {
   height: 100%;
   width: 100px;
   object-fit: cover;
 }
+
 .CartItem__item:nth-child(1) {
   border-top: 1px solid gray;
 }

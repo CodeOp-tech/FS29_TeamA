@@ -1,13 +1,18 @@
 import { Link, Outlet } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import CartContext from "../context/cart/CartContext";
-import Cart from "../components/cart/cart";
+import Cart from "../components/cart/Cart";
 import "./NFT.css";
-import authContext from "../context/AuthContext";
+import authContext from "../context/authContext";
 
 export default function NFT() {
   const { cartItems, showHideCart } = useContext(CartContext);
   const auth = useContext(authContext);
+  // const [user, setUser] = localStorage.getItem("token");
+
+  const handleClick = (event) => {
+    console.log("funciona");
+  };
 
   return (
     <div className="app-container">
@@ -29,7 +34,7 @@ export default function NFT() {
           </ul>
           <div className="nav-svg">
             <div>
-              <Link to="/Login">
+              <Link to={auth ? "/Profile" : "/Login"} onClick={handleClick}>
                 <svg width="30px" height="30px" viewBox="0 0 48 48">
                   <path d="M0 0h48v48H0z" fill="none" />
                   <g>

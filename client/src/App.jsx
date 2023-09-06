@@ -1,7 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import authContext from "./context/AuthContext";
+import authContext from "./context/authContext";
 import axios from "axios";
 
 //Components
@@ -40,6 +40,7 @@ function App() {
       localStorage.setItem("user", data.user);
       setIsLoggedIn(true);
       if (cb) cb();
+      console.log("user is logged in!");
     } catch (error) {
       console.log(error);
     }

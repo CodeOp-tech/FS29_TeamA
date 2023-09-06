@@ -1,53 +1,52 @@
-import { useContext } from 'react';
+import { useContext } from "react";
+import { CartContext } from "../../context/cartContext";
+import CheckoutItem from "../../components/checkout-item";
+import StripeCheckOutButton from "../../components/StripeCheckOutBtn";
 
-import './checkout.styles.scss';
-
-import { CartContext } from '../../context/cartContext';
-import CheckoutItem from '../../components/checkout-item';
-import StripeCheckOutButton from '../../components/StripeCheckOutBtn';
-
-const {cartItem, idx} = CheckoutItem;
+const { cartItem, idx } = CheckoutItem;
 
 const CheckoutPage = () => {
-	const { cartItems, totalCost } = useContext(CartContext);
+  const { cartItems, totalCost } = useContext(CartContext);
 
-	return (
-   <div className="checkout-page">
+  return (
+    <div className="checkout-page">
       <div className="checkout-header">
-			<div className="header-block">
-				<span>Product</span>
-			</div>
-			<div className="header-block">
-				<span>Description</span>
-			</div>
-			<div className="header-block">
-				<span>Quantity</span>
-			</div>
-			<div className="header-block">
-				<span>Price</span>
-			</div>
-			<div className="header-block">
-				<span>Remove</span>
-			</div>
+        <div className="header-block">
+          <span>Product</span>
+        </div>
+        <div className="header-block">
+          <span>Description</span>
+        </div>
+        <div className="header-block">
+          <span>Quantity</span>
+        </div>
+        <div className="header-block">
+          <span>Price</span>
+        </div>
+        <div className="header-block">
+          <span>Remove</span>
+        </div>
       </div>
-		{/* {cartItems.map((cartItem, idx) => (
+      {/* {cartItems.map((cartItem, idx) => (
         <CheckoutItem key={idx} cartItem={cartItem}></CheckoutItem>
       ))} */}
-		{cartItems.map((cartItem, idx) => (
-			<p key={idx}>{cartItem = {cartItem}}</p>
-		))}
+      {cartItems.map((cartItem, idx) => (
+        <p key={idx}>{(cartItem = { cartItem })}</p>
+      ))}
 
-      <div className="total"><span>Total: ${totalCost}</span></div>
+      <div className="total">
+        <span>Total: ${totalCost}</span>
+      </div>
 
       <div className="test-warning">
         *Please use the following test credit card for payments*
-      <br/>
-      4242 4242 4242 4242 - Exp: 01/25 - CVV: 123
+        <br />
+        4242 4242 4242 4242 - Exp: 01/25 - CVV: 123
       </div>
-		
-      <button to={StripeCheckOutButton(totalCost)}/>
+
+      <button to={StripeCheckOutButton(totalCost)} />
     </div>
-  )
-}
+  );
+};
 
 export default CheckoutPage;
