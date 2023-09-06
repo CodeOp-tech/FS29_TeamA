@@ -1,8 +1,10 @@
-export default function Page1() {
-	return (
-		<div>
+import Carousel from "../../components/carousel/Carousel";
+export default function Home() {
+  return (
+    <div>
+      <div className="carousel-container"></div>
 
-			<p>The awesome NFT project of team A!</p>
-		</div>
-	)
+      <Carousel />
+    </div>
+  );
 }
