@@ -13,6 +13,7 @@ const stripeRouter = require("./routes/stripe");
 const sendgridRouter = require("./routes/sendgrid");
 const brandsRouter = require("./routes/brands");
 
+
 const app = express();
 
 app.use(logger("dev"));
@@ -31,6 +32,7 @@ app.use("/api/stripe", stripeRouter);
 app.use("/api/sendgrid", sendgridRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/brands", brandsRouter);
+
 
 
 module.exports = app;
