@@ -4,11 +4,13 @@ import "./Cart.css";
 import CartContext from "../../context/cart/CartContext";
 import { formatCurrency } from "../../utils/formatCurrency";
 import CartItem from "../cartItem/CartItem";
-import CartPage from "../../pages/cart/CartPage"
 
 
 export default function Cart() {
 	const { showCart, cartItems, showHideCart } = useContext(CartContext);
+   //const [totalCost, setTotalCost] = useState(0);
+
+   const totalCost = cartItems.reduce((amount, item) => item.price * item.quantity + amount, 0);
 
 	return (
 		<>
@@ -37,14 +39,12 @@ export default function Cart() {
          <div className='Cart__cartTotal'>
             <div>Cart Total</div>
             <div className="cartTotal" style={{ marginLeft: 5 }}>
-            {formatCurrency(
-               cartItems.reduce((amount, item) => +item.price + amount, 0)
-            )}
+            {formatCurrency(totalCost)}
             </div>
          </div>
          <div>
             <button>
-               <Link to="/CartPage">View Cart</Link>
+               <Link to="/CartPage">ManageCart</Link>
             </button>
          </div>
       </div>

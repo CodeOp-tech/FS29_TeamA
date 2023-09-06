@@ -49,9 +49,7 @@ export default function Profile() {
 	
 			</div>
 
-			
-
-		{user && <div style={{marginTop: "100px"}} > 
+		{user && <div> 
 			<h3>Welcome back {user.firstname}!</h3> 
 			
 				<p>
@@ -60,7 +58,7 @@ export default function Profile() {
 
 				<div>
 		 		<Link to="/Orders">Orders</Link>
-			    </div>
+			   </div>
 
 			</div>}
 		</>

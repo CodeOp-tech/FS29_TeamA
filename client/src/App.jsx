@@ -85,12 +85,10 @@ function App() {
 
             <Route path="/CartPage" element={<CartPage />} />
             <Route path="/CheckoutLogin" element={<CartLogin />} />
-
             <Route path="/Success" element={<CheckoutSuccess />} />
             <Route path="/Orders" element={<Orders />} />
             <Route path="/Terms" element={<Terms />} />
             <Route path="/Orders/all/:user_id" element={<Orders />} />
-            
           </Route>
         </Routes>
       </authContext.Provider>
