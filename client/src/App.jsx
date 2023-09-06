@@ -25,6 +25,7 @@ import Terms from "./pages/footer/Terms";
 import CartLogin from "./pages/cartLogin/CartLogin";
 import BrandPage from "./pages/brands/BrandPage";
 
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   // const [cart, setCart] = useState([]);
@@ -37,7 +38,7 @@ function App() {
       });
       //store it locally
       localStorage.setItem("token", data.token);
-      localStorage.setItem("user", data.user);
+      localStorage.setItem("user", data.user.id);
       setIsLoggedIn(true);
       if (cb) cb();
     } catch (error) {
