@@ -10,6 +10,7 @@ export default function Cart() {
 	const { showCart, cartItems, showHideCart } = useContext(CartContext);
    //const [totalCost, setTotalCost] = useState(0);
 
+
    const totalCost = cartItems.reduce((amount, item) => item.price * item.quantity + amount, 0);
 
 	return (
