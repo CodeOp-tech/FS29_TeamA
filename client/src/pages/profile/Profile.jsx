@@ -51,7 +51,7 @@ export default function Profile() {
 
 			
 
-		{user && <div> 
+		{user && <div style={{marginTop: "100px"}} > 
 			<h3>Welcome back {user.firstname}!</h3> 
 			
 				<p>

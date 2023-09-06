@@ -15,7 +15,6 @@ import Brands from "./pages/brands/Brands";
 import About from "./pages/about/About";
 import Login from "./pages/login/Login";
 import CartPage from "./pages/cart/CartPage";
-import CartPage from "./pages/cart/CartPage";
 import Profile from "./pages/profile/Profile";
 import Register from "./pages/login/Register";
 import CheckoutSuccess from "./components/CheckoutSuccess";
@@ -25,8 +24,7 @@ import Product from "./pages/Product";
 import Terms from "./pages/footer/Terms";
 import CartLogin from "./pages/cartLogin/CartLogin";
 import BrandPage from "./pages/brands/BrandPage";
-import CartLogin from "./pages/cartLogin/CartLogin";
-import BrandPage from "./pages/brands/BrandPage";
+
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
@@ -40,7 +38,7 @@ function App() {
       });
       //store it locally
       localStorage.setItem("token", data.token);
-      localStorage.setItem("user", data.user);
+      localStorage.setItem("user", data.user.id);
       setIsLoggedIn(true);
       if (cb) cb();
     } catch (error) {
@@ -84,10 +82,6 @@ function App() {
             />
             <Route path="/Register" element={<Register />} />
             <Route path="/PasswordReset" element={<PasswordReset />} />
-
-            <Route path="/CartPage" element={<CartPage />} />
-            <Route path="/CheckoutLogin" element={<CartLogin />} />
-
 
             <Route path="/CartPage" element={<CartPage />} />
             <Route path="/CheckoutLogin" element={<CartLogin />} />
