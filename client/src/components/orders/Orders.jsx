@@ -24,13 +24,28 @@ function Orders () {
         useEffect (() => {
          
           getOrders();
-        },[]);
+        },[user_id]);
 
 
         const getUserId=() => {
-          const user_id = localStorage.getItem("user")
-          setUser_id(user_id)
+          const userId = localStorage.getItem("user")
+          setUser_id(userId)
+          console.log(userId)
         }
+
+
+        //Group orders
+        const groupOrdersByOrderNumber = (orderData) => {
+          const groupedOrders = {};
+          orderData.forEach((order) => {
+            if (!groupedOrders[order.id]) {
+              groupedOrders[order.id] = [];
+            }
+            groupedOrders[order.id].push(order);
+          });
+          return groupedOrders;
+        };
+
 
 
             //fetch order history based on user_id
@@ -40,11 +55,20 @@ function Orders () {
              method: "GET",
         };
         try {
-      
-        const response = await fetch (`/api/Orders/all/${user_id}`);
-        const data = await response.json();
+          if (user_id) {
+            console.log(user_id)
+            const response = await fetch (`/api/Orders/all/${user_id}`, options);
+            const data = await response.json();
+    
+          // Group orders by order number
+           const groupedOrders = groupOrdersByOrderNumber(data);
 
-        setOrders(data);
+          setOrders(groupedOrders);
+
+          }
+          //group
+      
+      
         } catch (err) {
           console.log(`network error: ${err.message}`);
         }
@@ -55,33 +79,33 @@ function Orders () {
 
 
 return (
-    <div>
+    <div style={{marginTop: "100px"}}>
         <h3>Orders</h3>
        
         
-        <div>
-          <table>
-            <thead>
-            <tr>
-              <th>Order Number</th>
-              <th>Cost</th>
-              <th>Date</th>
-            </tr>
-            </thead>
-            <tbody>
-              {orders.map((order) => (
-                <tr key={order.id}>   
-                  <td>{order.id}</td>
-                  <td>{order.total}</td>
-                  <td>{order.date}</td>
-                </tr> 
-              ))} 
-                
-            </tbody>
-          </table>
-          
-          
-        </div>       
+       <div>
+        {Object.keys(orders).map((orderNumber) => (
+          <div key={orderNumber}>
+            <h4>Order Number: {orderNumber}</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Cost</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                {orders[orderNumber].map((order) => (
+                  <tr key={order.id}>
+                    <td>{order.total}</td>
+                    <td>{new Date(order.date).toLocaleDateString()}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ))}
+      </div>
       
       
       
