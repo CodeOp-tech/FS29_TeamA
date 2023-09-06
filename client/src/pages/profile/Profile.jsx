@@ -17,6 +17,7 @@ export default function Profile() {
     auth.logout();
   };
 
+
   const getUser = async () => {
     try {
       const { data } = await axios("/api/auth/profile", {
@@ -75,6 +76,7 @@ export default function Profile() {
           <h3>Welcome back {user.firstname}!</h3>
 
           <p>User: {user.email}'s profile</p>
+
 
           <div>
             <Link to="/Orders">Orders</Link>
