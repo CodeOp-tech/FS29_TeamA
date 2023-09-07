@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState} from "react";
+import { useState } from "react";
 import axios from "axios";
 import "./Login.css";
 
@@ -11,8 +11,6 @@ export default function Register() {
 		password: "",
 		marketing: 0
 	});
-	
-	const [data, setData] = useState(null);
 
 	const {firstname, lastname, email, password, marketing} = credentials;
 
@@ -33,7 +31,6 @@ export default function Register() {
 
 		} catch (error) {
 			console.log(error);
-			setData(error.message);
 		}
 	};
 

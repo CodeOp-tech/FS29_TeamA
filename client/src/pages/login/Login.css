@@ -41,9 +41,7 @@
 	width: 100%;
 	margin-top: 10px;
 	border-radius: 2px;
-	background-color: rgb(235, 36, 182)
 }
-
 
 .form-footer {
 	display: flex;
@@ -63,7 +61,7 @@
 	box-shadow: 8px 8px 8px 8px #cbcccc;
 }
 
-.email-form
+.email-form,
 .reset-promo {
 	display: flex;
 	flex-direction: column;

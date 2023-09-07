@@ -29,13 +29,9 @@ const CartState = ({ children }) => {
     dispatch({ type: REMOVE_ITEM, payload: id });
   };
 
-  const decreaseItem = (id) => {
-    dispatch({ type: DECREASE_ITEM, payload: id });
+  const decreaseItem = (item) => {
+    dispatch({ type: DECREASE_ITEM, payload: item });
   };
-
-  // const decreaseItem = (item) => {
-  // 	dispatch({ type: DECREASE_ITEM, payload: item });
-  // }
 
   return (
     <CartContext.Provider
@@ -52,4 +48,6 @@ const CartState = ({ children }) => {
     </CartContext.Provider>
   );
 };
+
+>>>>>>> 181ff4e973adb598e675388b873f15b7e9915a3f
 export default CartState;

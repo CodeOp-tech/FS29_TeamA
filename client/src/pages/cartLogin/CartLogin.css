@@ -1,6 +1,6 @@
 #CartLogin{
     display: grid;
-    grid-template-columns: repeat(auto-fill, 500px);
+    grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
     column-gap: 20px;
     row-gap: 30px;
     justify-content: center;
@@ -8,11 +8,17 @@
     margin-top: 20px;
 }
 
+@media (max-width: 150px) {
+    #CartLogin {
+        grid-template-columns: 1fr;
+    }
+}
+
 #loginForm, #registerForm, #guestForm{
-    padding: 20px;
+    padding: 30px;
     margin: auto;
     border: 1px solid #e5e5e5;
-    width: 400px;
+    width: 500px;
 }
 
 #CartLogin button{
@@ -26,12 +32,18 @@ input.checkbox{
 }
 
 #CartLogin h2{
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     text-align: center;
+    font-size: xx-large;
+    margin-top: -10px;
+}
+
+#CartLogin label{
+    font-size: large;
 }
 
 #CartLogin input{
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
 #CartLogin label{
