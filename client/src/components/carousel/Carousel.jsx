@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+// import Slider from "react-slick";
 
 export default function Carousel() {
   const [productPics, setProductsPics] = useState([]);
@@ -37,10 +38,10 @@ export default function Carousel() {
   }, []);
   return (
     <div>
-      <div className=" carousel  mt-14 mb-14 sticky top-0 space-x-4 h-150	">
+      <div className=" carousel  mt-14 mb-14 sticky top-30 space-x-4 h-150	">
         {/*items-center*/}
         {productPics.map((product) => (
-          <img 
+          <img
             key={product.id}
             id={product.id}
             src={product.image_1}
