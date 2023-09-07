@@ -22,7 +22,7 @@ export default function CartLogin(props) {
         {},
         {
           headers: {
-            authorization: `Bearer ${auth.token}`,
+            authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         }
       );
