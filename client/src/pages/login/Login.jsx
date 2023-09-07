@@ -12,8 +12,6 @@ function Login() {
 
   const navigate = useNavigate();
 
-  // const [data, setData] = useState(null);
-
   const auth = useContext(authContext);
   console.log(auth);
 
