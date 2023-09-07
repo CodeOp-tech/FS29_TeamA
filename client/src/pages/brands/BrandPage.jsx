@@ -46,15 +46,21 @@ export default function BrandPage() {
       <div>
         <div className="brands-container">
           <div className="card-grid">
-            <div>{brand.brand}</div>
-            <div>{brand.about}</div>
+            <div className="flex items-center" >
+            <div className='text-3xl mt-0 text-left font-bold'>{brand.brand}</div>
+            <div className="px-3 py-1 text-left text-sm leading-4 font-medium uppercase tracking-wider flex-grow overflow-hidden ">{brand.about}</div>
+            </div>
           </div>
         </div>
         <div id="brand-products">
           {products.length &&
             products.map((product) => (
-              <div key={product.id}>
+              <div key={product.id} className="flex items-center">
+                
+                
+               
                 <img src={product.image_1} />
+               
                 <h4>{product.name}</h4>
               </div>
             ))}
