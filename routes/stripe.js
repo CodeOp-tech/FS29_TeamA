@@ -69,7 +69,7 @@ router.post(
       })),
       mode: "payment",
       success_url: `http://localhost:5173/Success?order_id=${last_id}`,
-      cancel_url: `http://localhost:5173/Cart`, //to cart page
+      cancel_url: `http://localhost:5173/CartPage`, //to cart page
     });
 
     console.log(session);

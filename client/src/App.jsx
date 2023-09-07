@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import authContext from "./context/authContext";
 import axios from "axios";
@@ -24,8 +24,7 @@ import Product from "./pages/Product";
 import Terms from "./pages/footer/Terms";
 import CartLogin from "./pages/cartLogin/CartLogin";
 import BrandPage from "./pages/brands/BrandPage";
-import CheckOut from  "./pages/check-out/CheckOut";
-
+import CheckOut from "./pages/check-out/CheckOut";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
@@ -55,6 +54,15 @@ function App() {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
   };
+
+  useEffect(() => {
+    // if there is a localstora token, then the user is logged in
+    if (localStorage.getItem("token")) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, []);
 
   const authContentextObject = {
     isLoggedIn,
