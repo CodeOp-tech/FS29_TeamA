@@ -34,11 +34,11 @@ function App() {
 
   const login = async (user, cb) => {
     try {
-      const data = await axios("api/auth/login", {
+      const { data } = await axios("/api/auth/login", {
         method: "POST",
         data: user,
       });
-      
+
       //store it locally
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", data.user.id);

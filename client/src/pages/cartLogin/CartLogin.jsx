@@ -5,28 +5,30 @@ import authContext from "../../context/authContext";
 import axios from "axios";
 
 export default function CartLogin(props) {
-    const auth = useContext(authContext);
+  const auth = useContext(authContext);
 
-
-  const [credentials, setCredentials] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
-    marketing: false,
-  });
-
+    const [credentials, setCredentials] = useState({
+        firstname: "",
+        lastname: "",
+        email: "",
+        password: "",
+        marketing: false
+    });
 
     const redirectPayment = async () => {
         try {
             const data = await axios.post("/api/stripe/create-checkout-session");
 
-      console.log(data.url);
-      window.location.replace(data.url);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+            console.log(data.url);
+            window.location.replace(data.url);
+
+            console.log(data.id);
+            props.setId(data.id);
+
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
   const login = async (e) => {
     e.preventDefault();
@@ -79,56 +81,54 @@ export default function CartLogin(props) {
 
   return (
     <>
-      {auth.isLoggedIn ? (
-        { redirectPayment }
-      ) : (
-        <div id="CartLogin">
-            <form id="loginForm" onSubmit={login}>
-                <h2>I'm already a user...</h2>
+        {auth.isLoggedIn ? 
+            {redirectPayment} : (
+            <div id="CartLogin">
 
-                <div className="form-requirements">
-                    <label>Email 
+                <form id="loginForm" onSubmit={login}>
+                    <h2>I'm already a user...</h2>
+
+                    <div className="form-requirements">
+                        <label>Email 
+                            <input
+                            value={credentials.email}
+                            onChange={handleChange}
+                            name="email"
+                            type="text" />
+                        </label>
+
+                        <label>Password 
+                            <input
+                            value={credentials.password}
+                            onChange={handleChange}
+                            name="password"
+                            type="password" />
+                        </label>
+                    </div>
+
+                    <button>Log In</button>
+                </form>
+
+                <form id="registerForm" onSubmit={register}>
+                    <h2>I want to become a user...</h2>
+
+                    <label>Firstname
                         <input
-                        value={credentials.email}
+                        value={credentials.firstname}
                         onChange={handleChange}
-                        name="email"
-                        type="text" />
+                        name="firstname"
+                        type="text"
+                        />
                     </label>
 
-                    <label>Password 
+                    <label>Lastname
                         <input
-                        value={credentials.password}
+                        value={credentials.lastname}
                         onChange={handleChange}
-                        name="password"
-                        type="password" />
+                        name="lastname"
+                        type="text"
+                        />
                     </label>
-                </div>
-
-                <button>Log In</button>
-            </form>
-
-            <form id="registerForm" onSubmit={register}>
-                <h2>I want to become a user...</h2>
-
-            <label>
-                Firstname
-                <input
-                    value={credentials.firstname}
-                    onChange={handleChange}
-                    name="firstname"
-                    type="text"
-                />
-                </label>
-
-                <label>
-                Lastname
-                <input
-                    value={credentials.lastname}
-                    onChange={handleChange}
-                    name="lastname"
-                    type="text"
-                />
-            </label>
 
             <label>
               Email
@@ -200,8 +200,9 @@ export default function CartLogin(props) {
             <button>Continue as guest</button>
           </form>
 
-        </div>
-      )}
+                {/* {auth.isLoggedIn && navigate("/Profile")} */}
+            </div>
+        )}
     </>
-  );
-      }
+    )
+}
