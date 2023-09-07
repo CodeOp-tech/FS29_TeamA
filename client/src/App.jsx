@@ -1,7 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import authContext from "./context/AuthContext";
+import authContext from "./context/authContext";
 import axios from "axios";
 
 //Components
@@ -28,13 +28,15 @@ import BrandPage from "./pages/brands/BrandPage";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   // const [cart, setCart] = useState([]);
+  const [id, setId] = useState(null);
 
   const login = async (user, cb) => {
     try {
-      const { data } = await axios("api/auth/login", {
+      const data = await axios("api/auth/login", {
         method: "POST",
         data: user,
       });
+      
       //store it locally
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", data.user);
@@ -81,10 +83,9 @@ function App() {
             />
             <Route path="/Register" element={<Register />} />
             <Route path="/PasswordReset" element={<PasswordReset />} />
-
             <Route path="/CartPage" element={<CartPage />} />
-            <Route path="/CheckoutLogin" element={<CartLogin />} />
-            <Route path="/Success" element={<CheckoutSuccess />} />
+            <Route path="/CheckoutLogin" element={<CartLogin setId={setId} />} />
+            <Route path="/Success" element={<CheckoutSuccess id={id} />} />
             <Route path="/Orders" element={<Orders />} />
             <Route path="/Terms" element={<Terms />} />
             <Route path="/Orders/all/:user_id" element={<Orders />} />

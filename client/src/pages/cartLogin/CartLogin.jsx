@@ -1,10 +1,10 @@
 import "./CartLogin.css";
 import { useContext, useState } from "react";
 import { useNavigate, Navigate, redirect } from "react-router-dom";
-import authContext from "../../context/AuthContext";
+import authContext from "../../context/authContext";
 import axios from "axios";
 
-export default function CartLogin() {
+export default function CartLogin(props) {
     const auth = useContext(authContext);
 
     const [credentials, setCredentials] = useState({
@@ -17,12 +17,13 @@ export default function CartLogin() {
 
     const redirectPayment = async () => {
         try {
-            const { data } = await axios("/api/stripe/create-checkout-session", {
-                method: "POST"
-            })
+            const data = await axios.post("/api/stripe/create-checkout-session");
 
             console.log(data.url);
             window.location.replace(data.url);
+
+            console.log(data.id);
+            props.setId(data.id);
 
         } catch (error) {
             console.log(error);
@@ -88,21 +89,23 @@ export default function CartLogin() {
                 <form id="loginForm" onSubmit={login}>
                     <h2>I'm already a user...</h2>
 
-                    <label>Email 
-                        <input
-                        value={credentials.email}
-                        onChange={handleChange}
-                        name="email"
-                        type="text" />
-                    </label>
+                    <div className="form-requirements">
+                        <label>Email 
+                            <input
+                            value={credentials.email}
+                            onChange={handleChange}
+                            name="email"
+                            type="text" />
+                        </label>
 
-                    <label>Password 
-                        <input
-                        value={credentials.password}
-                        onChange={handleChange}
-                        name="password"
-                        type="password" />
-                    </label>
+                        <label>Password 
+                            <input
+                            value={credentials.password}
+                            onChange={handleChange}
+                            name="password"
+                            type="password" />
+                        </label>
+                    </div>
 
                     <button>Log In</button>
                 </form>

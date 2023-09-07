@@ -1,7 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
 import { useContext } from "react";
 import CartContext from "../context/cart/CartContext";
-import Cart from "../components/cart/cart";
+import Cart from "../components/cart/Cart";
 import "./NFT.css";
 
 
