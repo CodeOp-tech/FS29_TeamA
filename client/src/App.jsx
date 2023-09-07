@@ -30,13 +30,15 @@ import CheckOut from  "./pages/check-out/CheckOut";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   // const [cart, setCart] = useState([]);
+  const [id, setId] = useState(null);
 
   const login = async (user, cb) => {
     try {
-      const { data } = await axios("api/auth/login", {
+      const { data } = await axios("/api/auth/login", {
         method: "POST",
         data: user,
       });
+
       //store it locally
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", data.user.id);
@@ -84,8 +86,8 @@ function App() {
             />
             <Route path="/Register" element={<Register />} />
             <Route path="/PasswordReset" element={<PasswordReset />} />
-
             <Route path="/CartPage" element={<CartPage />} />
+
             <Route path="/CheckOut" element={<Login />} />
             <Route path="/CheckoutLogin" element={<CartLogin />} />
             <Route path="/Success" element={<CheckoutSuccess />} />
