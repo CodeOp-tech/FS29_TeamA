@@ -42,7 +42,7 @@ export default function PasswordReset() {
 							</button>
 						</div>
 						<div className="form-footer">
-							<Link to="/Login">Return to Sign In{"->"}</Link>
+							<Link to="/Login">Click to Sign In</Link>
 						</div>
 					</div>
 				</div>

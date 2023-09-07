@@ -1,5 +1,5 @@
 .page-conteiner {
-	padding: 100px 10px;
+	padding: 50px 10px;
 }
 
 .logout {
@@ -7,6 +7,7 @@
 	top: 100px;
 	right: 20px;
 }
+
 .logout > a {
 	display: flex;
 	justify-content: center;
@@ -34,13 +35,21 @@
 }
 
 .password {
+	margin-bottom: 15px;
+}
+
+.email{
 	margin-top: 15px;
+	margin-bottom: 10px;
 }
 
 .signIn {
 	width: 100%;
 	margin-top: 10px;
 	border-radius: 2px;
+	color: #F15BB5;
+	background-color: #E5E5E5;
+	border-color: #E5E5E5;
 }
 
 .form-footer {
@@ -49,6 +58,7 @@
 	gap: 10px;
 	margin: 20px 0;
 }
+
 .password-reset {
 	display: flex;
 	flex-direction: row;
@@ -58,7 +68,7 @@
 .password-reset > div {
 	width: 100%;
 	height: 600px;
-	box-shadow: 8px 8px 8px 8px #cbcccc;
+	box-shadow: 8px 8px 8px 8px #E5E5E5;
 }
 
 .email-form,
@@ -71,13 +81,16 @@
 }
 
 .form {
-	width: 80%;
+	width: 100%;
 	background: transparent;
 	border: 1px solid #e5e5e5;
-	margin: 0 10px 20px 10px;
 	max-width: 100%;
 	text-indent: 10px;
 	outline: none;
 	height: 40px;
 	line-height: 40px;
+}
+
+.loginTitle{
+	font-size: x-large;
 }

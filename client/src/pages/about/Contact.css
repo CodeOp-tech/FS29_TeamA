@@ -45,7 +45,7 @@
 }
 
 
-page-conteiner {
+.page-conteiner {
 	padding: 50px 10px !important;
 }
 
@@ -101,4 +101,19 @@ form {
 	margin: 10%;
 	margin-left:5%;
 	width: 350px;
+}
+
+#About button {
+	padding: 5px;
+	color: #F15BB5;
+	background-color: #E5E5E5;
+	border-color: #E5E5E5;
+	border-radius: 25% 10%;
+	border-style: none;
+}
+  
+#About button:hover{
+	background-color: #F15BB5;
+	color: white;
+	cursor: pointer;
 }

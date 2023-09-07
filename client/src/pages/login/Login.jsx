@@ -6,8 +6,8 @@ import "./Login.css";
 
 function Login() {
   const [credentials, setCredentials] = useState({
-    email: "test",
-    password: "test",
+    email: "",
+    password: "",
   });
 
   const navigate = useNavigate();
@@ -75,7 +75,7 @@ function Login() {
         )} */}
         <div className="login-form">
           <div className="login-form-inner">
-            <h1>Login</h1>
+            <h1 className="loginTitle">Login</h1>
             <div className="loginForm">
               <div className="email">
                 <input
@@ -85,6 +85,7 @@ function Login() {
                   type="text"
                   className="form"
                   required
+                  placeholder="email address"
                 />
               </div>
               <div className="password">
@@ -95,17 +96,18 @@ function Login() {
                   type="password"
                   className="form"
                   required
+                  placeholder="password"
                 />
               </div>
               <div>
                 <button className="signIn" onClick={login}>
-                  Sign in
+                  Sign In
                 </button>
               </div>
             </div>
 
             <div className="form-footer">
-              <Link to="/Register">Register here{"->"}</Link>
+              <Link to="/Register">Register here!</Link>
               <Link to="/PasswordReset">Forgot your password?</Link>
             </div>
           </div>
