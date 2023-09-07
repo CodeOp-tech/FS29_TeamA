@@ -6,15 +6,14 @@ import { formatCurrency } from "../../utils/formatCurrency";
 import CartItem from "../cartItem/CartItem";
 
 
-export default function Cart() {
-	const { showCart, cartItems, showHideCart } = useContext(CartContext);
+export default function Cart({showButtons = true}) {
+	const { cartItems, showHideCart } = useContext(CartContext);
    //const [totalCost, setTotalCost] = useState(0);
 
    const totalCost = cartItems.reduce((amount, item) => item.price * item.quantity + amount, 0);
 
 	return (
 		<>
-      {showCart && (
       <div className='cart__wrapper'>
          <div style={{ textAlign: "right" }}>
 				<i
@@ -31,24 +30,18 @@ export default function Cart() {
             ) : (
             <ul>
 					{cartItems.map((item) => (
-                  <CartItem key={item.id} item={item} />
+                  <CartItem key={item.id} item={item} showButtons={showButtons} />
                ))}
             </ul>
             )}
          </div>
-         <div className='Cart__cartTotal'>
+         <div className='cartTotal'>
             <div>Cart Total</div>
             <div className="cartTotal" style={{ marginLeft: 5 }}>
             {formatCurrency(totalCost)}
             </div>
          </div>
-         <div>
-            <button>
-               <Link to="/CartPage">ManageCart</Link>
-            </button>
-         </div>
       </div>
-      )}
 		</>
 	)
 }
