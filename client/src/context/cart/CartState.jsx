@@ -49,5 +49,4 @@ const CartState = ({ children }) => {
   );
 };
 
->>>>>>> 181ff4e973adb598e675388b873f15b7e9915a3f
 export default CartState;
