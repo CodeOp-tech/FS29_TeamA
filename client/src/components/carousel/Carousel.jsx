@@ -38,11 +38,10 @@ export default function Carousel() {
   }, []);
   return (
     <div>
-      {/* <Slider></Slider> */}
-      <div className=" carousel object-cover mt-20 mb-20  space-x-0 space-y-1	">
+      <div className=" carousel  mt-14 mb-14 sticky top-30 space-x-4 h-150	">
         {/*items-center*/}
         {productPics.map((product) => (
-          <img 
+          <img
             key={product.id}
             id={product.id}
             src={product.image_1}
