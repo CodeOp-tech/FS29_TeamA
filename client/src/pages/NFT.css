@@ -90,3 +90,10 @@ svg {
 	right: 4px;
 	bottom: 14px;
 }
+
+footer {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin: 10px;
+}
