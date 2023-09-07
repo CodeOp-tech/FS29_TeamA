@@ -1,32 +1,57 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Slider from "react-slick";
 
 export default function Carousel() {
-  const [productPics, SetProductsPics] = useState([]);
-  const [currentImage, setCurrentImage] = useState("image_1");
+  const [productPics, setProductsPics] = useState([]);
+  const [carouselPics, setCarouselPics] = useState([]);
 
-  const getPics = async () => {
-    try {
-      const callPics = await axios(`/api/products`);
+  const navigate = useNavigate();
 
-      console.log(productPics);
-      SetProductsPics(callPics.data);
-    } catch (error) {
-      res.status(500).send(error);
-    }
+  const handleClick = (event) => {
+    navigate(`/Shop/${event.target.id}`);
+    // console.log(event.target.id);
   };
 
   useEffect(() => {
+    const getPics = async (req, res) => {
+      try {
+        const callPics = await axios(`/api/products`);
+
+        setProductsPics(callPics.data);
+        console.log("productpics", productPics);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    const sortImage1 = () => {
+      const pics = [];
+      const image1Pics = productPics.map((obj) => obj.image_1);
+      setCarouselPics(pics);
+    };
     getPics();
-    console.log("aqui", productPics[currentImage]);
+    sortImage1();
+    console.log("carousel", carouselPics);
+    // console.log("aqui", productPics[0].image_1);
   }, []);
   return (
     <div>
-      <div>
-        <h1>Welcome to NFT Store</h1>
-        <h3>We're here to help you buy digital assets without stress</h3>
+      <Slider></Slider>
+      <div className=" carousel  mt-14 mb-14 sticky top-0 space-x-4 h-150	">
+        {/*items-center*/}
+        {productPics.map((product) => (
+          <img
+            key={product.id}
+            id={product.id}
+            src={product.image_1}
+            // className="h-full"
+            alt={`Image ${product.name}`}
+            onClick={handleClick}
+          />
+        ))}
       </div>
-      <div></div>
     </div>
   );
 }

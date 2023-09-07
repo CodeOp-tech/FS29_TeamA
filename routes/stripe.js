@@ -18,24 +18,23 @@ router.post(
     const year = currentDate.getFullYear();
     const date = `${year}-${month}-${day}`;
 
-    // const { products } = req.body;
-    const products = [
-      {
-        id: 1,
-        name: "bishop black",
-        price: 200,
-        quantity: 2,
-      },
-    ];
+    const { products } = req.body;
+    console.log("products:", products);
+
+    let sum = 0;
+    for (let i = 0; i < products.length; i++) {
+      const finalProdPrice = products[i].quantity * products[i].price;
+      sum += finalProdPrice;
+    }
 
     const resultyay = await db(
       `INSERT INTO orders (user_id, total, fulfilled, cancelled, date) VALUES (${
         req.user_id ? req.user_id : req.body.user_id
-      }, ${200000 / 100}, 0, 0, '${date}'); SELECT LAST_INSERT_ID();`
+      }, ${sum}, 0, 0, '${date}'); SELECT LAST_INSERT_ID();`
     );
 
     const last_id = resultyay.data[0].insertId;
-    console.log(last_id);
+    console.log("last_id", last_id);
 
     for (const product of products) {
       const productName = product.name;
@@ -46,6 +45,7 @@ router.post(
       const insertResult = await db(
         `INSERT INTO product_order (product_id, order_id, product_quantity) VALUES (${productId}, ${last_id}, ${productQuantity});`
       );
+      console.log("insertResult to product_order:", insertResult);
 
       if (insertResult.error) {
         console.log(
@@ -59,11 +59,11 @@ router.post(
     const session = await stripe.checkout.sessions.create({
       line_items: products.map((item) => ({
         price_data: {
-          currency: "eur",
+          currency: "USD",
           product_data: {
             name: item.name,
           },
-          unit_amount: item.price,
+          unit_amount: item.price * 100,
         },
         quantity: item.quantity,
       })),
@@ -72,7 +72,7 @@ router.post(
       cancel_url: `http://localhost:5173/CartPage`, //to cart page
     });
 
-    console.log(session);
+    console.log("session:", session);
     res.send({ url: session.url, id: last_id });
   }
 );

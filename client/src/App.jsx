@@ -27,8 +27,6 @@ import BrandPage from "./pages/brands/BrandPage";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
-  // const [cart, setCart] = useState([]);
-  const [id, setId] = useState(null);
 
   const login = async (user, cb) => {
     try {
@@ -55,7 +53,7 @@ function App() {
   };
 
   useEffect(() => {
-    // if there is a localstora token, then the user is logged in
+    // if there is a localStorage token, then the user is logged in
     if (localStorage.getItem("token")) {
       setIsLoggedIn(true);
     } else {

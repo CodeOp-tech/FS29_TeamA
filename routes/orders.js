@@ -25,9 +25,6 @@ router.get("/all/:user_id", async (req, res) => {
   const { user_id } = req.params;
   console.log(req.query);
 
-   
-
-
   try {
     const results = await db(
       `SELECT o.*, po.product_quantity, p.name, p.price, a.brand, u.firstname, u.lastname, u.guest, pa.approved
@@ -37,7 +34,7 @@ router.get("/all/:user_id", async (req, res) => {
       LEFT JOIN artists AS a ON a.id = p.artist_id
       LEFT JOIN users AS u ON o.user_id = u.id
       LEFT JOIN payments AS pa ON o.id = pa.order_id
-      WHERE u.id = ${user_id};`
+      WHERE u.id = ${user_id} AND o.fulfilled = 1;`
     );
     res.send(results.data);
   } catch (error) {
