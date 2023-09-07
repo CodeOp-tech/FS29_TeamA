@@ -20,7 +20,7 @@ router.get("/all", async (req, res) => {
   }
 });
 
-//get all orders by user_id
+//get all fulfilled orders by user_id
 router.get("/all/:user_id", async (req, res) => {
   const { user_id } = req.params;
   console.log(req.query);
