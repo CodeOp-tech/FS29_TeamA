@@ -20,7 +20,7 @@ export default function Product() {
         brand: ""
     });
     const { id } = useParams();
-    const [quantity, setQuantity] = useState(0);
+    // const [quantity, setQuantity] = useState(0);
     const [currentImage, setCurrentImage] = useState("image_1");
 
     useEffect(() => {
@@ -102,7 +102,7 @@ export default function Product() {
 
     return (
         <div>
-            <button>
+            <button className="go-back">
                 <Link to={"/Shop"}>Go back</Link>
             </button>
 
@@ -122,7 +122,7 @@ export default function Product() {
                         <h2>By {product.brand}</h2>
                         <h3>{product.collection}</h3>
                         <p>{product.description}</p>
-                        <p>{formatCurrency(product.price)}</p>
+                        <p className="product-price">{formatCurrency(product.price)}</p>
                     </div>
 
                     <div>
