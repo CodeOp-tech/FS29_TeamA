@@ -44,33 +44,6 @@ const CartReducer = (state, action) => {
 			console.log("DECREASE currentItems", currentItems);
 			const existingCartItemIndex = currentItems.findIndex(
 				(item) => item.id === action.payload.id );
-
-			if (currentItems[existingCartItemIndex].quantity > 1) {
-				const updatedItem = {
-					...currentItems[existingCartItemIndex],
-					quantity: currentItems[existingCartItemIndex].quantity - 1
-				}
-				currentItems[existingCartItemIndex] = updatedItem;
-			} else {
-				// currentItems = {
-				// 	...state,
-				// 	currentItems: currentItems.filter(
-				// 		item => item.id !== action.payload)
-				// }
-				REMOVE_ITEM();
-				SHOW_HIDE_CART();
-			}
-			return {
-				...state,
-				cartItems: currentItems
-			}
-		}
-		case DECREASE_ITEM: {
-			let currentItems = [...state.cartItems];
-
-			console.log("DECREASE currentItems", currentItems);
-			const existingCartItemIndex = currentItems.findIndex(
-				(item) => item.id === action.payload.id );
 			if (currentItems[existingCartItemIndex].quantity > 1) {
 				const updatedItem = {
 					...currentItems[existingCartItemIndex],

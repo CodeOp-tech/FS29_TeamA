@@ -24,13 +24,10 @@ const CartState = ({children}) => {
 		dispatch({ type: REMOVE_ITEM, payload: id })
 	}
 	
-	const decreaseItem = (id) => {
-		dispatch({ type: DECREASE_ITEM, payload: id })
+	const decreaseItem = (item) => {
+		dispatch({ type: DECREASE_ITEM, payload: item })
 	}
 
-	const decreaseItem = (item) => {
-		dispatch({ type: DECREASE_ITEM, payload: item });
-	}
 
 	return (
 		<CartContext.Provider
