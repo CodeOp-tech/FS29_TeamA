@@ -80,7 +80,7 @@ svg {
 	position: absolute;
 	display: grid;
 	place-items: center;
-	background-color: red;
+	background-color: black;
 	color: white;
 	z-index: 10;
 	border-radius: 50%;
