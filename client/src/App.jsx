@@ -24,7 +24,6 @@ import Product from "./pages/Product";
 import Terms from "./pages/footer/Terms";
 import CartLogin from "./pages/cartLogin/CartLogin";
 import BrandPage from "./pages/brands/BrandPage";
-import CheckOut from "./pages/check-out/CheckOut";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
@@ -96,7 +95,6 @@ function App() {
             <Route path="/PasswordReset" element={<PasswordReset />} />
             <Route path="/CartPage" element={<CartPage />} />
 
-            <Route path="/CheckOut" element={<Login />} />
             <Route path="/CheckoutLogin" element={<CartLogin />} />
             <Route path="/Success" element={<CheckoutSuccess />} />
             <Route path="/Orders" element={<Orders />} />

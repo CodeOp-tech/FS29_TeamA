@@ -2,45 +2,29 @@ import "./CartPage.css";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import CartContext from "../../context/cart/CartContext";
-// import Cart from "../../components/cart/Cart";
 
-import { formatCurrency } from "../../utils/formatCurrency";
-import CartItem from "../../components/cartItem/CartItem";
-import CheckOut from "../check-out/CheckOut";
+// import { formatCurrency } from "../../utils/formatCurrency";
+//  import CartItem from "../../components/cartItem/CartItem";
+import Cart from "../../components/cart/Cart";
 
-export default function Cart() {
-  const { showCart, cartItems, showHideCart } = useContext(CartContext);
 
-  return (
-    <>
-      {!showCart && (
-        <div>
-          <div>
+export default function CartPage() {
+
+const { showCart, cartItems, showHideCart } = useContext(CartContext);
+
+	return (
+   <>
+		<div>
+         <div>
             <p>ALL THE CART ITEMS</p>
-            <div>
-              {cartItems.length === 0 ? (
-                <h4>Cart is Empty</h4>
-              ) : (
-                <div>
-                  <div>
-                    <ul>
-                      {cartItems.map((item) => (
-                        <CartItem key={item.id} item={item} />
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <button>CheckOut Now</button>
-                  </div>
-                </div>
-              )}
+				<div>
+					<Cart/>
             </div>
-          </div>
-          <div>
-            <Link to="/CheckoutLogin">Checkout</Link>
-          </div>
-        </div>
-      )}
-    </>
-  );
+         </div>
+         <div>
+         <Link to="/CheckoutLogin">Checkout</Link>
+         </div>
+      </div>
+   </>
+	);
 }
