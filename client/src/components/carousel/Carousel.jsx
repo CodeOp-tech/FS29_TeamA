@@ -2,23 +2,30 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 export default function Carousel() {
-  const [productPics, SetProductsPics] = useState([]);
-  const [currentImage, setCurrentImage] = useState("image_1");
-
-  const getPics = async () => {
-    try {
-      const callPics = await axios(`/api/products`);
-
-      console.log(productPics);
-      SetProductsPics(callPics.data);
-    } catch (error) {
-      res.status(500).send(error);
-    }
-  };
+  const [productPics, setProductsPics] = useState([]);
+  const [carouselPics, setCarouselPics] = useState([]);
 
   useEffect(() => {
+    const getPics = async (req, res) => {
+      try {
+        const callPics = await axios(`/api/products`);
+
+        setProductsPics(callPics.data);
+        console.log("productpics", productPics);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    const sortImage1 = () => {
+      const pics = [];
+      const image1Pics = productPics.map((obj) => obj.image_1);
+      setCarouselPics(pics);
+    };
     getPics();
-    console.log("aqui", productPics[currentImage]);
+    sortImage1();
+    console.log("carousel", carouselPics);
+    // console.log("aqui", productPics[0].image_1);
   }, []);
   return (
     <div>
@@ -26,7 +33,16 @@ export default function Carousel() {
         <h1>Welcome to NFT Store</h1>
         <h3>We're here to help you buy digital assets without stress</h3>
       </div>
-      <div></div>
+      <div className="carousel">
+        {/* Map through carouselPics and render the images */}
+        {productPics.map((product) => (
+          <img
+            key={product.id}
+            src={product.image_1}
+            alt={`Image ${product.name}`}
+          />
+        ))}
+      </div>
     </div>
   );
 }

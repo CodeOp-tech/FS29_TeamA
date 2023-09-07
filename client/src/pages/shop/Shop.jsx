@@ -16,7 +16,7 @@ export default function Products() {
         const json = await response.json(); // should I transform everything into a small caps ?
         SetProducts(json);
       } catch (error) {
-        res.status(500).send(error);
+        console.error(error);
       }
     };
     fetchProducts();
