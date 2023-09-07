@@ -1,9 +1,18 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Slider from "react-slick";
 
 export default function Carousel() {
   const [productPics, setProductsPics] = useState([]);
   const [carouselPics, setCarouselPics] = useState([]);
+
+  const navigate = useNavigate();
+
+  const handleClick = (event) => {
+    navigate(`/Shop/${event.target.id}`);
+    // console.log(event.target.id);
+  };
 
   useEffect(() => {
     const getPics = async (req, res) => {
@@ -29,17 +38,17 @@ export default function Carousel() {
   }, []);
   return (
     <div>
-      <div>
-        <h1>Welcome to NFT Store</h1>
-        <h3>We're here to help you buy digital assets without stress</h3>
-      </div>
-      <div className="carousel">
-        {/* Map through carouselPics and render the images */}
+      <Slider></Slider>
+      <div className=" carousel  mt-14 mb-14 sticky top-0 space-x-4 h-150	">
+        {/*items-center*/}
         {productPics.map((product) => (
           <img
             key={product.id}
+            id={product.id}
             src={product.image_1}
+            // className="h-full"
             alt={`Image ${product.name}`}
+            onClick={handleClick}
           />
         ))}
       </div>
