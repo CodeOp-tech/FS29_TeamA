@@ -6,17 +6,17 @@
 }
 
 .CartItem__item {
-  list-style-type: none;
-  height: 100px;
-  display: flex;
-  gap: 5px;
-  align-items: center;
+	list-style-type: none;
+	height: 100px;
+	display: flex;
+	gap: 5px;
+	align-items: center;
 }
 
 .CartItem__item img {
-  height: 100%;
-  width: 100px;
-  object-fit: cover;
+	height: 100%;
+	width: 100px;
+	object-fit: cover;
 }
 
 .CartItem__item:nth-child(1) {

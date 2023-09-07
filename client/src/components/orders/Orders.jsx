@@ -1,78 +1,62 @@
 import React, { useState, useEffect } from 'react';
 
-
-
-
-
 function Orders () {
+  const [orders, setOrders] = useState([]);
+  const [user_id, setUser_id] = useState("");
 
-     
+  console.log(user_id);
+  
+  const handleClick = () => {
+    if (routeUserId) {
+      getOrders(routeUserId);
+    }
+  };
 
-        const [orders, setOrders] = useState([]);
-        const [user_id, setUser_id] = useState("");
-     
-        console.log(user_id);
-        
-      
-        const handleClick = () => {
-          if (routeUserId) {
-            getOrders(routeUserId);
-          }
-        };
+  // //orderHIstory
+  useEffect (() => {
+    getOrders();
+  },[user_id]);
 
-        // //orderHIstory
-        useEffect (() => {
-         
-          getOrders();
-        },[user_id]);
+  const getUserId=() => {
+    const userId = localStorage.getItem("user")
+    setUser_id(userId)
+    console.log(userId)
+  }
 
+  //Group orders
+  const groupOrdersByOrderNumber = (orderData) => {
+    const groupedOrders = {};
+    orderData.forEach((order) => {
+      if (!groupedOrders[order.id]) {
+        groupedOrders[order.id] = [];
+      }
+      groupedOrders[order.id].push(order);
+    });
+    return groupedOrders;
+  };
 
-        const getUserId=() => {
-          const userId = localStorage.getItem("user")
-          setUser_id(userId)
-          console.log(userId)
-        }
+  //fetch order history based on user_id
+  const getOrders = async () => {
+      getUserId()
+      let options = {
+        method: "GET",
+      };
+    try {
+      if (user_id) {
+        console.log(user_id)
+        const response = await fetch (`/api/orders/all/${user_id}`, options);
+        const data = await response.json();
 
+        // Group orders by order number
+        const groupedOrders = groupOrdersByOrderNumber(data);
 
-        //Group orders
-        const groupOrdersByOrderNumber = (orderData) => {
-          const groupedOrders = {};
-          orderData.forEach((order) => {
-            if (!groupedOrders[order.id]) {
-              groupedOrders[order.id] = [];
-            }
-            groupedOrders[order.id].push(order);
-          });
-          return groupedOrders;
-        };
-
-
-
-            //fetch order history based on user_id
-        const getOrders = async () => {
-           getUserId()
-           let options = {
-             method: "GET",
-        };
-        try {
-          if (user_id) {
-            console.log(user_id)
-            const response = await fetch (`/api/Orders/all/${user_id}`, options);
-            const data = await response.json();
-    
-          // Group orders by order number
-           const groupedOrders = groupOrdersByOrderNumber(data);
-
-          setOrders(groupedOrders);
-
-          }
-          //group
-      
-      
-        } catch (err) {
-          console.log(`network error: ${err.message}`);
-        }
-        };
+        setOrders(groupedOrders);
+      }
+      //group
+    } catch (err) {
+      console.log(`network error: ${err.message}`);
+    }
+  };
 
 
 
@@ -108,18 +92,9 @@ return (
             </div>
           </div>
         ))}
-      </div>
-      
-      
-      
-</div>  
-
-    
-
-
-)
-
-
+      </div> 
+    </div>
+  )
 }
 
 export default Orders;
