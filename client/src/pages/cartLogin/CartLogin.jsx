@@ -1,11 +1,10 @@
 import "./CartLogin.css";
 import { useContext, useState } from "react";
-import { useNavigate, Navigate, redirect } from "react-router-dom";
 import authContext from "../../context/authContext";
 import CartContext from "../../context/cart/CartContext";
 import axios from "axios";
 
-export default function CartLogin(props) {
+export default function CartLogin() {
   const auth = useContext(authContext);
 
   const { cartItems } = useContext(CartContext);
@@ -215,8 +214,6 @@ export default function CartLogin(props) {
 
             <button>Continue as guest</button>
           </form>
-
-          {/* {auth.isLoggedIn && navigate("/Profile")} */}
         </div>
       )}
     </>

@@ -3,7 +3,7 @@ import { useEffect, useState, useMemo } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 
-export default function CheckoutSuccess(props) {
+export default function CheckoutSuccess() {
   // const [newOrder, setNewOrder] = useState(null);
   // use effect PATCH so we update the paid in the DB => backend will get the las inserted id
 
@@ -24,9 +24,9 @@ export default function CheckoutSuccess(props) {
   }, []);
 
   const updateOrderStatus = async () => {
-    if (props.id) console.log(props.id);
+    if (order_id) console.log(order_id);
     try {
-      const response = await axios(`/api/orders/ticket/${props.id}`, {
+      const response = await axios(`/api/orders/ticket/${order_id}`, {
         method: "PATCH",
       });
 
@@ -45,7 +45,7 @@ export default function CheckoutSuccess(props) {
     <div>
       <title>Thanks for your order!</title>
 
-      <h1>Thanks for your order {order_id}!</h1>
+      <h1>Thanks for your order number {order_id}!</h1>
       <p>
         We appreciate your business! If you have any questions, please email
         <a href="mailto:orders@example.com">orders@nft-store.com</a>.
