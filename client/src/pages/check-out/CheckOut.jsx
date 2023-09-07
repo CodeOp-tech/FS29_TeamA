@@ -1,5 +1,6 @@
 import { useContext } from "react";
-import { CartContext } from "../../context/cartContext";
+// import { CartContext } from "../../context/cartContext"; // this is breaking the code
+
 import CheckoutItem from "../../components/cartItem/CartItem";
 import StripeCheckOutButton from "../../components/StripeCheckOutBtn";
 
