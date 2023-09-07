@@ -40,11 +40,10 @@ export default function Carousel() {
       <div className=" carousel  mt-14 mb-14 sticky top-0 space-x-4 h-150	">
         {/*items-center*/}
         {productPics.map((product) => (
-          <img
+          <img 
             key={product.id}
             id={product.id}
             src={product.image_1}
-            // className="h-full"
             alt={`Image ${product.name}`}
             onClick={handleClick}
           />

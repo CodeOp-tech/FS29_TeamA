@@ -44,28 +44,30 @@ export default function BrandPage() {
   return (
     <div id="singular-brand">
       <div>
-        <div className="brands-container">
+        <div className="brands-container sticky top-0">
           <div className="card-grid">
-            <div className="flex items-center" >
-            <div className='text-3xl mt-0 text-left font-bold'>{brand.brand}</div>
-            <div className="px-3 py-1 text-left text-sm leading-4 font-medium uppercase tracking-wider flex-grow overflow-hidden ">{brand.about}</div>
+            <div className="flex items-center mt-20" >
+             <div>
+              <div className='text-3xl mt-0 text-left font-bold '>{brand.brand}</div>
+             </div>
             </div>
           </div>
         </div>
-        <div id="brand-products">
-          {products.length &&
-            products.map((product) => (
-              <div key={product.id} className="flex items-center">
-                
-                
-               
-                <img src={product.image_1} />
-               
-                <h4>{product.name}</h4>
-              </div>
-            ))}
+        <div className="flex items-center ml-20 sticky top-20">
+        <div className="mt-20 px-3 py-1 text-left text-sm leading-4 font-medium uppercase tracking-wider overflow-hidden w-1/3">{brand.about}</div>
         </div>
-      </div>
-    </div>
+        <div id="brand-products">
+        {products.length &&
+         products.map((product) => (
+           <div key={product.id} className="flex items-center justify-end">
+           <div>
+            <h4 className="mb-1">{product.name}</h4>
+           </div>
+            <img src={product.image_1} className="ml-2" alt={product.name} />
+           </div>
+            ))}
+           </div>
+          </div>
+          </div>
   );
 }

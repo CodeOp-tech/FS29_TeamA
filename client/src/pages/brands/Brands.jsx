@@ -27,7 +27,7 @@ export default function Brands() {
       <div className="max-w-screen-xl mx-10">
         <div className="brands-container">
           <div className="marquee-animation">
-            <h3 className='text-3xl mt-0 text-left font-bold'>BRANDS</h3>
+            <h3 className='font-sans text-3xl mt-0 text-left font-bold'>BRANDS</h3>
           </div>
       
           <div className="grid grid-cols-4 gap-20 mx-20 mt-20 mx-auto">
