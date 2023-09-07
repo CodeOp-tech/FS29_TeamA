@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import authContext from "./context/authContext";
 import axios from "axios";
@@ -24,19 +24,18 @@ import Product from "./pages/Product";
 import Terms from "./pages/footer/Terms";
 import CartLogin from "./pages/cartLogin/CartLogin";
 import BrandPage from "./pages/brands/BrandPage";
-import CheckOut from  "./pages/check-out/CheckOut";
-
+import CheckOut from "./pages/check-out/CheckOut";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
-  // const [cart, setCart] = useState([]);
 
   const login = async (user, cb) => {
     try {
-      const { data } = await axios("api/auth/login", {
+      const { data } = await axios("/api/auth/login", {
         method: "POST",
         data: user,
       });
+
       //store it locally
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", data.user.id);
@@ -53,6 +52,15 @@ function App() {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
   };
+
+  useEffect(() => {
+    // if there is a localStorage token, then the user is logged in
+    if (localStorage.getItem("token")) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, []);
 
   const authContentextObject = {
     isLoggedIn,
@@ -84,8 +92,8 @@ function App() {
             />
             <Route path="/Register" element={<Register />} />
             <Route path="/PasswordReset" element={<PasswordReset />} />
-
             <Route path="/CartPage" element={<CartPage />} />
+
             <Route path="/CheckOut" element={<Login />} />
             <Route path="/CheckoutLogin" element={<CartLogin />} />
             <Route path="/Success" element={<CheckoutSuccess />} />

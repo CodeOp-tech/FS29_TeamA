@@ -1,7 +1,7 @@
 #Product{
     display: grid;
     grid-template-columns: 2fr 3fr;
-    margin: auto 5%;
+    margin: 20px 5%;
 }
 
 .carosel-container{
@@ -22,4 +22,22 @@
 
 .description{
     margin-left: 5%;
+}
+
+#Product button{
+    margin: 10px 10px 10px auto;
+}
+
+.go-back{
+    margin-left: 10px;
+}
+
+.description h2{
+    margin: 10px auto;
+}
+
+.product-price{
+    font-size: larger;
+    margin-top: 10px;
+    font-weight: 500;
 }

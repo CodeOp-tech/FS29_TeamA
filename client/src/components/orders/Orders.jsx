@@ -44,7 +44,7 @@ function Orders() {
     try {
       if (user_id) {
         console.log(user_id);
-        const response = await fetch(`/api/Orders/all/${user_id}`, options);
+        const response = await fetch(`/api/orders/all/${user_id}`, options);
         const data = await response.json();
 
         // Group orders by order number
@@ -59,29 +59,45 @@ function Orders() {
   };
 
   return (
-    <div style={{ marginTop: "100px" }}>
-      <h3>Orders</h3>
+    <div>
+      <div className="marquee-animation">
+        <h3 className="text-3xl mb-20 mt-0 text-left ml-60 font-bold">
+          MY ORDERS
+        </h3>
+      </div>
 
-      <div>
+      <div className="max-w-screen-xl mx-auto">
         {Object.keys(orders).map((orderNumber) => (
-          <div key={orderNumber}>
-            <h4>Order Number: {orderNumber}</h4>
-            <table>
-              <thead>
-                <tr>
-                  <th>Cost</th>
-                  <th>Date</th>
-                </tr>
-              </thead>
-              <tbody>
-                {orders[orderNumber].map((order) => (
-                  <tr key={order.id}>
-                    <td>{order.total}</td>
-                    <td>{new Date(order.date).toLocaleDateString()}</td>
+          <div key={orderNumber} className="mb-10">
+            <h4 className="text-xl font-semibold mb-2 bg-pink">
+              Order Number: {orderNumber}
+            </h4>
+            <div className="overflow-x-auto">
+              <table className="min-w-full">
+                <thead>
+                  <tr>
+                    <th className="px-6 py-3 bg-platinum text-left text-s leading-4 font-medium text-gray-600 uppercase tracking-wider">
+                      Cost
+                    </th>
+                    <th className="px-6 py-3 bg-platinum text-left text-s leading-4 font-medium text-gray-600 uppercase tracking-wider">
+                      Date
+                    </th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {orders[orderNumber].map((order) => (
+                    <tr key={order.id}>
+                      <td className="px-6 py-4 whitespace-no-wrap text-s leading-5 text-gray-900">
+                        {order.total}
+                      </td>
+                      <td className="px-6 py-4 whitespace-no-wrap text-s leading-5 text-gray-900">
+                        {new Date(order.date).toLocaleDateString()}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         ))}
       </div>
