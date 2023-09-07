@@ -1,5 +1,4 @@
 .CartItem__item {
-
   border-bottom: 1px solid gray;
   padding: 10px 0;
   margin-top: 10px;
@@ -21,23 +20,18 @@
 
 .CartItem__item:nth-child(1) {
   border-top: 1px solid gray;
-
 }
 
-.card-btns  button,
+.card-btns button,
 .Remove_button {
-
   margin-left: auto;
   padding: 4px 8px;
   border-radius: 4px;
   border: none;
   cursor: pointer;
-
 }
 
 .Remove_button:focus,
 .CartItem__button:active {
-
-    outline: none;
+  outline: none;
 }
-
