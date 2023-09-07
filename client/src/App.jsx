@@ -32,11 +32,11 @@ function App() {
 
   const login = async (user, cb) => {
     try {
-      const data = await axios("api/auth/login", {
+      const { data } = await axios("/api/auth/login", {
         method: "POST",
         data: user,
       });
-      
+
       //store it locally
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", data.user);
@@ -84,7 +84,10 @@ function App() {
             <Route path="/Register" element={<Register />} />
             <Route path="/PasswordReset" element={<PasswordReset />} />
             <Route path="/CartPage" element={<CartPage />} />
-            <Route path="/CheckoutLogin" element={<CartLogin setId={setId} />} />
+            <Route
+              path="/CheckoutLogin"
+              element={<CartLogin setId={setId} />}
+            />
             <Route path="/Success" element={<CheckoutSuccess id={id} />} />
             <Route path="/Orders" element={<Orders />} />
             <Route path="/Terms" element={<Terms />} />
