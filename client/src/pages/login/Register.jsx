@@ -5,9 +5,9 @@ import "./Login.css";
 
 export default function Register() {
 	const [credentials, setCredentials] = useState({
-		firstname:"Firstname",
-		lastname:"Lastname",
-		email: "email@example.com",
+		firstname:"",
+		lastname:"",
+		email: "",
 		password: "",
 		marketing: 0
 	});
@@ -48,6 +48,7 @@ export default function Register() {
 								name="firstname"
 								type="text"
 								className="form"
+								placeholder="firstname"
 							/>
 						</div>
 						<div className="lastname">
@@ -58,6 +59,7 @@ export default function Register() {
 								name="lastname"
 								type="text"
 								className="form"
+								placeholder="lastname"
 							/>
 						</div>
 						<div className="email">
@@ -68,6 +70,7 @@ export default function Register() {
 								name="email"
 								type="text"
 								className="form"
+								placeholder="email address"
 							/>
 						</div>
 						<div className="password">
@@ -78,6 +81,7 @@ export default function Register() {
 								name="password"
 								type="text"
 								className="form"
+								placeholder="password"
 							/>
 						</div>
 						<div>
@@ -85,11 +89,11 @@ export default function Register() {
 						</div>
 						<div>
 							<button className="signIn" onClick={register}>
-								Create account
+								Create an Account
 							</button>
 						</div>
 						<div className="form-footer">
-							<Link to="/Login">Return to Sign In{"->"}</Link>
+							<Link to="/Login">Click to Sign In</Link>
 						</div>
 			</div>
 

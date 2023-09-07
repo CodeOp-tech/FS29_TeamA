@@ -3,7 +3,7 @@ import "./CartItem.css";
 import CartContext from "../../context/cart/CartContext";
 import { formatCurrency } from "../../utils/formatCurrency";
 
-const CartItem = ({item}) => {
+const CartItem = ({item, showButtons}) => {
 
 	const {addToCart, removeItem, decreaseItem} = useContext(CartContext);
 
@@ -18,14 +18,18 @@ const CartItem = ({item}) => {
 				{formatCurrency(item.price)}
 				= {formatCurrency(item.price * item.quantity)}
 			</div>
+			{showButtons ? 
+			(<>
 			<button className='Remove_button' onClick={() => removeItem(item.id)}>
 			Remove
 			</button>
+			
 			<div className="card-btns">
 
 				<button onClick={() => decreaseItem(item)}> - </button>
 				<button onClick={() => addToCart(item)}> + </button>
 			</div>
+			</>) : null}
 		</li>
 	);
 }
