@@ -48,3 +48,9 @@ button:hover a:visited{
   color: white;
   text-decoration: none;
 }
+
+footer{
+  margin-bottom: 0;
+  position: fixed;
+  margin-left: 20px;
+}
