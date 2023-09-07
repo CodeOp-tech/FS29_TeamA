@@ -10,6 +10,12 @@ h1,
 p {
   font-family: Lato;
 }
+body {
+  background-image: url(./background.png);
+  background-size: 50%;
+  background-repeat: repeat;
+
+}
 
 @tailwind base;
 @tailwind components;

@@ -60,11 +60,11 @@ function Orders() {
 
   return (
     <div>
-      <div className="marquee-animation">
-        <h3 className="text-3xl mb-20 mt-0 text-left ml-60 font-bold">
+      
+        <h3 className=" font-sans text-3xl mb-20 mt-0 text-left ml-60 font-bold">
           MY ORDERS
         </h3>
-      </div>
+   
 
       <div className="max-w-screen-xl mx-auto">
         {Object.keys(orders).map((orderNumber) => (
@@ -76,10 +76,10 @@ function Orders() {
               <table className="min-w-full">
                 <thead>
                   <tr>
-                    <th className="px-6 py-3 bg-platinum text-left text-s leading-4 font-medium text-gray-600 uppercase tracking-wider">
+                    <th className="px-6 py-3 bg-platinum text-left text-s leading-4 font-medium uppercase tracking-wider">
                       Cost
                     </th>
-                    <th className="px-6 py-3 bg-platinum text-left text-s leading-4 font-medium text-gray-600 uppercase tracking-wider">
+                    <th className="px-6 py-3 bg-platinum text-left text-s leading-4 font-medium  uppercase tracking-wider">
                       Date
                     </th>
                   </tr>
@@ -87,10 +87,10 @@ function Orders() {
                 <tbody>
                   {orders[orderNumber].map((order) => (
                     <tr key={order.id}>
-                      <td className="px-6 py-4 whitespace-no-wrap text-s leading-5 text-gray-900">
+                      <td className="px-6 py-4 whitespace-no-wrap text-s leading-5 ">
                         {order.total}
                       </td>
-                      <td className="px-6 py-4 whitespace-no-wrap text-s leading-5 text-gray-900">
+                      <td className="px-6 py-4 whitespace-no-wrap text-s leading-5">
                         {new Date(order.date).toLocaleDateString()}
                       </td>
                     </tr>
