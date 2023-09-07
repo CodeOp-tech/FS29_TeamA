@@ -24,7 +24,8 @@
 .logo-div {
 	text-align:center;
 	width:50%;
-	vertical-align: middle;
+	display: flex;
+	align-items: center;
 }
 
 .logo-div > img {
@@ -33,6 +34,10 @@
 	vertical-align: middle;
 }
 
+.contact-form {
+	display: flex;
+	align-items: center;
+}
 .contact-form form {
 	margin: 10%;
 	margin-left:5%;
@@ -67,6 +72,7 @@ form {
 }
 
 .contact-header {
+	
 	text-align: center;
 	padding-top: 5%;
 	color:#0D122B;
