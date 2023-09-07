@@ -61,16 +61,17 @@ nav ul li div a {
 	width: 50px;
 	height: 50px;
 }
+
 .nav-svg {
 	display: flex;
 	gap: 10px;
 	align-items: center;
 }
+
 .cart-svg{
 	position: relative;
 	margin-right: 10px;
 }
-
 
 svg {
 	fill: rgb(235, 59, 188);
@@ -90,3 +91,11 @@ svg {
 	right: 4px;
 	bottom: 14px;
 }
+
+footer {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin: 10px;
+  
+  }

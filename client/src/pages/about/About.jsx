@@ -1,5 +1,4 @@
 import "./Contact.css"
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
@@ -45,7 +44,7 @@ export default function About() {
         </div>
         <div className="contact-content">
           <div className="logo-div">
-            <img src="#" alt="Nft logo"/>
+            <img src="../../../nft.svg" alt="Nft logo"/>
           </div>
           <div className="contact-form">
             <form onSubmit={contact}>
