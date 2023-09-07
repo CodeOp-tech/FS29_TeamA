@@ -23,3 +23,28 @@ a {
   }
 }
 
+button {
+  padding: 5px;
+  color: #F15BB5;
+  background-color: #E5E5E5;
+  border-color: #E5E5E5;
+  border-radius: 25% 10%;
+  border-style: none;
+}
+
+button:hover{
+  background-color: #F15BB5;
+  color: white;
+  cursor: pointer;
+}
+
+button a:visited{
+  text-decoration: none;
+  color: #F15BB5;
+}
+
+button:hover a:visited{
+  background-color: #F15BB5;
+  color: white;
+  text-decoration: none;
+}
