@@ -24,6 +24,10 @@ router.get("/all", async (req, res) => {
 router.get("/all/:user_id", async (req, res) => {
   const { user_id } = req.params;
   console.log(req.query);
+
+   
+
+
   try {
     const results = await db(
       `SELECT o.*, po.product_quantity, p.name, p.price, a.brand, u.firstname, u.lastname, u.guest, pa.approved

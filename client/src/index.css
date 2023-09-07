@@ -10,3 +10,7 @@ h1,
 p {
   font-family: Lato;
 }
+
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
