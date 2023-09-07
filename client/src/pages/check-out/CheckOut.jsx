@@ -1,15 +1,11 @@
 import { useContext } from "react";
-// import { CartContext } from "../../context/cartContext";
-// import CheckoutItem from "../../components/checkout-item";
+
+import CheckoutItem from "../../components/checkout-item";
 import StripeCheckOutButton from "../../components/StripeCheckOutBtn";
 
 
-import CheckoutItem from '../../components/cartItem/CartItem';
-// import StripeCheckOutButton from '../../components/StripeCheckOutBtn';
-
 import CartContext from "../../context/cart/CartContext";
 
-// import CheckoutItem from '../../components/cartItem/CartItem';
 import { formatCurrency } from "../../utils/formatCurrency";
 import CartItem from "../../components/cartItem/CartItem";
 
