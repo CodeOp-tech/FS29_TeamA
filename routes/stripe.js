@@ -18,15 +18,15 @@ router.post(
     const year = currentDate.getFullYear();
     const date = `${year}-${month}-${day}`;
 
-    // const { products } = req.body;
-    const products = [
-      {
-        id: 1,
-        name: "bishop black",
-        price: 200,
-        quantity: 2,
-      },
-    ];
+    const { products } = req.body;
+    // const products = [
+    //   {
+    //     id: 1,
+    //     name: "bishop black",
+    //     price: 200,
+    //     quantity: 2,
+    //   },
+    // ];
 
     const resultyay = await db(
       `INSERT INTO orders (user_id, total, fulfilled, cancelled, date) VALUES (${
@@ -63,7 +63,7 @@ router.post(
           product_data: {
             name: item.name,
           },
-          unit_amount: item.price,
+          unit_amount: item.price * 100,
         },
         quantity: item.quantity,
       })),

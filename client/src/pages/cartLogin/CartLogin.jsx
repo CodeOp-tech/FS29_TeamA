@@ -2,10 +2,13 @@ import "./CartLogin.css";
 import { useContext, useState } from "react";
 import { useNavigate, Navigate, redirect } from "react-router-dom";
 import authContext from "../../context/authContext";
+import CartContext from "../../context/cart/CartContext";
 import axios from "axios";
 
 export default function CartLogin(props) {
   const auth = useContext(authContext);
+
+  const { cartItems } = useContext(CartContext);
 
   const [credentials, setCredentials] = useState({
     firstname: "",
@@ -19,7 +22,7 @@ export default function CartLogin(props) {
     try {
       const { data } = await axios.post(
         "/api/stripe/create-checkout-session",
-        {},
+        { products: cartItems },
         {
           headers: {
             authorization: `Bearer ${localStorage.getItem("token")}`,
