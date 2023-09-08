@@ -37,8 +37,9 @@ export default function Carousel() {
     // console.log("aqui", productPics[0].image_1);
   }, []);
   return (
+    <>
     <div>
-      <div className=" carousel  mt-14 mb-14 sticky top-30 space-x-4 h-150	">
+      <div className="carousel  mt-14 mb-14 sticky top-30 space-x-4 h-150">
         {/*items-center*/}
         {productPics.map((product) => (
           <img
@@ -51,5 +52,7 @@ export default function Carousel() {
         ))}
       </div>
     </div>
+
+    </>
   );
 }
