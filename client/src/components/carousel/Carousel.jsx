@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 // import Slider from "react-slick";
 
+
 export default function Carousel() {
   const [productPics, setProductsPics] = useState([]);
   const [carouselPics, setCarouselPics] = useState([]);
