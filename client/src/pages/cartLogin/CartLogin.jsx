@@ -1,6 +1,6 @@
 import "./CartLogin.css";
 import { useContext, useState } from "react";
-import authContext from "../../context/authContext";
+import authContext from "../../context/auth/authContext";
 import CartContext from "../../context/cart/CartContext";
 import axios from "axios";
 

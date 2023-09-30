@@ -1,7 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import authContext from "./context/authContext";
+import authContext from "../src/context/auth/authContext";
 import axios from "axios";
 
 //Components
