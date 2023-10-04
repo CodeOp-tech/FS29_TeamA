@@ -56,20 +56,14 @@ const CartReducer = (state, action) => {
         };
         currentItems[existingCartItemIndex] = updatedItem;
       } else {
-        // currentItems = {
-        // 	...state,
-        // 	currentItems: currentItems.filter(
-        // 		item => item.id !== action.payload)
-        // }
-        REMOVE_ITEM();
-        SHOW_HIDE_CART();
+        currentItems.splice(existingCartItemIndex, 1);
+        // currentItems.pop();
       }
       return {
         ...state,
         cartItems: currentItems,
       };
     }
-
     default:
       return state;
   }
