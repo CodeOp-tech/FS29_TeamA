@@ -9,17 +9,12 @@ import Logo from "../components/logo-svg/logo";
 export default function NFT() {
   const { cartItems, showHideCart } = useContext(CartContext);
   const auth = useContext(authContext);
-  // const [user, setUser] = localStorage.getItem("token");
-
-  const handleClick = (event) => {
-    console.log("funciona");
-  };
 
   return (
     <div className="app-container">
-      <div className="header">
-        <nav>
-          <ul>
+      <div className="header rounded-full p-1 my-7 mx-auto">
+        <nav className="px-4 mx-2 max-w-8xl">
+          <ul className="text-[1.3rem]">
             <li>
               <Link to="/Home">
                 <Logo/>
@@ -41,9 +36,9 @@ export default function NFT() {
               </div>
             </li>
           </ul>
-          <div className="nav-svg">
+          <div className="nav-svg m-2">
             <div>
-              <Link to={auth ? "/Profile" : "/Login"} onClick={handleClick}>
+              <Link to={auth ? "/Profile" : "/Login"}>
                 <svg width="30px" height="30px" viewBox="0 0 48 48">
                   <path d="M0 0h48v48H0z" fill="none" />
                   <g>
@@ -85,12 +80,12 @@ export default function NFT() {
         </nav>
       </div>
 
-      <div className="page-conteiner">
+      <div className="page-conteiner min-h-98 mt-20">
         <Outlet />
         <CartDropDown />
       </div>
 
-      <footer>
+      <footer className="m-10">
         <Link to="/Terms">Terms and Conditions</Link>
         <a href="#">
           <svg

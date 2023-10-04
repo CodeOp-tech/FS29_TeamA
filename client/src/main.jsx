@@ -9,12 +9,10 @@ import CartState from "./context/cart/CartState";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-  
       <BrowserRouter>
-      <CartState>
-        <App />
-      </CartState>
+        <CartState>
+          <App />
+        </CartState>
       </BrowserRouter>
-  
   </React.StrictMode>
 )

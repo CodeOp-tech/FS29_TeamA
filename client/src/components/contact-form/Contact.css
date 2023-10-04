@@ -2,9 +2,10 @@
 
 .contact {
 	box-shadow: 8px 8px 8px 8px #cbcccc;
-	width: 60%;
-	margin-left: 20%;
-	margin-right: 20%;
+	width: 90%;
+	position:fixed;
+	top:100px;
+	right: 20px;
 }
 
 label,
@@ -13,7 +14,9 @@ small {
 }
 
 form {
-	margin: 10%; margin-left:5%; width: 350px;
+	/* margin: 10%; */
+	margin-left:5%;
+	width: 350px;
 }
 
 .contact button {
@@ -36,8 +39,8 @@ form {
 .contact-content {
 	display: flex;
 	justify-content: center;
-	width:100%;
-	height: 800px;
+	/* width:100%; */
+	/* height: 550px; */
 }
 
 .logo-div {
@@ -48,7 +51,6 @@ form {
 
 .logo-div > img {
 	width:50%;
-	margin-bottom:10%;
 	vertical-align: middle;
 }
 

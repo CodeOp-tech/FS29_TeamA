@@ -1,7 +1,7 @@
 export default function Terms() {
 	return (
 	<>
-		<article>
+		<article className="m-10">
 			<header>
 				<h2>TERMS OF SERVICE</h2> 
 			</header>

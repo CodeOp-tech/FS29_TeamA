@@ -36,7 +36,7 @@ export default function About() {
 	}
 
   return (
-    <div className="page-conteiner" id="About">
+    <div className="" id="About">
       <div className="contact">
         <div className="contact-header">
           <h1>Contact Us</h1>

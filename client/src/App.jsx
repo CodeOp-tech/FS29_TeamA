@@ -71,7 +71,7 @@ function App() {
     <>
       <authContext.Provider value={authContentextObject}>
         <Routes>
-          {/* general route with content that's displayed on all pages */}
+          {/* general route with content displayed on all pages */}
           <Route path="/" element={<NFT />}>
             {/* all page routes go here */}
             <Route path="/Home" element={<Home />} />
