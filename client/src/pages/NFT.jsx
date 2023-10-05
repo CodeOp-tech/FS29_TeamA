@@ -16,7 +16,7 @@ export default function NFT() {
         <nav className="px-4 mx-2 max-w-8xl">
           <ul className="text-[1.3rem]">
             <li>
-              <Link to="/Home">
+              <Link to="/">
                 <Logo/>
               </Link>
             </li>

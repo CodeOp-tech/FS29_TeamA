@@ -18,7 +18,7 @@ module.exports = async function db(query) {
       password: DB_PASS,
       database: DB_NAME || "ecommerce",
       multipleStatements: true,
-      ssl: true,
+      ssl: true
     });
 
     con.connect(function (err) {
