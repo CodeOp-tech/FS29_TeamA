@@ -22,8 +22,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
-// app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(express.static(path.join(__dirname, '/client/dist')));
+
+//All API routes 
 app.use("/api/index", indexRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/orders", ordersRouter);
@@ -33,6 +35,7 @@ app.use("/api/sendgrid", sendgridRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/brands", brandsRouter);
 
-
-
+app.get("*",(req,res) => {
+	res.sendFile(path.join(__dirname + "/client/dist/index.html"))
+})
 module.exports = app;
