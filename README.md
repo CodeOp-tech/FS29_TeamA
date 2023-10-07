@@ -38,15 +38,34 @@ The app is meant to help people buy fashion NFTs as well as learn more about dig
 
 ### Built With
 
-* [![Node][NodeJS]][Node-url]
-* [![Express][Express.js]][Express-url]
-* [![React][React.js]][React-url]
-* [![MySQL][MySQL]][MySQL-url]
-* [![ViteJS][ViteJS]][Vite-url]
-* [![ReactRouter][ReactRouter]][ReactRouter-url]
-* [![Stripe][Stripe]][Stripe-url]
-* [![SendGrid][SendGrid]][SendGrid-url]
-* [![Heroku][Heroku]][Heroku-url]
+> [![Node][NodeJS]][Node-url]
+> [![Express][Express.js]][Express-url]
+> [![React][React.js]][React-url]
+> [![MySQL][MySQL]][MySQL-url]
+> [![ViteJS][ViteJS]][Vite-url]
+> [![ReactRouter][ReactRouter]][ReactRouter-url]
+> [![Stripe][Stripe]][Stripe-url]
+> [![SendGrid][SendGrid]][SendGrid-url]
+> [![Heroku][Heroku]][Heroku-url]
+> [![Tailwindcss][Tailwindcss]][Tailwindcss]
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>[![Node][NodeJS]][Node-url]</td>
+<td><code>JavaScript runtime environment</code> </td>
+<td>open source server environment, used to run JS on the server</td>
+</tr>
+</tbody>
+</table>
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -145,3 +164,7 @@ To get a local copy up and running follow these simple example steps.
 
 [Heroku]: https://img.shields.io/badge/Heroku-79579F?logo=heroku&logoColor=%23ffff
 [Heroku-url]:https://www.heroku.com/
+
+[Tailwindcss]: https://img.shields.io/badge/tailwindcss-F8FAFC?logo=tailwindcss&logoColor=37BDF9
+[Tailwindcss-url]: https://tailwindcss.com/
+
