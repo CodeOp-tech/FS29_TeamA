@@ -114,7 +114,7 @@ To get a local copy up and running follow these simple example steps.
 
 [linkedin-url]: https://www.linkedin.com/in/paula-burghelea/
 
-[product-screenshot]: https://github.com/PaulaBurgheleaGithub/travelette/blob/main/client/public/Nft/Shop-page.png
+[product-screenshot]: https://github.com/PaulaBurgheleaGithub/e-Commerce-App/blob/main/client/public/Nft/Shop-page.png
 
 [Express.js]: https://img.shields.io/badge/Express-js?logo=express&logoColor=%23F9F9F9&color=%23F9F9F9
 [Express-url]: https://expressjs.com/
