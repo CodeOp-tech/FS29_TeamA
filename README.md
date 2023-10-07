@@ -33,7 +33,6 @@ The app is meant to help people buy fashion NFTs as well as learn more about dig
 
 [![nft-app][product-screenshot]][product-screenshot]
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
@@ -49,31 +48,13 @@ The app is meant to help people buy fashion NFTs as well as learn more about dig
 > [![Heroku][Heroku]][Heroku-url]
 > [![Tailwindcss][Tailwindcss]][Tailwindcss]
 
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>[![Node][NodeJS]][Node-url]</td>
-<td><code>JavaScript runtime environment</code> </td>
-<td>open source server environment, used to run JS on the server</td>
-</tr>
-</tbody>
-</table>
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow these steps (for MAC users).
 
 ### Prerequisites
 
@@ -85,10 +66,11 @@ To get a local copy up and running follow these simple example steps.
 ### Database Prep
 
 - Access the MySQL interface in your terminal by running
-  ```sh
-  mysql -u root -p
-  create database ecommerce;
-  ```
+
+```sh
+mysql -u root -p
+create database ecommerce;
+```
 
 - On the root of your project add a `.env` file to the project folder of this repository containing the MySQL authentication information for MySQL user. For example:
 
@@ -105,6 +87,8 @@ To get a local copy up and running follow these simple example steps.
 - Run the following commands to your MySQL console: `CREATE DATABASE ecommerce;` and then `USE ecommerce;`.
 - Run `npm run migrate` in the project folder of this repository, in a new terminal window. This will create the required tables in your database: "payments", "orders", "users", "guests", "artists", "products", and "product_order".
 - Make sure you understand how the tables are constructed. In your MySQL console, you can run `DESCRIBE tablename;` to see the structure of each table. Please mind that "tablename" in `DESCRIBE tablename;` needs to be replaced by the name of the table that you want to describe.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Development
 
