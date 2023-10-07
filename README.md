@@ -44,6 +44,9 @@ The app is meant to help people buy fashion NFTs as well as learn more about dig
 * [![MySQL][MySQL]][MySQL-url]
 * [![ViteJS][ViteJS]][Vite-url]
 * [![ReactRouter][ReactRouter]][ReactRouter-url]
+* [![Stripe][Stripe]][Stripe-url]
+* [![SendGrid][SendGrid]][SendGrid-url]
+* [![Heroku][Heroku]][Heroku-url]
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -133,3 +136,12 @@ To get a local copy up and running follow these simple example steps.
 
 [ReactRouter]: https://img.shields.io/badge/ReactRouter-black?logo=reactrouter&color=%23121212&link=https%3A%2F%2Freactrouter.com%2Fen%2Fmain
 [ReactRouter-url]: https://reactrouter.com/en/main
+
+[Stripe]: https://img.shields.io/badge/Stripe-665AFF?logo=stripe&logoColor=%23FFFFFF
+[Stripe-url]: https://stripe.com/
+
+[SendGrid]:https://img.shields.io/badge/SendGrid-02B0DE?logo=SendGrid&logoColor=%23FFFFFF
+[SendGrid-url]: https://sendgrid.com/
+
+[Heroku]: https://img.shields.io/badge/Heroku-79579F?logo=heroku&logoColor=%23ffff
+[Heroku-url]:https://www.heroku.com/
