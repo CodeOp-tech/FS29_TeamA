@@ -16,6 +16,13 @@ router.post("/contact", (req, res) => {
     from: req.body.from, // Change to your verified sender
     subject: req.body.subject,
     text: `Hey, Thank you for contacting us! A member of our team will review your message and get back to you shortly!`,
+    html: '<p>Hey, Thank you for contacting us! A member of our team will review your message and get back to you shortly!</p>',
+    templateId: 'd-d59cf1123fb849008ce74478a09e055b',
+    dynamic_template_data: {
+      subject: 'Thank you for contacting us!',
+      name: 'NFT-Store',
+      city: '<b>London<b>',
+    },
   };
   try {
     sgMail.send(msg);
@@ -24,20 +31,21 @@ router.post("/contact", (req, res) => {
     res.send("Message Could not be Sent");
   }
 });
+
 router.post('/send', (req, res) => {
-   console.log(req);
-   const msg = {
+  console.log(req);
+  const msg = {
       to: req.body.to, // Change to your recipient
       from: req.body.from, // Change to your verified sender
       subject: req.body.subject,
       text: `Hey, Thank you for joining us!`,
-   }
-   try {
+  }
+  try {
       sgMail.send(msg);
       res.send("Message Successfully Sent!");
-   } catch (error) {
+  } catch (error) {
       res.send("Message Could not be Sent");
-   }
+  }
 });
 
 module.exports = router;

@@ -1,6 +1,7 @@
 import "./Contact.css"
 import { useState } from "react";
 import axios from "axios";
+import Logo from "../../components/logo-svg/logo";
 
 export default function About() {
 	const [formData, setFormData] = useState({
@@ -36,15 +37,16 @@ export default function About() {
 	}
 
   return (
-    <div className="page-conteiner" id="About">
+    <div className="h-3/4" id="About">
       <div className="contact">
         <div className="contact-header">
           <h1>Contact Us</h1>
           <p>Have questions or comments? We&apos;d love to hear from you! Fill out the form and we&apos;ll be in touch as soon as possible.</p>
         </div>
-        <div className="contact-content">
-          <div className="logo-div">
-            <img src="../../../nft.svg" alt="Nft logo"/>
+        <div className="w-100  flex flex-row justify-center gap-10">
+          <div className="overflow-hidden relative w-80 h-100 flex justify-center items-center">
+            {/* <img src="../../../nft.svg" alt="Nft logo"/> */}
+            <Logo/>
           </div>
           <div className="contact-form">
             <form onSubmit={contact}>
@@ -61,7 +63,7 @@ export default function About() {
                 <label htmlFor="">Message</label>
                 <textarea name="message" placeholder="Please, proceed to explain the situation" cols="30" rows="5" value={message} onChange={handleChange} required></textarea>
               </div>
-              <button type="submit">Submit</button>
+              <button className="rounded-full mb-10 w-40 h-10  flex justify-center items-center bg-#9c9e9e" type="submit">Submit</button>
             </form>
           </div>
         </div>

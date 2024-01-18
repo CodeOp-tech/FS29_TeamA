@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function Orders() {
   const [orders, setOrders] = useState([]);
@@ -60,6 +61,10 @@ function Orders() {
 
   return (
     <div id="orders">
+      <div className="mt-10 rounded-full bg-pink w-40 flex justify-center items-center">
+        <Link to="/Profile"> Back </Link>
+      </div>
+      
       <h3 className=" font-sans text-3xl mb-20 mt-20 text-left ml-60 font-bold">
         MY ORDERS
       </h3>

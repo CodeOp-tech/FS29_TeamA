@@ -12,7 +12,6 @@ export default function Brands() {
           method: "GET",
         });
         const data = await response.json();
-
         setBrands(data);
       } catch (error) {
         console.log("Error fetching product", error);
@@ -26,10 +25,6 @@ export default function Brands() {
     <div id="Brands" className="flex justify-center">
       <div className="max-w-screen-xl mx-10">
         <div className="brands-container">
-          <div className="marquee-animation">
-            <h3 className='font-sans text-3xl mt-0 text-left font-bold'>BRANDS</h3>
-          </div>
-      
           <div className="grid grid-cols-4 gap-20 mx-20 mt-20 mx-auto">
             {brands.map((brand) => (
               <Link key={brand.id} className="card flex items-cente hover:bg-rose " to={`/Brands/${brand.id}`}>
@@ -39,7 +34,6 @@ export default function Brands() {
               </Link>
             ))}
           </div>
-     
       </div>
       </div>
     </div>

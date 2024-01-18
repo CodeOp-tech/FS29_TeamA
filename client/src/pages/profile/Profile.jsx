@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useContext } from "react";
-import authContext from "../../context/authContext";
+import authContext from "../../context/auth/authContext";
 
 export default function Profile() {
   const [user, setUser] = useState(null);
@@ -32,9 +32,9 @@ export default function Profile() {
     }
   };
   return (
-    <>
-      <div className="logout">
-        <Link to="/Home" onClick={logout}>
+    <div className="m-10">
+      <div className="logout mt-10 mr-10">
+        <Link to="/" onClick={logout}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="40px"
@@ -44,7 +44,7 @@ export default function Profile() {
           >
             <title>Sign Out</title>
             <g
-              id="Atom/Icon/Sign-Out"
+              id="Sign-Out"
               stroke="none"
               strokeWidth="1"
               fill="none"
@@ -78,11 +78,11 @@ export default function Profile() {
           <p>User: {user.email}'s profile</p>
 
 
-          <div>
-            <Link to="/Orders">Orders</Link>
+          <div className="mt-10 rounded-full bg-pink w-40 flex justify-center items-center">
+            <Link to="/Orders"> View orders</Link>
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }

@@ -1,7 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import authContext from "./context/authContext";
+import authContext from "../src/context/auth/authContext";
 import axios from "axios";
 
 //Components
@@ -71,10 +71,10 @@ function App() {
     <>
       <authContext.Provider value={authContentextObject}>
         <Routes>
-          {/* general route with content that's displayed on all pages */}
+          {/* general route with content displayed on all pages */}
           <Route path="/" element={<NFT />}>
             {/* all page routes go here */}
-            <Route path="/Home" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/Shop" element={<Shop />} />
             <Route path="/Shop/:id" element={<Product />} />
             <Route path="/Brands" element={<Brands />} />

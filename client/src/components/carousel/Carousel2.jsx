@@ -26,7 +26,7 @@ export default function Carousel2({autoSlide=false, autoSlideInterval=3000}) {
 
 			setProductsPics(callPics.data);
 		} catch (error) {
-			console.error(error);
+			res.status(500).send(error);
 		}};
 		getPics();
 	}, []);
