@@ -151,4 +151,3 @@ create database ecommerce;
 
 [Tailwindcss]: https://img.shields.io/badge/tailwindcss-F8FAFC?logo=tailwindcss&logoColor=37BDF9
 [Tailwindcss-url]: https://tailwindcss.com/
-
