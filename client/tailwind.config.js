@@ -4,12 +4,20 @@ module.exports = {
   theme: {
     extend: {},
     colors: {
-      white: "#ffffff",
-      pink: "#ffafcc",
-      rose: "#f15bb5",
-      platinum: "#e5e5e5",
-      black: "#000000",
+      neutral: {
+        100: "hsl(0, 0%, 100%)"
+      },
+      primary: {
+        100: "hsl(205, 15%, 58%)",
+        400: "hsl(296, 57%, 66%)",
+        800: "hsl(285, 44%, 25%)",
+        900: "hsl(218, 33%, 9%)"
+      },
     },
+    fontFamily: {
+      worksans: ["Work Sans", "sans-serif"],
+      poppins: ['Poppins', "sans-serif"]
+    }
   },
   plugins: [],
 };

@@ -23,7 +23,7 @@ export default function Products() {
   }, []);
 
   return (
-    <div>
+    <div className="p-2 minmd:px-4 minlg:px-8 minlg:mb-[-98px] mt-[100px]">
       <div className="card-grid">
         {products.map((product) => (
           <Link key={product.id} className="card" to={`/Shop/${product.id}`}>
