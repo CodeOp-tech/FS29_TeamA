@@ -22,7 +22,7 @@ export default function Brands() {
   }, [id]);
 
   return (
-    <div id="Brands" className="flex justify-center">
+    <div id="Brands" className="pt-14 flex justify-center">
       <div className="max-w-screen-xl mx-10">
         <div className="brands-container">
           <div className="grid grid-cols-4 gap-20 mx-20 mt-20 mx-auto">

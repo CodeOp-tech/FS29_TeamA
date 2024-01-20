@@ -1,56 +1,11 @@
 #root {
   /* min-width: 1280px; */
   /* min-height: 1500px; */
-  margin: 0 auto;
+  margin: 0;
 }
 
 a {
   text-decoration: none;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-button {
-  padding: 5px;
-  color: #f15bb5;
-  background-color: #e5e5e5;
-  border-color: #e5e5e5;
-  border-radius: 25% 10%;
-  border-style: none;
-}
-
-button:hover {
-  background-color: #f15bb5;
-  color: white;
-  cursor: pointer;
-}
-
-button a:visited {
-  text-decoration: none;
-  color: #f15bb5;
-}
-
-button:hover a:visited {
-  background-color: #f15bb5;
-  color: white;
-  text-decoration: none;
-}
-
-/* footer {
-   margin-bottom: 0; 
-  position: fixed;
-  margin-left: 20px;
-} */

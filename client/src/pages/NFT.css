@@ -1,27 +1,22 @@
 .header{
-	z-index: 10;
+	z-index: 100;
 	position: fixed;
 	background-color: #ffff;
-	box-shadow: 2px 4px 4px 2px #e5e7eb;
-
 	width: 95%;
 	top: 0;
 	left: 0;
 	right: 0;
-	color: #F15BB5;
 }
 
-/* .page-conteiner {
-	margin: 50px 10px;
-} */
 
-
-.header a:visited{
+.header a:visited {
 	text-decoration: none;
 	background-color: white;
-	color: #F15BB5;
+	color: var(--clr-primary-900);
 }
-
+.header a:hover {
+	color:var(--clr-primary-400)
+}
 
 nav {
 	display: flex;
@@ -70,7 +65,11 @@ nav ul li div a {
 }
 
 svg {
-	fill: rgb(235, 59, 188);
+	fill: var(--clr-primary-900);
+}
+
+svg:hover {
+	fill: var(--clr-primary-400);
 }
 
 .item_count {
@@ -93,5 +92,4 @@ footer {
 	justify-content: flex-end;
 	align-items: center;
 	margin: 10px;
-
 }

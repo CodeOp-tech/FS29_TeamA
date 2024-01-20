@@ -11,8 +11,8 @@ export default function NFT() {
   const auth = useContext(authContext);
 
   return (
-    <div className="app-container">
-      <div className="header rounded-full p-1 my-7 mx-auto">
+    <div className="app-container h-screen mt-10">
+      <header className="header rounded-full p-1 my-7 mx-auto shadow-lg shadow-indigo-500/40">
         <nav className="px-4 mx-2 max-w-8xl">
           <ul className="text-[1.3rem]">
             <li>
@@ -32,7 +32,7 @@ export default function NFT() {
             </li>
             <li>
               <div className="align-middle">
-              <Link to="/About">Contact</Link>
+              <Link to="/Contact">Contact</Link>
               </div>
             </li>
           </ul>
@@ -78,12 +78,12 @@ export default function NFT() {
             </div>
           </div>
         </nav>
-      </div>
+      </header>
 
-      <div className="page-conteiner min-h-98 mt-20">
+      <main className="mt-16">
         <Outlet />
         <CartDropDown />
-      </div>
+      </main>
 
       <footer className="m-10">
         <Link to="/Terms">Terms and Conditions</Link>
