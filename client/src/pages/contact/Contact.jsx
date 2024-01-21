@@ -37,7 +37,7 @@ export default function About() {
 	}
 
   return (
-    <div className="p-2 minmd:px-4 minlg:px-8 minlg:mb-[-98px] mt-[100px]" id="Contact">
+    <div className="h-screen pt-14 minmd:px-4 minlg:px-8 minlg:mb-[-98px] mt-[100px]" id="Contact">
       <div className="contact pt-3">
         <div className="contact-header">
           <h1>Contact Us</h1>
@@ -62,7 +62,7 @@ export default function About() {
                 <label htmlFor="">Message</label>
                 <textarea name="message" placeholder="Please, proceed to explain the situation" cols="30" rows="5" value={message} onChange={handleChange} required></textarea>
               </div>
-              <button className=" text-neutral-100 bg-gradient-to-r from-primary-400 to-primary-800 focus:ring-4 focus:outline-none focus:bg-primary-400 font-medium text-md w-full sm:w-auto px-6 py-3 text-center rounded-full" type="submit">Submit</button>
+              <button className="text-neutral-100 bg-gradient-to-r from-primary-400 to-primary-800 focus:ring-4 focus:outline-none focus:bg-primary-400 font-medium text-md w-full sm:w-auto px-6 py-3 text-center rounded-full" type="submit">Submit</button>
             </form>
           </div>
         </div>

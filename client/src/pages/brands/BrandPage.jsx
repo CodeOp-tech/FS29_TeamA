@@ -43,7 +43,7 @@ useEffect(() => {
 }, []);
 
 	return (
-		<div className="flex flex-row gap-10 w-100 pt-14">
+		<div className="h-screen flex flex-row gap-10 w-100 mt-14 relative">
 				<div className="w-100 ml-20 mt-20 flex flex-col align-baseline">
 					<Link className="mb-10 w-40 h-10 rounded-full flex justify-center items-center btn" to={"/Brands"}>Go back</Link>
 					<div className="sticky top-10">
@@ -56,12 +56,12 @@ useEffect(() => {
 					</div>
 				</div>
 
-				<div className="overflow-hidden relative bg-white">
+				<div className="overflow-hidden absolute right-0 p-14 bg-white">
 					{products.length &&
 						products.map((product) => (
 						<div key={product.id} className="flex flex-col justify-start">
-							<div className="card-container">
-								<img src={product.image_1} className="ml-2" alt={product.name} />
+							<div className="h-78 w-96">
+								<img src={product.image_1} className="object-cover" alt={product.name} />
 							</div>
 							<div>
 								<h4 className="mb-1">{product.name}</h4>

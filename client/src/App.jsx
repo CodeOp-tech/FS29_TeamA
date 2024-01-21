@@ -21,7 +21,7 @@ import Register from "./pages/login/Register";
 import CheckoutSuccess from "./components/CheckoutSuccess";
 import PasswordReset from "./pages/login/PasswordReset";
 import Product from "./pages/Product";
-import Terms from "./pages/footer/Terms";
+import Terms from "./components/footer/Terms";
 import CartLogin from "./pages/cartLogin/CartLogin";
 import BrandPage from "./pages/brands/BrandPage";
 
