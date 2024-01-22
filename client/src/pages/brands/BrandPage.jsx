@@ -55,14 +55,13 @@ useEffect(() => {
 						</div>
 					</div>
 				</div>
-
 				<div className="overflow-hidden absolute right-0 p-14 bg-white">
 					{products.length &&
 						products.map((product) => (
 						<div key={product.id} className="flex flex-col justify-start">
-							<div className="h-78 w-96">
+							{/* <div className="h-78 w-96">
 								<img src={product.image_1} className="object-cover" alt={product.name} />
-							</div>
+							</div> */}
 							<div>
 								<h4 className="mb-1">{product.name}</h4>
 							</div>

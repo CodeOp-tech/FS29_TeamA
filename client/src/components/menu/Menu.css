@@ -1,0 +1,53 @@
+.sr_only {
+	position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border-width: 0;
+}
+.icon {
+	height: 80%;
+	width: 85%;
+	display: inline-flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction: column;
+	position: relative;
+}
+
+.menu_btn {
+	--size: 96px;
+   background: transparent;
+   border: 0;
+   border-radius: 50%;
+   cursor: pointer;
+   height: var(--size);
+   padding: 0;
+   width: var(--size);
+   transition: background var(--transition);
+}
+.menu_btn[aria-pressed="true"] {
+	--accessory-translation: 30%;
+	--main-rotation: -45deg;
+	--final-translation: -55%;
+}
+.menu_btn[aria-pressed="true"] .icon span:nth-of-type(odd) {
+	transition: --hover-translation var(--transition),
+	--accessory-translation var(--transition),
+	--main-rotation var(--transition) calc(var(--transition) * 2),
+	--final-translation var(--transition) calc(var(--transition) * 3);
+}
+.button[aria-pressed="true"] .icon span:nth-of-type(2) {
+	transition: --main-rotation var(--transition) var(--transition);
+}
+.icon > span:nth-of-type(odd) {
+	width: 60%;
+	transform: translate(calc(var(--hover-translation) * var(--coefficient)))
+	  translate(calc(var(--accessory-translation) * var(--coefficient)), 0)
+	  rotate(calc(var(--main-rotation) * -1))
+	  translate(calc(var(--final-translation) * var(--coefficient)));
+}

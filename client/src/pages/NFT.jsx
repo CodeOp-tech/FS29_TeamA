@@ -13,7 +13,7 @@ export default function NFT() {
   const auth = useContext(authContext);
 
   return (
-    <div className="app-container h-screen w-full">
+    <div className="w-full min-w-screen min-h-screen overflow-hidden">
 
       <header>
         <Header />

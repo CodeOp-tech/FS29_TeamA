@@ -64,11 +64,11 @@ nav ul li div a {
 	margin-right: 10px;
 }
 
-svg {
+nav svg {
 	fill: var(--clr-primary-900);
 }
 
-svg:hover {
+nav svg:hover {
 	fill: var(--clr-primary-400);
 }
 
