@@ -1,7 +1,7 @@
 export default function Terms() {
 	return (
 	<>
-		<article className="m-10">
+		<article className="mt-16 p-16">
 			<header>
 				<h2>TERMS OF SERVICE</h2> 
 			</header>
@@ -159,7 +159,7 @@ export default function Terms() {
 				<h4>Our contact information is posted below:</h4>
 				<b>Team A&apos;s NFT eCommerce App</b>
 				<p>
-				teama@nftstore.com
+				paula.burghelea@gmail.com
 				</p>
 
 				</p>
@@ -168,8 +168,8 @@ export default function Terms() {
 			<footer>
 				<p>
 					Posted on
-					<time dateTime="2023-09-06 19:00"> Sep 6 2023 </time>
-					by TeamA - CodeOp.
+					<time dateTime="2024-01-06 19:00"> Jan 6 2024 </time>
+					by Paula Burghelea.
 				</p>
 			</footer>
 		</article>

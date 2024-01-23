@@ -65,3 +65,9 @@ p, h1, h2, h3, h4, h5, h6 {
 .btn {
 	@apply text-neutral-100 bg-gradient-to-r from-primary-400 to-primary-800 focus:ring-4 focus:outline-none focus:bg-primary-400 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center;
 }
+
+.color-transition {
+	transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+	transition-timing-function: cubic-bezier(.4,0,.2,1);
+	transition-duration: .15s;
+}

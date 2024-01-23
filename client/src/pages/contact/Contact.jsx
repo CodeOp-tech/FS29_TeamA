@@ -1,7 +1,7 @@
 import "./Contact.css"
 import { useState } from "react";
 import axios from "axios";
-import Logo from "../../components/logo-svg/logo";
+import Logo from "../../components/svg/logo";
 
 export default function About() {
 	const [formData, setFormData] = useState({

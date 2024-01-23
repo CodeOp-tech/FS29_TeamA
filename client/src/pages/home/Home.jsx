@@ -20,5 +20,3 @@ export default function Home() {
     </div>
   );
 }
-
-// text-neutral-100 bg-gradient-to-r from-primary-400 to-primary-800 focus:ring-4 focus:outline-none focus:bg-primary-400 font-medium text-md w-full sm:w-auto px-6 py-3 text-center rounded-full
