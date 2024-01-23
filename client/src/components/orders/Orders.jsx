@@ -13,7 +13,6 @@ function Orders() {
     }
   };
 
-  // //orderHIstory
   useEffect(() => {
     getOrders();
   }, [user_id]);
@@ -60,7 +59,7 @@ function Orders() {
   };
 
   return (
-    <div id="orders">
+    <div id="orders" className="m-14 pt-10">
       <div className="mt-10 rounded-full bg-pink w-40 flex justify-center items-center">
         <Link to="/Profile"> Back </Link>
       </div>

@@ -1,24 +1,22 @@
-import Carousel2 from "../../components/carousel/Carousel2";
+import Carousel3 from "../../components/carousel/Carousel3";
+import { Link } from "react-router-dom";
+import "./Home.css";
 
 export default function Home() {
   return (
-    <div className="home-div">
-        <div className="w-100 flex flex-row gap-10">
-          <section className="w-55 mt-auto m-20 flex flex-col">
+    <div className="home-div h-dvh">
+        <div className="w-100 h-full flex flex-row flex-wrap-reverse justify-between">
+          <section className="h-screen pt-14 pb-9 minlg:py-[4vh] px-[5vw] flex flex-col justify-center items-start minlg:w-[55%] minxl:w-[58.5%] minlg:h-screen">
             <h2 className="text-[6.8rem]">
-            Own your NFT <span><p className="bg-gradient-to-r from-#fff3fs to-#ddddd bg-clip-text text-transparent">identity</p></span>
+              Own your <br></br> NFT <span className="bg-gradient-to-r from-primary-400 to-primary-800 bg-clip-text text-transparent">identity</span>
             </h2>
-            <p>Build your virtual wordrobe with an NFT that is uniquely you</p>
+            <p>Build your virtual wordrobe with an NFT that is uniquely you!</p>
+            <Link className="bg-primary-900 text-neutral-100 mt-3 rounded-full text-lg sm:w-auto px-7 py-4 text-center font-bold cursor-pointer hover:bg-gradient-to-r from-primary-400 to-primary-800" to="/Shop">EXPLORE NOW</Link>
           </section>
-          <section className="m-auto max-w-lg">
-            <Carousel2 autoSlide={true} autoSlideInterval={1500}/>
+          <section className="h-dvh overflow-hidden w-2/5 bg-primary-400 flex flex-col justify-center">
+            <Carousel3 />
           </section>
         </div>
-      <div>
-        <div className="know-more container">
-        </div>
-        <div className="item "></div>
-      </div>
     </div>
   );
 }

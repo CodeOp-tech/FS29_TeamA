@@ -1,15 +1,6 @@
-.contact {
-	width: 60%;
-	margin-left: 20%;
-	/* margin-top: 5%; */
-	margin-right: 20%;
-
-}
-
 .contact-header {
 	text-align: center;
 	padding-top: 5%;
-	color:#0D122B;
 }
 
 .contact-header p {
@@ -22,18 +13,6 @@
 	height: 800px;
 }
 
-.logo-div {
-	text-align:center;
-	width:50%;
-	display: flex;
-	align-items: center;
-}
-
-.logo-div > img {
-	width:50%;
-	margin-bottom:10%;
-	vertical-align: middle;
-}
 
 .contact-form {
 	display: flex;
@@ -46,9 +25,9 @@
 }
 
 
-.page-conteiner {
+/* .page-conteiner {
 	padding: 50px 10px !important;
-}
+} */
 
 .contact {
 	box-shadow: 8px 8px 8px 8px #cbcccc;

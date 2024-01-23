@@ -6,24 +6,27 @@ import axios from "axios";
 
 //Components
 import PrivateRoute from "./components/PrivateRoute.jsx";
+import Orders from "./components/orders/Orders";
 
 // Routes and pages
 import NFT from "./pages/NFT";
 import Home from "./pages/home/Home";
 import Shop from "./pages/shop/Shop";
 import Brands from "./pages/brands/Brands";
-import About from "./pages/about/About";
+import Contact from "./pages/contact/Contact";
 import Login from "./pages/login/Login";
 import CartPage from "./pages/cart/CartPage";
 import Profile from "./pages/profile/Profile";
 import Register from "./pages/login/Register";
 import CheckoutSuccess from "./components/CheckoutSuccess";
-import Orders from "./components/orders/Orders";
 import PasswordReset from "./pages/login/PasswordReset";
 import Product from "./pages/Product";
-import Terms from "./pages/footer/Terms";
+import Terms from "./pages/terms/Terms.jsx";
 import CartLogin from "./pages/cartLogin/CartLogin";
 import BrandPage from "./pages/brands/BrandPage";
+
+//utils
+import "./utils/Carousel.js";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
@@ -79,7 +82,7 @@ function App() {
             <Route path="/Shop/:id" element={<Product />} />
             <Route path="/Brands" element={<Brands />} />
             <Route path="/Brands/:id" element={<BrandPage />} />
-            <Route path="/About" element={<About />} />
+            <Route path="/Contact" element={<Contact />} />
             <Route path="/Login" element={<Login />} />
             <Route
               path="/Profile"

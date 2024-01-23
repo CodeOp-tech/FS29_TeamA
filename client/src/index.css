@@ -1,16 +1,73 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
-}
-
-/* h1,
-p {
-  font-family: Lato;
-} */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+:root {
+	--clr-neutral-100: hsl(0, 0%, 100%);
+	--clr-primary-100: hsl(205, 15%, 58%);
+	--clr-primary-400: hsl(296, 57%, 66%);
+	--clr-primary-800: hsl(285, 44%, 25%);
+	--clr-primary-900: hsl(218, 33%, 9%);
+}
+
+
+/*
+	1. more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+/*
+	2. Remove default margin
+ */
+* {
+	margin: 0;
+}
+/*
+	Typographic tweaks!
+	3. Add accessible line-height
+	4. Improve text rendering
+ */
+body {
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	font-family: "Roboto", sans-serif;
+}
+/*
+	5. Improve media defaults
+ */
+img, picture, video, canvas, svg {
+	display: block;
+	max-width: 100%;
+}
+/*
+	6. Remove built-in form typography styles
+ */
+input, button, textarea, select {
+	font: inherit;
+}
+/*
+	7. Avoid text overflows
+ */
+p, h1, h2, h3, h4, h5, h6 {
+	overflow-wrap: break-word;
+}
+/*
+	8. Create a root stacking context
+ */
+#root, #__next {
+	isolation: isolate;
+}
+
+.btn {
+	@apply text-neutral-100 bg-gradient-to-r from-primary-400 to-primary-800 focus:ring-4 focus:outline-none focus:bg-primary-400 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center;
+}
+
+.color-transition {
+	transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+	transition-timing-function: cubic-bezier(.4,0,.2,1);
+	transition-duration: .15s;
+}
