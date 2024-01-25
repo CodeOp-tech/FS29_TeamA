@@ -1,22 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { useContext } from "react";
+
+//assets
 import authContext from "../../context/auth/authContext";
-import LogOut from "../../components/svg/LogOut";
+
+//components
+import LogOut from "../../components/logout/logout";
 
 export default function Profile() {
   const [user, setUser] = useState(null);
-  const auth = useContext(authContext);
-  //   console.log(auth);
 
   useEffect(() => {
     getUser();
   }, []);
-
-  const logout = () => {
-    auth.logout();
-  };
 
   const getUser = async () => {
     try {
@@ -33,8 +30,8 @@ export default function Profile() {
   };
   return (
     <div className="h-screen m-14 pt-20">
-      <div className="logout mt-10 mr-10">
-        <LogOut onClick={logout}/>
+      <div className="logout mt-10 mr-10 cursor-pointer">
+        <LogOut />
       </div>
 
       {user && (
