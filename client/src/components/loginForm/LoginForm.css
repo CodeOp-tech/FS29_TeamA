@@ -1,0 +1,94 @@
+.logout {
+	position: fixed;
+	top: 100px;
+	right: 20px;
+}
+
+.logout > a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.login-form {
+	height: 600px;
+	box-shadow: 8px 8px 8px 8px #cbcccc;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #ffff;
+}
+
+.login-form-inner {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.login-form-inner  input {
+	border-radius: 2px;
+}
+
+.password {
+	margin-bottom: 15px;
+}
+
+.email{
+	margin-top: 15px;
+	margin-bottom: 10px;
+}
+
+.signIn {
+	width: 100%;
+	margin-top: 10px;
+	border-radius: 2px;
+	color: #F15BB5;
+	background-color: #E5E5E5;
+	border-color: #E5E5E5;
+}
+
+.form-footer {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	margin: 20px 0;
+}
+
+.password-reset {
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+	background-color: #ffff;
+}
+
+.password-reset > div {
+	width: 100%;
+	height: 600px;
+	box-shadow: 8px 8px 8px 8px #E5E5E5;
+}
+
+.email-form,
+.reset-promo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.form {
+	width: 100%;
+	background: transparent;
+	border: 1px solid #e5e5e5;
+	max-width: 100%;
+	text-indent: 10px;
+	outline: none;
+	height: 40px;
+	line-height: 40px;
+}
+
+.loginTitle{
+	font-size: x-large;
+}
