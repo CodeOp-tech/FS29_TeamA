@@ -5,56 +5,34 @@ import axios from "axios";
 //assets and context
 import "./CartPage.css";
 
-import authContext from "../../context/auth/authContext";
-import CartContext from "../../context/cart/CartContext";
+// import authContext from "../../context/auth/authContext";
+// import CartContext from "../../context/cart/CartContext";
 //components
 import Cart from "../../components/cart/Cart";
 
-
 export default function CartPage() {
-   const auth = useContext(authContext);
+   // const auth = useContext(authContext);
 
-   const { cartItems } = useContext(CartContext);
-   const [user, setUser] = useState(null);
+   // const { cartItems } = useContext(CartContext);
+   // const [user, setUser] = useState(null);
 
-   useEffect(() => {
-      getUser();
-   }, []);
+   // useEffect(() => {
+   //    getUser();
+   // }, []);
 
-   const getUser = async () => {
-      try {
-         const { data } = await axios("/api/auth/profile", {
-            headers: {
-            authorization: "Bearer " + localStorage.getItem("token"),
-         },
-      });
-      setUser(data);
-         console.log(data);
-      } catch (error) {
-         console.log(error);
-      }
-   };
-   
-   const redirectPayment = async () => {
-      try {
-      const { data } = await axios.post(
-         "/api/stripe/create-checkout-session",
-         { products: cartItems },
-         {
-            headers: {
-            authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-         }
-      );
-  
-      console.log(data.url);
-      window.location.replace(data.url);
-         console.log(data.id);
-        //props.setId(data.id);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+   // const getUser = async () => {
+   //    try {
+   //       const { data } = await axios("/api/auth/profile", {
+   //          headers: {
+   //          authorization: "Bearer " + localStorage.getItem("token"),
+   //       },
+   //    });
+   //    setUser(data);
+   //       console.log(data);
+   //    } catch (error) {
+   //       console.log(error);
+   //    }
+   // };
 
 	return (
    <>
@@ -65,10 +43,10 @@ export default function CartPage() {
 					<Cart/>
             </div>
          </div>
-            <div className="mt-10 relative">
-               <Link className="text-neutral-100 text-md text-center bg-gradient-to-r from-primary-400 to-primary-800 font-bold cursor-pointer focus:bg-primary-800  w-full sm:w-auto px-6 py-3 rounded-full absolute top-4 right-2" to="/CheckoutLogin">
-                  Checkout
-               </Link>
+         <div className="mt-10 relative">
+            <Link className="text-neutral-100 text-md text-center bg-gradient-to-r from-primary-400 to-primary-800 font-bold cursor-pointer focus:bg-primary-800  w-full sm:w-auto px-6 py-3 rounded-full absolute top-4 right-2" to="/CheckoutLogin">
+               Checkout
+            </Link>
             </div>
       </div>
    </>

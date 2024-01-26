@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+//components
+import LogOut from "../logout/Logout";
+
 function Orders() {
   const [orders, setOrders] = useState([]);
   const [user_id, setUser_id] = useState("");
@@ -60,11 +63,15 @@ function Orders() {
 
   return (
     <div id="orders" className="m-14 pt-10">
-      <div className="mt-10 rounded-full bg-pink w-40 flex justify-center items-center">
-        <Link to="/Profile"> Back </Link>
+      <div>
+        <div className="mt-10 rounded-full bg-primary-400 w-40 h-10 flex justify-center items-center">
+          <Link to="/Profile"> Back </Link>
+        </div>
+        <div className="logout mt-10 mr-10 cursor-pointer">
+          <LogOut />
+        </div>
       </div>
-      
-      <h3 className=" font-sans text-3xl mb-20 mt-20 text-left ml-60 font-bold">
+      <h3 className=" font-sans text-3xl mb-20 mt-20 text-left font-bold">
         MY ORDERS
       </h3>
 
