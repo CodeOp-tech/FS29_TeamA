@@ -13,7 +13,7 @@ export default function CartDropDown() {
 		<>
 		{showCart && (
 		<div className="mt-7">
-			<div className='rounded-[35px] shadow-lg bg-white shadow-primary-800 w-1/2 fixed top-7 right-11 p-10'>
+			<div className='rounded-[35px] shadow-lg bg-neutral-100 shadow-primary-800 w-1/2 fixed top-7 right-11 p-10'>
 				<Cart showButtons={false} />
 				
 				<div className="flex justify-between text-lg p-2 z-[110]">

@@ -17,7 +17,7 @@ export default function Footer() {
 				
 					<div className="w-full minlg:w-1/2 grid grid-cols-1 gap-1 minmd:pb-14">
 						<h3 className="text-[#FFFF] font-bold text-[0.9375rem] minxxl:text-[1.5rem]">Policies</h3>
-						<Link to="/Terms"className="mt-4 cursor-pointer text-primary-100 hover:text-white">Terms and Conditions</Link>
+						<Link to="/Terms"className="mt-4 cursor-pointer text-primary-100 hover:text-neutral-100">Terms and Conditions</Link>
 						<p className="mb-6 minlg:mb-[6.8rem] text-primary-100">© 2024 Paula Burghelea <br className="minlg:hidden"/> All rights reserved</p>
 				</div>
 
