@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 //components
 import LogOut from "../logout/Logout";
 
+//context
+//import authContext from "../../context/auth/authContext";
+
 function Orders() {
   const [orders, setOrders] = useState([]);
   const [user_id, setUser_id] = useState("");
