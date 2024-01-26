@@ -1,15 +1,25 @@
+import { useState } from "react";
 import "./Menu.css";
 
 export default function Menu() {
+	// const [aria, setAria] = useState("");
+
+	// const button = document.querySelector("button");
+	// let state = button.ariaPressed;
+	// button.addEventListener("click", () => {
+	// 	button.ariaPressed = !state;
+	// 	state = !button.ariaPressed;
+	// });
+
 	return (
-		<div className="w-20 h-10 bg-primary-100">
-			<button className="menu-btn w-15 h-15" aria-pressed="false">
+		<div className="menu_container" aria-pressed="true">
+			<button className="button pb-3" aria-pressed="">
 				<span className="sr-only btn__info">Open Menu</span>
 				<span className="sr-only btn__info">Close Menu</span>
 				<span className="btn__icon icon">
-				<span className="w-2 h-1 bg-primary-800 line mr-2 p-0 rounded-full"></span>
-				<span className="w-9 h-1 bg-primary-800 line m-0 p-0 rounded-full"></span>
-				<span className="w-2 h-1 bg-primary-800 line ml-2 p-0 rounded-full"></span>
+				<span className=""></span>
+				<span className=""></span>
+				<span className=""></span>
 				</span>
 			</button>
 		</div>
