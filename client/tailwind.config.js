@@ -2,7 +2,15 @@
 module.exports = {
   content: ["./src/**/*.{html,jsx,js,tsx,ts}"],
   theme: {
-    extend: {},
+    extend: {
+      zIndex: {
+        '100': '100',
+        '110': '110',
+        '120': '120',
+        '130': '130',
+        
+      }
+    },
     colors: {
       neutral: {
         100: "hsl(0, 0%, 100%)"

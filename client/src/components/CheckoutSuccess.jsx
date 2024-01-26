@@ -42,18 +42,17 @@ export default function CheckoutSuccess() {
   };
 
   return (
-    <div>
-      <title>Thanks for your order!</title>
+<div className="h-screen p-14 minmd:px-4 minlg:px-8 minlg:mb-[-98px] mt-[100px]">
 
-      <h1>Thanks for your order number {order_id}!</h1>
+      <h1>Thank you! Your order number is {order_id}!</h1>
       <p>
         We appreciate your business! If you have any questions, please email
-        <a href="mailto:orders@example.com">orders@nft-store.com</a>.
+        <a href="mailto:orders@example.com" className="text-primary-400"> orders@nft-store.com</a>.
       </p>
 
-      <button>
-        <Link to={`/orders`}>Go to Order</Link>
-      </button>
+      <div className="mx-1 mt-3 w-40 h-10 rounded-full flex justify-center items-center btn font-medium">
+        <Link to={`/orders`}>My Orders</Link>
+      </div>
     </div>
   );
 }

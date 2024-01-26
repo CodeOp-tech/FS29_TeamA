@@ -1,5 +1,5 @@
 .header{
-	z-index: 100;
+	z-index: 10;
 	position: fixed;
 	background-color: #ffff;
 	width: 95%;
@@ -51,12 +51,6 @@ nav ul li div a {
 .logo-contatiner > svg {
 	width: 50px;
 	height: 50px;
-}
-
-.nav-svg {
-	display: flex;
-	gap: 10px;
-	align-items: center;
 }
 
 .cart-svg{

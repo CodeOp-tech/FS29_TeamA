@@ -13,7 +13,7 @@ export default function About() {
 
   const [data, setData] = useState(null);
 
-	const {to, from, subject, message} = formData;
+	const {to, subject, message} = formData;
 
 	const handleChange = (e) => {
     e.preventDefault();

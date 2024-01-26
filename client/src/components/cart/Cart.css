@@ -1,14 +1,3 @@
-.cart__wrapper_dropdown {
-	position: fixed;
-	top: 60px;
-	right: 20px;
-	border-radius: 5px;
-	background-color: white;
-	border: 1px solid gray;
-	padding: 10px;
-	z-index: 10;
-}
-
 .cart__wrapper > div > i {
 	width: 5px;
 	height: 3px;
@@ -24,7 +13,7 @@
 	margin-top: 10px;
 	display: flex;
 	justify-content: space-between;
-	border-top: 1px solid gray;
+	align-items: center;
 }
 
 .cartTotal {

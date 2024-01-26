@@ -54,7 +54,7 @@ export default function Carousel3() {
 				<Scroller productPics={productPics} direction={direction[0]} />
 				<Scroller productPics={productPics} direction={direction[1]} />
 				<Scroller productPics={productPics} direction={direction[0]} />
-				<Scroller productPics={productPics} direction={direction[1]}/>
+				<Scroller productPics={productPics} direction={direction[1]} />
 			</div>
 		</>
 	)

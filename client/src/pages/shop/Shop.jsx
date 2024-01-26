@@ -26,7 +26,7 @@ export default function Products() {
     <div className="p-2 minmd:px-4 minlg:px-8 minlg:mb-[-98px] mt-[100px]">
       <div className="card-grid">
         {products.map((product) => (
-          <Link key={product.id} className="card" to={`/Shop/${product.id}`}>
+          <Link key={product.id} className="card hover:shadow-[0_35px_40px_-15px_rgba(234, 129, 218, 0.1)] " to={`/Shop/${product.id}`}>
             <div>
               <img src={product.image_1} alt="Image" className="card-img" />
               <h2 className="card-title">{product.name}</h2>
