@@ -4,7 +4,24 @@ import authContext from "../../context/auth/authContext";
 export default function LogOut() {
 	const [user, setUser] = useState(null);
 	const auth = useContext(authContext);
-	//console.log(auth);
+
+	useEffect(() => {
+		getUser();
+	}, []);
+
+	const getUser = async () => {
+		try {
+			const { data } = await axios("/api/auth/profile", {
+			headers: {
+				authorization: "Bearer " + localStorage.getItem("token"),
+			},
+		});
+		setUser(data);
+		console.log(data);
+		} catch (error) {
+		console.log(error);
+		}
+	};
 
 	useEffect(() => {
 		setUser();
@@ -15,6 +32,7 @@ export default function LogOut() {
 		localStorage.removeItem("token");
 		auth.logout();
 	};
+
 	return (
 		<div className="flex hover:fill-primary-400 hover:text-primary-400" onClick={logout}>
 			<div>
