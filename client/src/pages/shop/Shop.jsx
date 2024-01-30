@@ -23,7 +23,7 @@ export default function Products() {
   }, []);
 
   return (
-    <div className="p-2 minmd:px-4 minlg:px-8 minlg:mb-[-98px] mt-[100px]">
+    <div className="minmd:px-4 minlg:px-8 minlg:mb-[-98px] mt-[100px] mb-5">
       <div className="card-grid">
         {products.map((product) => (
           <Link key={product.id} className="card hover:shadow-[0_35px_40px_-15px_rgba(234, 129, 218, 0.1)] " to={`/Shop/${product.id}`}>
