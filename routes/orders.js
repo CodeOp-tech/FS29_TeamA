@@ -176,7 +176,6 @@ router.get("/ticket/:order_id", async (req, res) => {
     const results = await db(
       `SELECT o.*, po.product_quantity, p.name, p.price, a.brand, u.firstname, u.lastname, u.guest, pa.approved FROM orders AS o LEFT JOIN product_order AS po ON o.id = po.order_id LEFT JOIN products AS p ON po.product_id = p.id LEFT JOIN artists AS a ON a.id = p.artist_id LEFT JOIN users AS u ON o.user_id = u.id LEFT JOIN payments AS pa ON o.id = pa.order_id WHERE o.id = ${order_id} AND fulfilled = 1;`
     );
-
     res.send(results.data);
   } catch (error) {
     res.status(500).send(error);

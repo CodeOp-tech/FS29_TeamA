@@ -11,7 +11,6 @@ function Login() {
   const navigate = useNavigate();
 
   const auth = useContext(authContext);
-  console.log(auth);
 
 
   return (
