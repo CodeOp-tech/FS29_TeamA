@@ -1,5 +1,3 @@
-import { Suspense } from 'react';
-import Spinner from '../../components/spinner/Spinner';
 import Carousel3 from "../../components/carousel/Carousel3";
 import { Link } from "react-router-dom";
 import "./Home.css";
@@ -15,11 +13,9 @@ export default function Home() {
             <p className="mb-9 text-xl">Build your virtual wordrobe with an NFT that is uniquely you!</p>
             <Link className="bg-primary-900 text-neutral-100 mt-3 rounded-full text-lg sm:w-auto px-7 py-4 text-center font-bold cursor-pointer hover:bg-gradient-to-r from-primary-400 to-primary-800" to="/Shop">EXPLORE NOW</Link>
           </section>
-        <section className="h-dvh overflow-hidden w-2/5 bg-primary-400 flex flex-col justify-center">
-          <Suspense fallback={<Spinner />} >
+          <section className="h-dvh overflow-hidden w-2/5 bg-primary-400 flex flex-col justify-center">
             <Carousel3 />
-          </Suspense>
-        </section>
+          </section>
         </div>
     </div>
   );
