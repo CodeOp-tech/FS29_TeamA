@@ -70,8 +70,8 @@ return (
 			</div>
 
 			<div className="form-footer">
-				<Link className="hover:text-primary-400 text-lg a"to="/Register">Register here!</Link>
-				<Link className="hover:text-primary-400 text-lg a" to="/PasswordReset">Forgot your password?</Link>
+				<Link className="hover:text-primary-400 text-lg"to="/Register">Register here!</Link>
+				<Link className="hover:text-primary-400 text-lg" to="/PasswordReset">Forgot your password?</Link>
 			</div>
 		</div>
 		</div>
