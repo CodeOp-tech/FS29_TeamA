@@ -13,7 +13,7 @@ export default function Products() {
           method: "GET",
         });
 
-        const json = await response.json(); // should I transform everything into a small caps ?
+        const json = await response.json();
         SetProducts(json);
       } catch (error) {
         console.error(error);
