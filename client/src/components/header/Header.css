@@ -28,7 +28,7 @@ nav ul {
 	display: flex;
 	justify-content: center;
 	align-content: center;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 }
 
 nav ul li {

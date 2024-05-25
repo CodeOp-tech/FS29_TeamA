@@ -12,7 +12,7 @@
   "dependencies": {
     "@heroicons/react": "^2.1.1",
     "axios": "^1.5.0",
-    "currency": "^1.0.1",
+    "currency": "^4.1.0",
     "dotenv": "^16.3.1",
     "feather-icons": "^4.29.1",
     "format": "^0.2.2",
@@ -24,7 +24,6 @@
     "react-router-dom": "^6.15.0",
     "react-slick": "^0.29.0",
     "react-stripe-checkout": "^2.6.3",
-    "sass": "^1.77.2",
     "stripe": "^13.3.0",
     "tailwind": "^4.0.0"
   },
@@ -38,6 +37,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "postcss": "^8.4.29",
+    "sass": "^1.77.2",
     "tailwindcss": "^3.3.3",
     "vite": "^4.4.5"
   }

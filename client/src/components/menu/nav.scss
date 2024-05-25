@@ -1,0 +1,25 @@
+.nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 150px 30px 40px 30px;
+    height: 100%;
+    box-sizing: border-box;
+    .body{
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+        .linkContainer{
+            perspective: 100px;
+            perspective-origin: bottom;
+        }
+        a{
+            text-decoration: none;
+            color: #000000;
+            font-size: 46px;
+            &:hover{
+                color: #FFFFFF;
+            }
+        }
+    }
+}

@@ -9,7 +9,7 @@ import PrivateRoute from "./components/PrivateRoute.jsx";
 import Orders from "./components/orders/Orders";
 
 // Routes and pages
-import NFT from "./pages/NFT";
+import Layout from "./pages/NFT";
 import Home from "./pages/home/Home";
 import Shop from "./pages/shop/Shop";
 import Brands from "./pages/brands/Brands";
@@ -75,7 +75,7 @@ function App() {
       <authContext.Provider value={authContentextObject}>
         <Routes>
           {/* general route with content displayed on all pages */}
-          <Route path="/" element={<NFT />}>
+          <Route path="/" element={<Layout />}>
             {/* all page routes go here */}
             <Route path="/" element={<Home />} />
             <Route path="/Shop" element={<Shop />} />

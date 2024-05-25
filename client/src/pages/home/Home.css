@@ -1,5 +1,13 @@
+/* animation */
+@keyframes gradient-shift {
+	0% {background-position: 0%}
+	100% {background-position: 100%}
+}
+/* Styling animated gradient text */
 .identity {
-	background: linear-gradient(#e66465, #9198e5);
-	color: transparent;
+	background: linear-gradient(270deg, #f09ae9, #d557ff, #EE6057, #9A197E, #E6BE08,#3C0669, #C43F86);
+	background-size: 200%;
 	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: gradient-shift 3s ease-in-out infinite;
 }
