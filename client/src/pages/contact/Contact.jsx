@@ -37,17 +37,17 @@ export default function About() {
 	}
 
   return (
-    <div className="h-screen pt-14 minmd:px-4 minlg:px-8 minlg:mb-[-98px] mt-[100px]" id="Contact">
+    <div className="h-screen sm:pt-5 pt-2 minmd:px-4 minlg:px-4 minlg:mb-[-98px] mt-[100px]" id="Contact">
       <div className="contact pt-3">
         <div className="contact-header">
           <h1>Contact Us</h1>
           <p>Have questions or comments? We&apos;d love to hear from you! Fill out the form and we&apos;ll be in touch as soon as possible.</p>
         </div>
-        <div className="w-100 flex flex-row justify-center align-center gap-10">
-          <div className="w-100 m-auto">
-            <Logo />
+        <div className="w-100 flex lg:flex-row justify-center align-center gap-10 sm:flex-col align-center">
+          <div className="m-auto hidden lg:block">
+            <Logo/>
           </div>
-          <div className="contact-form w-100">
+          <div className="contact-form w-1/2">
             <form onSubmit={contact}>
               <div>
                 <label htmlFor="">Email address</label>
@@ -62,7 +62,7 @@ export default function About() {
                 <label htmlFor="">Message</label>
                 <textarea name="message" placeholder="Please, proceed to explain the situation" cols="30" rows="5" value={message} onChange={handleChange} required></textarea>
               </div>
-              <button className="text-neutral-100 bg-gradient-to-r from-primary-400 to-primary-800 focus:ring-4 focus:outline-none focus:bg-primary-400 font-medium text-md w-full sm:w-auto px-6 py-3 text-center rounded-full" type="submit">Submit</button>
+              <button className="text-neutral-100 bg-gradient-to-r from-primary-400 to-primary-800 focus:ring-4 focus:outline-none focus:bg-primary-400 font-medium text-md lg:w-full w-1/2 m-auto px-6 py-3 text-center rounded-full" type="submit">Submit</button>
             </form>
           </div>
         </div>
