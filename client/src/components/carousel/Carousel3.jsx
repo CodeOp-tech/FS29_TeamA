@@ -50,11 +50,11 @@ export default function Carousel3() {
 
 	return (
 		<>
-			<div className="scale-x-[2] scale-y-[1] minmd:scale-x-[2] minmd:scale-y-[1.3] minlg:scale-x-[1.2] minlg:scale-y-[0.8] minxxl:scale-x-100 minxxl:scale-y-[.65] minhd:scale-[1.25] -skew-x-[41deg] skew-y-[19deg]">
+			<div className="scale-x-[2] scale-y-[1] minmd:scale-x-[1] minmd:scale-y-[1] minlg:scale-x-[1.0] minlg:scale-y-[0.8] minxxl:scale-x-100 minxxl:scale-y-[.65] minhd:scale-[1.25] -skew-x-[41deg] skew-y-[19deg]">
 				<Scroller productPics={productPics} direction={direction[0]} />
 				<Scroller productPics={productPics} direction={direction[1]} />
 				<Scroller productPics={productPics} direction={direction[0]} />
-				<Scroller productPics={productPics} direction={direction[1]}/>
+				<Scroller productPics={productPics} direction={direction[1]} />
 			</div>
 		</>
 	)

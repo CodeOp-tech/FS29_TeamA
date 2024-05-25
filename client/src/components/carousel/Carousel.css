@@ -42,7 +42,7 @@
 }
 
 .scroller[data-speed="fast"] {
-	--_animation-duration: 40s;
+	--_animation-duration: 60s;
 }
 
 .scroller[data-speed="slow"] {

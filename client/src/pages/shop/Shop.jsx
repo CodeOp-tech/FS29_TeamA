@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 export default function Products() {
   const [products, SetProducts] = useState([]);
-  // const [featureImage, setFeatureImage] = useState();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -13,7 +12,7 @@ export default function Products() {
           method: "GET",
         });
 
-        const json = await response.json(); // should I transform everything into a small caps ?
+        const json = await response.json();
         SetProducts(json);
       } catch (error) {
         console.error(error);
@@ -23,10 +22,10 @@ export default function Products() {
   }, []);
 
   return (
-    <div className="p-2 minmd:px-4 minlg:px-8 minlg:mb-[-98px] mt-[100px]">
+    <div className="pb-5 pt-2 minmd:px-4 minlg:px-8 minlg:mb-[-98px] mt-[100px]">
       <div className="card-grid">
         {products.map((product) => (
-          <Link key={product.id} className="card" to={`/Shop/${product.id}`}>
+          <Link key={product.id} className="card hover:shadow-[0_35px_40px_-15px_rgba(150, 6, 129, 0.1)] " to={`/Shop/${product.id}`}>
             <div>
               <img src={product.image_1} alt="Image" className="card-img" />
               <h2 className="card-title">{product.name}</h2>

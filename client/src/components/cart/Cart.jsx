@@ -14,7 +14,7 @@ export default function Cart({showButtons = true}) {
 
 	return (
 		<>
-      <div className='cart__wrapper'>
+      <div className="rounded-1/2 p-1 mt-12 mx-auto h-1/2 shadow-sm bg-white shadow-primary-800 w-full overflow-hidden">
          <div style={{ textAlign: "right" }}>
 				<i
 					style={{ cursor: "pointer" }}
@@ -25,7 +25,7 @@ export default function Cart({showButtons = true}) {
 				</i>
          </div>
          <div className='cart__innerWrapper'>
-            {cartItems.length === 0 ? (
+         {cartItems.length === 0 ? (
             <h4>Cart is Empty</h4>
             ) : (
             <ul>
@@ -35,9 +35,9 @@ export default function Cart({showButtons = true}) {
             </ul>
             )}
          </div>
-         <div className='cartTotal'>
-            <div>Cart Total</div>
-            <div className="cartTotal" style={{ marginLeft: 5 }}>
+         <div className='text-lg flex gap-3 justify-end items-center pr-3'>
+            <div>Total</div>
+            <div className="cartTotal m-1 text-lg">
             {formatCurrency(totalCost)}
             </div>
          </div>
